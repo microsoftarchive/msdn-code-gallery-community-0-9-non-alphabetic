@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.NET Framework 4.5 Chainer Sample</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>.NET Framework 4.5 Chainer Sample</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework 4.5
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Deploying .NET Framework
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">8/21/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/NET-Framework-45-Developer-e416a0ba">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>The .NET Framework 4.5 is a redistributable runtime. If you develop applications for this version, you can include (chain) .NET Framework setup as a prerequisite component in your application's setup. To present a customized or unified setup experience,
+ you may want to silently launch .NET Framework setup and track its progress while showing your application's setup progress. To enable silent tracking, the .NET Framework setup process (which can be watched) can write progress messages to a memory-mapped I/O
+ (MMIO) segment that your setup process (the watcher or chainer) can read. You can cancel .NET Framework setup by writing an
+<strong><span class="input">Abort</span></strong> message to the MMIO segment. For more information, see
+<a title="How to: Get Progress from the .NET Framework 4 Installer" href="http://msdn.microsoft.com/en-us/library/ff859983(v=VS.100).aspx" >
+How to: Get Progress from the .NET Framework Installer</a> in the MSDN Library. For the .NET Framework 4 version of this sample, see
+<a title=".NET Framework 4 Chainer Sample" href="http://code.msdn.microsoft.com/NET-Framework-4-Chainer-5dc250a1" >
+.NET Framework 4 Chainer Sample</a>.</p>
+<h1><span>Building the Sample</span></h1>
+<p>Download the sample code files to your computer. Open the solution (Chainer4.5.sln) in Visual Studio 2012, and build the solution.</p>
+<h1><span style="font-size:20px; font-weight:bold">Description</span></h1>
+<p><strong><span class="label">Invocation</span>.</strong> To call .NET Framework setup and receive progress information from the MMIO section, your setup program must do the following:</p>
+<ul>
+<li>Call the .NET Framework 4.5 redistributable program:
+<pre>dotNetFx45_Full_setup /q /pipe <em>section-name </em></pre>
+<div>where <em><span class="parameter">section-name</span></em> is any name you want to use to identify your application. .NET Framework setup reads and writes to the MMIO section asynchronously, so you might find it convenient to use events and messages
+ during that time. In the sample code, the .NET Framework setup process is created by a constructor that both allocates the MMIO section (<code>TheSectionName</code>) and defines an event (<code>TheEventName</code>).</div>
+<pre>Server():ChainerSample::MmioChainer(L<span class="cpp__string">&quot;TheSectionName&quot;</span>, L<span class="cpp__string">&quot;TheEventName&quot;)</span></pre>
+Please replace those names with names that are unique to your setup program.
+<div></div>
+</li><li>
+<div>Read from the MMIO section. In the .NET Framework 4.5 Developer Preview, the download and installation operations are simultaneous: One component of the .NET Framework might be installing while another is downloading. As a result, progress is sent back
+ (that is, written) to the MMIO section as a number that increases from 1 to 255. When 255 is written and .NET Framework setup exits, the installation is complete.</div>
+</li></ul>
+<div></div>
+<div><strong><span class="label">Exit codes</span>.</strong> The following exit codes from the command to call the .NET Framework 4.5 redistributable program indicate whether setup has succeeded or failed:</div>
+<ul>
+<li>
+<div>0 - Setup completed successfully.</div>
+</li><li>
+<div>3010 &ndash; Setup completed successfully; reboot is required.</div>
+</li><li>
+<div>1642 &ndash; Setup has been canceled.</div>
+</li><li>
+<div>All other codes - Setup encountered errors; examine the log files created in %temp% for details.</div>
+</li></ul>
+<div><strong><span class="label">Canceling setup</span>.</strong> You can cancel setup at any time by using the
+<strong><span class="input">Abort</span></strong> method to set the <strong><span class="input">m_downloadAbort</span>
+</strong>and <strong><span class="input">m_ installAbort</span> </strong>flags in the MMIO section.</div>
+<p>&nbsp;</p>
+<h1><span>Source Code Files</span></h1>
+<ul>
+<em>&nbsp;</em>
+<li>ChainingdotNet4.5.cpp - The chainer code </li><li>IProgressObserver.h - Header file </li><li>MmIoChainer.h - Header file </li></ul>
+<p>&nbsp;</p>
+<h1>More Information</h1>
+<ul>
+<li><a title="How to: Get Progress from the .NET Framework 4 Installer" href="http://msdn.microsoft.com/en-us/library/ff859983(v=VS.100).aspx" >How to: Get Progress from the .NET Framework Installer</a>
+</li></ul>
+
+</div>
+
+
+    </div>
+</body>
+</html>

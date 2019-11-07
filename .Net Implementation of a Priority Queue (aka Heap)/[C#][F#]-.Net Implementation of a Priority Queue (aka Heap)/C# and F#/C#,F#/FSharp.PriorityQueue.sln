@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSharp.ExLibrary", "FSharp.ExLibrary\FSharp.ExLibrary.fsproj", "{B81E0650-ACB9-43AF-A523-2F4615D5A455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.ExTest", "CSharp.ExTest\CSharp.ExTest.csproj", "{EC15AF29-87F3-45AB-8247-F9E2B594DEEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0892B8F2-298C-4958-9868-ACD908FBFB1F}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DCD36210-EBE4-41FA-B3CA-CB7E1604F804}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = FSharp.ExLibrary.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B81E0650-ACB9-43AF-A523-2F4615D5A455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81E0650-ACB9-43AF-A523-2F4615D5A455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81E0650-ACB9-43AF-A523-2F4615D5A455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81E0650-ACB9-43AF-A523-2F4615D5A455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC15AF29-87F3-45AB-8247-F9E2B594DEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC15AF29-87F3-45AB-8247-F9E2B594DEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC15AF29-87F3-45AB-8247-F9E2B594DEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC15AF29-87F3-45AB-8247-F9E2B594DEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC15AF29-87F3-45AB-8247-F9E2B594DEEB} = {DCD36210-EBE4-41FA-B3CA-CB7E1604F804}
+	EndGlobalSection
+EndGlobal

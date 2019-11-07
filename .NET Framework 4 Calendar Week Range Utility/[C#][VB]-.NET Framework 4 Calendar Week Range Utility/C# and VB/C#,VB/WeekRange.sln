@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeekRangeCS", "WeekRangeCS\WeekRangeCS.csproj", "{DF722808-6DA2-4DB3-838E-66C311730AAE}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WeekRangeVB", "WeekRangeVB\WeekRangeVB.vbproj", "{8C50B729-F478-4AF4-9208-3D31497CA9A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF722808-6DA2-4DB3-838E-66C311730AAE}.Debug|x86.ActiveCfg = Debug|x86
+		{DF722808-6DA2-4DB3-838E-66C311730AAE}.Debug|x86.Build.0 = Debug|x86
+		{DF722808-6DA2-4DB3-838E-66C311730AAE}.Release|x86.ActiveCfg = Release|x86
+		{DF722808-6DA2-4DB3-838E-66C311730AAE}.Release|x86.Build.0 = Release|x86
+		{8C50B729-F478-4AF4-9208-3D31497CA9A7}.Debug|x86.ActiveCfg = Debug|x86
+		{8C50B729-F478-4AF4-9208-3D31497CA9A7}.Debug|x86.Build.0 = Debug|x86
+		{8C50B729-F478-4AF4-9208-3D31497CA9A7}.Release|x86.ActiveCfg = Release|x86
+		{8C50B729-F478-4AF4-9208-3D31497CA9A7}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

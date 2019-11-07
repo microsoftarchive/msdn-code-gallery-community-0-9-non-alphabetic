@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://assets.onestore.ms/cdnfiles/onestorerolling-1507-16006/shell/v1_2/scss/shell.min.css" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:sprite;/Areas/Epx/Themes/Windows/Content:0&amp;amp;v=FA8398DC878C1D62560497F2E386C16D" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Areas/Epx/Themes/Windows/Content/UhfHeader.css?v=635718270724446221" data-do-not-move="true" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:sprite,1:LinkList,1:SelectLocaleFromPopUp;/Areas/Epx/Themes/Windows/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=03BC77A164FD2F93AB29F292FC44233D" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.Net Tips #1112</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/487c4c43-d20c-4f0a-b06e-b9571586241bBrand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/windowsdesktop/content/windowsdesktop/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/windowsdesktop/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>.Net Tips #1112</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Calendar, Holiday, &#12459;&#12524;&#12531;&#12480;&#12540;, &#31069;&#26085;, &#20241;&#26085;
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/16/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/windowsdesktop/Net-Tips-1112-5fc5e409">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<div>これは次の記事のサンプルコードです。</div>
+<blockquote>
+<div>@IT 2015/07/22 掲載予定<br>
+<img id="68637" src="description/gyoumu_newallarticle_icon_61_1349480145.gif" alt="" width="80" height="60"><br>
+<strong><a href="http://www.atmarkit.co.jp/ait/subtop/features/dotnet/dotnettips_index.html" >.NET TIPS：</a><br>
+<a href="http://www.atmarkit.co.jp/ait/subtop/features/dotnet/dotnettips_index.html" >＊＊＊＊＊</a></strong><br>
+<br>
+<a href="http://msdn.microsoft.com/ja-jp/library/windows/apps/dn726767.aspx" >Windowsランタイムアプリ</a>では、中断からの再開時に何らかの処理が必要になることがある。例えば、中断時に開放したリソースを再取得するとか、長時間にわたって中断されていた場合にはコンテンツを読み込み直すといった処理である。そのような処理はどう書けばよいのだろうか？ また、リソースの解放／再取得については、アプリが切り替えられるときに行わねばならない場合もある。本稿では、両方について解説する。</div>
+</blockquote>
+<div><img id="133350" src="https://i1.code.msdn.s-msft.com/windowsapps/metrotips-99-42091111/image/file/133350/1/03.png" alt="" width="400" height="240"><br>
+<br>
+以下の解説は記事の概要である。ぜひ記事のほうもお読みいただきたい。</div>
+<div>&nbsp;</div>
+<h1>Building the Sample</h1>
+<div>ユニバーサルプロジェクトを使ってユニバーサルWindowsアプリを開発するには、以下の開発環境が必要である。本稿では、無償のVisual Studio 2013 Community Update 4 with Update 4を使っている。</div>
+<div><br>
+・ <a href="http://blogs.msdn.com/b/aonishi/archive/2012/11/01/10364540.aspx" >
+SLAT対応のPC</a><br>
+・ <a href="http://support.microsoft.com/kb/2919355">2014年4月のアップデート</a>適用済みの64bit版Windows 8.1 Pro版以上<br>
+・ <a href="http://www.microsoft.com/ja-jp/download/details.aspx?id=42666" >
+Visual Studio 2013 Update 2</a>（またはそれ以降）を適用済みのVisual Studio 2013（以降、VS 2013）</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<h1>Description</h1>
+<h2>●サンプルコードについて</h2>
+<div>Visual Studio 2013 Update 4 がリリースされたが、残念なことにVB用のユニバーサルプロジェクトのテンプレートは <a href="http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/5729640-provide-vb-net-templates-for-developing-universal" >
+Visual Studio 2015 (コードネーム Visual Studio 「14」) での提供になる</a>という。 そのため、本稿で紹介するVBのコードはユニバーサルプロジェクトではなく、PCL（ポータブルクラスライブラリ）を使ったプロジェクトのものである。</div>
+<div>&nbsp;</div>
+<h2>●中断／再開時に行う処理</h2>
+<p>アプリが中断／再開されるときに処理をする場合は、次のようなコードになる。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">public sealed partial class MyUserControl : UserControl
+{
+  public MyUserControl()
+  {
+    this.InitializeComponent();
+
+    // 中断されるときのイベント
+    Application.Current.Suspending &#43;= Application_Suspending;
+
+    // 中断から再開されたときのイベント
+    Application.Current.Resuming &#43;= Application_Resuming;
+  }
+
+  // 中断されるとき
+  private void Application_Suspending(object sender, Windows.ApplicationModel.SuspendingEventArgs e)
+  {
+    var deferral = e.SuspendingOperation.GetDeferral();
+    SetSuspendTime();
+    deferral.Complete();
+  }
+
+  // 中断から再開されたとき
+  private void Application_Resuming(object sender, object e)
+  {
+    SetResumeTime();
+  }
+
+  private void SetSuspendTime()
+  {
+    //&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  }
+  private void SetResumeTime()
+  {
+    //&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  }
+}
+</pre>
+<pre class="hidden">Public NotInheritable Class MyUserControl
+  Inherits UserControl
+
+  Public Sub New()
+    InitializeComponent()
+
+    ' 中断されるときのイベント
+    AddHandler Application.Current.Suspending, AddressOf Application_Suspending
+
+    ' 中断から再開されたときのイベント
+    AddHandler Application.Current.Resuming, AddressOf Application_Resuming
+  End Sub
+
+  ' 中断されるとき
+  Private Sub Application_Suspending(sender As Object, e As SuspendingEventArgs)
+    Dim deferral = e.SuspendingOperation.GetDeferral()
+    SetSuspendTime()
+    deferral.Complete()
+  End Sub
+
+  ' 中断から再開されたとき
+  Private Sub Application_Resuming(sender As Object, e As Object)
+    SetResumeTime()
+  End Sub
+
+  Private Sub SetSuspendTime()
+    '&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  End Sub
+  Private Sub SetResumeTime()
+    '&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  End Sub
+End Class
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">sealed</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;MyUserControl&nbsp;:&nbsp;UserControl&nbsp;
+{&nbsp;
+&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;MyUserControl()&nbsp;
+&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.InitializeComponent();&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;中断されるときのイベント</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Application.Current.Suspending&nbsp;&#43;=&nbsp;Application_Suspending;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;中断から再開されたときのイベント</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Application.Current.Resuming&nbsp;&#43;=&nbsp;Application_Resuming;&nbsp;
+&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="cs__com">//&nbsp;中断されるとき</span>&nbsp;
+&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Application_Suspending(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;Windows.ApplicationModel.SuspendingEventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;deferral&nbsp;=&nbsp;e.SuspendingOperation.GetDeferral();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;SetSuspendTime();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;deferral.Complete();&nbsp;
+&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="cs__com">//&nbsp;中断から再開されたとき</span>&nbsp;
+&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Application_Resuming(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;<span class="cs__keyword">object</span>&nbsp;e)&nbsp;
+&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;SetResumeTime();&nbsp;
+&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;SetSuspendTime()&nbsp;
+&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;</span>&nbsp;
+&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;SetResumeTime()&nbsp;
+&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;</span>&nbsp;
+&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>&nbsp;</p>
+<h2>●アプリの切り替え時に行う処理</h2>
+<p>アプリの切り替え時、すなわち、他のアプリやスタート画面に切り替えられたとき（＝自アプリが非表示にされるとき）と他のアプリやスタート画面から自アプリに切り替えられたとき（＝自アプリが表示されるとき）に行うべき処理は、Windowクラス（Windows.UI.Xaml名前空間）のVisibilityChangedイベントで行えばよい。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span><span class="hidden">csharp</span>
+<pre class="hidden">Public NotInheritable Class MyUserControl
+  Inherits UserControl
+
+  Public Sub New()
+    InitializeComponent()
+
+    ' ウィンドウの表示／非表示が切り替わったときのイベント
+    AddHandler Window.Current.VisibilityChanged, AddressOf Window_VisibilityChanged
+  End Sub
+
+  ' ウィンドウの表示／非表示が切り替わったとき
+  Private Async  Sub Window_VisibilityChanged(sender As Object, e As VisibilityChangedEventArgs)
+    If (Not e.Visible) Then
+      ' 非表示にされるとき
+      SetHideTime()
+      e.Handled = True
+    Else
+      ' 表示されるとき
+      SetShowTime()
+      e.Handled = True
+    End If
+  End Sub
+
+  Private Sub SetHideTime()
+    '&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  End Sub
+  Private Sub SetShowTime()
+    '&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  End Sub
+End Class
+</pre>
+<pre class="hidden">public sealed partial class MyUserControl : UserControl
+{
+  public MyUserControl()
+  {
+    this.InitializeComponent();
+
+    // ウィンドウの表示／非表示が切り替わったときのイベント
+    Window.Current.VisibilityChanged &#43;= Window_VisibilityChanged;
+  }
+
+  // ウィンドウの表示／非表示が切り替わったとき
+  private void Window_VisibilityChanged(object sender, Windows.UI.Core.VisibilityChangedEventArgs e)
+  {
+    if (!e.Visible)
+    {
+      // 非表示にされるとき
+      SetHideTime();
+      e.Handled = true;
+    }
+    else
+    {
+      // 表示されるとき
+      SetShowTime();
+      e.Handled = true;
+    }
+  }
+
+  private void SetHideTime()
+  {
+    //&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  }
+  private void SetShowTime()
+  {
+    //&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;
+  }
+}
+</pre>
+<div class="preview">
+<pre class="vb"><span class="visualBasic__keyword">Public</span>&nbsp;<span class="visualBasic__keyword">NotInheritable</span>&nbsp;<span class="visualBasic__keyword">Class</span>&nbsp;MyUserControl&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">Inherits</span>&nbsp;UserControl&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">Public</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;<span class="visualBasic__keyword">New</span>()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;InitializeComponent()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;ウィンドウの表示／非表示が切り替わったときのイベント</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">AddHandler</span>&nbsp;Window.Current.VisibilityChanged,&nbsp;<span class="visualBasic__keyword">AddressOf</span>&nbsp;Window_VisibilityChanged&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;ウィンドウの表示／非表示が切り替わったとき</span>&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;Async&nbsp;&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;Window_VisibilityChanged(sender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">Object</span>,&nbsp;e&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;VisibilityChangedEventArgs)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;(<span class="visualBasic__keyword">Not</span>&nbsp;e.Visible)&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;非表示にされるとき</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetHideTime()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.Handled&nbsp;=&nbsp;<span class="visualBasic__keyword">True</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;表示されるとき</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SetShowTime()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.Handled&nbsp;=&nbsp;<span class="visualBasic__keyword">True</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;SetHideTime()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;</span>&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;SetShowTime()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&hellip;&hellip;省略（現在時刻を画面に表示する）&hellip;&hellip;</span>&nbsp;
+&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;
+<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Class</span>&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>&nbsp;</p>
+<h1>Source Code Files</h1>
+<ul>
+<li style="font-family:Verdana"><em>MetroTips099CS - ユニバーサルプロジェクトのサンプルコード (C#)</em>
+</li><li style="font-family:Verdana"><em>MetroTips099VB.Shared - VB のサンプルコード (共通に使えるPCL)
+</em></li><li style="font-family:Verdana"><em>MetroTips099VB.Windows - VB のサンプルコード (Windows ストア アプリ)
+</em></li><li style="font-family:Verdana"><em>MetroTips099VB.WindowsPhone - VB のサンプルコード (Windows Phone Windows Runtime アプリ)
+</em></li></ul>
+<div>&nbsp;</div>
+<h1>More Information</h1>
+<h2>著作権について</h2>
+<div>このソースコードは MS-LPL ライセンスで提供しておりますので、 ご自由に利用いただけます。<br>
+ただし、@ITの記事(ここへ転載・引用した部分も含む)そのものの著作権は、筆者とデジタルアドバンテージが保有しており、サンプルコード部分を除く記事の無断使用は固くお断りいたします。</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

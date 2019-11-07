@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/9e116645-9d9a-4566-82a8-7b29a5b324f1Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.NET アプリケーション (WPF/Windows フォーム) で多重起動を禁止し、単一のプロセスで動作させる</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>.NET アプリケーション (WPF/Windows フォーム) で多重起動を禁止し、単一のプロセスで動作させる</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="テクノロジ">テクノロジ</label>
+                        <div id="テクノロジ">
+                            C#, Windows Forms, WPF, .NET Framework, Visual Studio 2012
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="トピック">トピック</label>
+                        <div id="トピック">
+                            C#, &#36870;&#24341;&#12365;&#12469;&#12531;&#12503;&#12523; &#12467;&#12540;&#12489;
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">最終更新日</label>
+                    <div id="LastUpdated">2013/10/03</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">ライセンス</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/NET-WPFWindows-20c6a2a0">このサンプルをオンラインで表示する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'コードをコピー';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>■ 概要</h1>
+<p>.NET アプリケーション (WPF/Windows フォーム) で多重起動を禁止し、単一のプロセスで動作するようにする方法を C# で示します。</p>
+<h1>■ 解説</h1>
+<p>WPF アプリケーションや Windows フォーム アプリケーションにおいて、多重起動を禁止してみます。</p>
+<p>ここでは、既にアプリケーションが起動していているときに、そのアプリケーションでドキュメントを開こうとした場合 (*1) に、</p>
+<ul>
+<li>他のプロセスが起動していなければ、普通にドキュメントを開く。 </li><li>他のプロセスが既に起動していれば、その起動中のアプリケーションでドキュメントを開く。 </li></ul>
+<p>という動作を実現します。</p>
+<blockquote>
+<p>(*1) アプリケーションでドキュメントを開くのには、次のようなケースが考えられます。</p>
+<ul>
+<li>実行ファイルに、ドキュメント ファイルをドラッグ&amp;ドロップ<br>
+例. 実行ファイルを a.exe とすると、ファイル エクスプローラーで a.png を a.exe にドラッグ&amp;ドロップ </li><li>コマンド プロンプトで、コマンドライン引数にドキュメント ファイルを指定して実行ファイルを起動<br>
+例. 実行ファイルのパスを c:\demo\a.exe、ドキュメント ファイル c:\demo\a.png とすると、コマンド プロンプトを開き、c:\demo\a.exe c:\demo\a.png[Enter] と入力
+</li></ul>
+</blockquote>
+<h1>■ 実現方法</h1>
+<h2>すでに起動しているかのチェック方法</h2>
+<p>ここでは Mutex を用います。詳細はサンプル コードを参照してください。</p>
+<h2>すでに起動しているアプリケーションとの通信方法</h2>
+<p>ここでは Ipc を用います。詳細はサンプル コードを参照してください。</p>
+<h1>■ サンプル コードの説明</h1>
+<p>WPF と Windows フォームの両方のサンプルがあります。</p>
+<h2>■ 共通部 (WPF、Windows フォーム非依存)</h2>
+<p>次のソースコードは共通部です。</p>
+<h3>SingleDocument.cs</h3>
+<ul>
+<li>多重起動を禁止
+<ul>
+<li>他のプロセスが起動していなければ、普通にドキュメントを開く </li><li>他のプロセスが既に起動していれば、その起動中のアプリケーションでドキュメントを開く </li></ul>
+</li><li>WPF、Windows フォーム非依存 </li><li>参照設定 <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Runtime.Remoting.aspx"  title="Auto generated link to System.Runtime.Remoting">System.Runtime.Remoting</a> が必要 </li></ul>
+<h2>WPF の場合</h2>
+<p>上記 SingleDocumentHelper クラスを WPF で使う場合のサンプル コードです。</p>
+<h3>SingleDocumentWpfApplication.cs</h3>
+<ul>
+<li>App.xaml.cs のアプリケーション クラスのベース クラス。 </li><li>タイマーに <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Windows.Threading.DispatcherTimer.aspx"  title="Auto generated link to System.Windows.Threading.DispatcherTimer">System.Windows.Threading.DispatcherTimer</a> クラスを使う。 </li></ul>
+<h3>App.xaml</h3>
+<h3>App.xaml.cs</h3>
+<ul>
+<li>上記 SingleDocumentApplication クラスから派生。 </li></ul>
+<h3>MainWindow.xaml</h3>
+<ul>
+<li>WebBrowser コントロールが貼ってあるだけ。 </li></ul>
+<h3>MainWindow.xaml.cs</h3>
+<ul>
+<li>指定されたパスや URL を WebBrowser コントロールで表示する。 </li></ul>
+<h2>Windows フォームの場合</h2>
+<p>SingleDocumentHelper クラスを Windows フォームで使う場合で使う場合のサンプル コードです。</p>
+<h3>SingleDocumentWindowsFormApplication.cs</h3>
+<ul>
+<li>Main メソッドで使用するためのクラス。 </li><li>タイマーに <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Windows.Forms.Timer.aspx"  title="Auto generated link to System.Windows.Forms.Timer">System.Windows.Forms.Timer</a> クラスを使う。 </li></ul>
+<h3>Program.cs</h3>
+<ul>
+<li>Main メソッド。 </li></ul>
+<h3>MainForm.cs (MainForm.Designer.cs は不要)</h3>
+<ul>
+<li>WebBrowser コントロールが貼ってある。 </li><li>指定されたパスや URL を WebBrowser コントロールで表示する。 </li></ul>
+<h1>■ 実行方法</h1>
+<p>&lt;!-- Windows 上の Visual Studio 2012 以降でこのサンプルを開き、F5 キーを押して実行します。 --&gt;</p>
+<ol>
+<li>WPF 版または Windows フォーム版をビルドする。 </li><li>ファイル エクスプローラーで実行ファイル (例えば、SingleDocumentSample.Wpf.exe や SingleDocumentSample.WinForm.exe) のあるフォルダーを開き、実行ファイルのアイコンに画像ファイル (JPEG ファイルや PNG ファイル) 等をドラッグ&amp;ドロップする。 (または、コマンドプロンプトで実行ファイルのバスにコマンドライン引数で画像ファイルのパスやURLを渡す)
+</li><li>サンプル プログラムが起動し、その画像ファイルが表示される。 </li><li>サンプル プログラムを最小化し、再度ファイル エクスプローラーで別の画像ファイルをドラッグ&amp;ドロップする。 (または、コマンドプロンプトで実行ファイルのバスにコマンドライン引数で別の画像ファイルのパスやURLを渡す)
+</li><li>今度はプログラムは起動せず、最小化されていた先程のサンプル プログラムが最前面に戻り、新たな画像ファイルが表示される。 </li></ol>
+<p><img id="97361" src="description/singledocumentsample.png" alt="実行イメージ" width="500" height="500"> 実行イメージ</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

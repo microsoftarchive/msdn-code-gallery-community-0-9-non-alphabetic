@@ -1,0 +1,120 @@
+# [C#] ConfigurationManager クラスを使用して構成ファイルから接続文字列を取得する
+## Requires
+- 
+## License
+- Apache License, Version 2.0
+## Technologies
+- Visual Studio 2008
+- Visual Studio 2010
+- Visual Studio 2005
+- .NET Framework 4
+- .NET Framework 2.0
+- .NET Framework 3.0
+- .NET Framework 3.5
+## Topics
+- データ アクセス開発
+- 逆引きサンプル コード
+## Updated
+- 02/22/2011
+## Description
+
+<p>執筆者: <a href="http://msdn.microsoft.com/ja-jp/gg585574#kodaka" target="_blank">
+インフォシェア株式会社 小高 太郎</a></p>
+<p>動作確認環境:&nbsp;.NET Framework 2.0 以上、Visual Studio 2005 以上</p>
+<hr style="clear:both; margin-bottom:8px; margin-top:20px">
+<p>データベース接続情報の多くは、アプリケーションの app.config 及び web.config などの構成ファイルに保存し、管理の集中化を図ります。今回はこうした構成ファイルから、接続文字列を取得する手法をご紹介します。</p>
+<p>例として以下のような app.config ファイルが存在しているとします。</p>
+<div style="margin:20px 0px; padding:10px; background-color:#cccccc">
+<div>
+<div>
+<p>&lt;?xml version=&quot;1.0&quot;?&gt;</p>
+<p>&lt;configuration&gt;</p>
+<p>&nbsp;&nbsp;&nbsp; &lt;configSections&gt;</p>
+<p>&nbsp;&nbsp;&nbsp; &lt;/configSections&gt;</p>
+<p>&nbsp;&nbsp;&nbsp; &lt;connectionStrings&gt;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;add name=&quot;Sample.Properties.Settings.NorthwindConnectionString&quot;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; connectionString=&quot;Data Source=.;Initial Catalog=Northwind;Integrated Security=True&quot;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; providerName=&quot;System.Data.SqlClient&quot;/&gt;</p>
+<p>&nbsp;&nbsp;&nbsp; &lt;/connectionStrings&gt;</p>
+<p>&lt;/configuration&gt;</p>
+</div>
+</div>
+</div>
+<p>この connectionString の値を取得するには ConfigurationManager クラスを使用します。このクラスを使用するには、参照設定を行い、System.Configuration を追加する必要があります。</p>
+<p><img src="18597-image001.gif" alt="図 1" width="580" height="335"></p>
+<p>コードは以下になります。取得した接続文字より SQL Server に接続してクエリを行います。</p>
+<div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginEditHolderLink">スクリプトの編集</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">using System.Configuration;
+using System.Data.SqlClient;
+
+static void Main(string[] args)
+{
+    String connectionString = ConfigurationManager.ConnectionStrings[&quot;Sample.Properties.Settings.NorthwindConnectionString&quot;].ConnectionString;
+
+    using (SqlConnection cn = new SqlConnection(connectionString))
+    {
+        SqlCommand cm = new SqlCommand(&quot;SELECT * FROM Products&quot;, cn);
+        cn.Open();
+        SqlDataReader dr = cm.ExecuteReader();
+        while (dr.Read())
+        {
+            Console.WriteLine(dr[&quot;ProductName&quot;]);
+        }
+    }
+}</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">using</span>&nbsp;System.Configuration;&nbsp;
+<span class="cs__keyword">using</span>&nbsp;System.Data.SqlClient;&nbsp;
+&nbsp;
+<span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Main(<span class="cs__keyword">string</span>[]&nbsp;args)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;connectionString&nbsp;=&nbsp;ConfigurationManager.ConnectionStrings[<span class="cs__string">&quot;Sample.Properties.Settings.NorthwindConnectionString&quot;</span>].ConnectionString;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">using</span>&nbsp;(SqlConnection&nbsp;cn&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;SqlConnection(connectionString))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SqlCommand&nbsp;cm&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;SqlCommand(<span class="cs__string">&quot;SELECT&nbsp;*&nbsp;FROM&nbsp;Products&quot;</span>,&nbsp;cn);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cn.Open();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SqlDataReader&nbsp;dr&nbsp;=&nbsp;cm.ExecuteReader();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">while</span>&nbsp;(dr.Read())&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(dr[<span class="cs__string">&quot;ProductName&quot;</span>]);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+&nbsp;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>接続文字列は、ConfigurationManager クラスの ConnectionStrings プロパティで取得します。</p>
+<p>また、ConfigurationManager クラスには、他にも AppSetting と言うプロパティが存在し、接続文字列以外の一般的な設定値を取得することができます。</p>
+<p class="1">接続文字列を、下図のようにアプリケーションの設定機能で設定している場合は、この設定値が app.config (web.config) に保存され、[名前空間].Properties.Settings.Default.[設定名] で接続文字列を取得することも可能です。下図の場合であれば、string connectonString = global::ConsoleApplication1.Properties.Settings.Default.NorthwindConnectionString;
+ のようになります。</p>
+<p><img src="18598-image002.gif" alt="図 2" width="580" height="134"><br>
+[<a href="http://msdn.microsoft.com/gg585574.DataAccess-howto-e6f5fe59(ja-jp,MSDN.10).jpg" target="_blank">拡大図</a>]</p>
+<h2 style="margin-top:30px">参考リンク</h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/ja-jp/library/system.configuration.configurationmanager(v=VS.80).aspx" target="_blank">ConfigurationManager クラス</a>
+</li><li><a href="http://code.msdn.microsoft.com/DataAccess-howto-621a456a">[C#] 接続文字列ビルダーを使用してユーザーの入力を元に接続文字列を構築する</a>
+</li></ul>
+<hr style="clear:both; margin-bottom:8px; margin-top:20px">
+<table>
+<tbody>
+<tr>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td>
+<ul>
+<li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
+逆引きサンプル コード一覧へ</a> </li><li>もっと他のレシピを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe">
+Code Recipe へ</a> </li></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>

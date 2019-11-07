@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://msdn.microsoft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=21D5488088B5A5BC02F849ABC7D50089" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://msdn.microsoft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=94D8F40A3C1E5E4B7CBE86060A05CCA5" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>【WPF】 ComboBoxにEnumをバインドする</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>【WPF】 ComboBoxにEnumをバインドする</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, WPF, XAML
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            WPF&#12289;ComboBox&#12289;En<wbr />um&#12289;&#12467;&#12531;&#12508;&#12508;&#12483;&#12463;&#12473;&#12289;&#21015;&#25369;&#22411;&#12289;<wbr />&#12496;&#12452;&#12531;&#12489;&#12289;&#12496;&#12452;&#12531;&#12487;&#12451;&#12531;&#12464;
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/21/2016</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/WPF-ComboBoxEnum-ddd26709">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p>静的なリストをComboBoxにバインドさせ、選択させたいことがあると思います。この場合、以下のように書くのが簡単なのですが、コードからこのComboBoxの選択肢をセットしたり取得する際に、Tagに設定されている数字を直接操作しなければならなくなり、後にわかりにくいコードになる可能性があります。いわゆるマジックナンバーです。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">&lt;ComboBox x:Name=&quot;comb_Color&quot;
+    Width=&quot;200&quot; Margin=&quot;30,33,0,0&quot;
+     SelectedValuePath=&quot;Tag&quot; &gt;
+      &lt;ComboBoxItem Tag=&quot;0&quot; Content=&quot;White&quot;/&gt;
+      &lt;ComboBoxItem Tag=&quot;1&quot; Content=&quot;Blue&quot; /&gt;
+      &lt;ComboBoxItem Tag=&quot;2&quot; Content=&quot;Red&quot;/&gt;
+      &lt;ComboBoxItem Tag=&quot;3&quot; Content=&quot;Black&quot;/&gt;
+&lt;/ComboBox&gt;</pre>
+<div class="preview">
+<pre class="csharp">&lt;ComboBox&nbsp;x:Name=<span class="cs__string">&quot;comb_Color&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Width=<span class="cs__string">&quot;200&quot;</span>&nbsp;Margin=<span class="cs__string">&quot;30,33,0,0&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SelectedValuePath=<span class="cs__string">&quot;Tag&quot;</span>&nbsp;&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ComboBoxItem&nbsp;Tag=<span class="cs__string">&quot;0&quot;</span>&nbsp;Content=<span class="cs__string">&quot;White&quot;</span>/&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ComboBoxItem&nbsp;Tag=<span class="cs__string">&quot;1&quot;</span>&nbsp;Content=<span class="cs__string">&quot;Blue&quot;</span>&nbsp;/&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ComboBoxItem&nbsp;Tag=<span class="cs__string">&quot;2&quot;</span>&nbsp;Content=<span class="cs__string">&quot;Red&quot;</span>/&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ComboBoxItem&nbsp;Tag=<span class="cs__string">&quot;3&quot;</span>&nbsp;Content=<span class="cs__string">&quot;Black&quot;</span>/&gt;&nbsp;
+&lt;/ComboBox&gt;</pre>
+</div>
+</div>
+</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// コードからComboBoxの選択肢を指定する例
+// 3がマジックナンバー
+comb_Color.SelectedValue = &quot;3&quot;;</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;コードからComboBoxの選択肢を指定する例</span>&nbsp;
+<span class="cs__com">//&nbsp;3がマジックナンバー</span>&nbsp;
+comb_Color.SelectedValue&nbsp;=&nbsp;<span class="cs__string">&quot;3&quot;</span>;</pre>
+</div>
+</div>
+</div>
+<p>これを避け、アプリケーション全体として統一して管理するためには、Enumとして定義し、それを利用するのが簡単で便利です。</p>
+<p>EnumをComboBoxのソースとして指定するには、以下のようになります。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;Window.Resources&gt;
+    &lt;ObjectDataProvider x:Key=&quot;ColorEnumKey&quot; MethodName=&quot;GetValues&quot;
+                        ObjectType=&quot;{x:Type sys:Enum}&quot;&gt;
+        &lt;ObjectDataProvider.MethodParameters&gt;
+            &lt;x:Type TypeName=&quot;local:ColorEnum&quot;/&gt;
+        &lt;/ObjectDataProvider.MethodParameters&gt;
+    &lt;/ObjectDataProvider&gt;
+&lt;/Window.Resources&gt;
+
+&lt;Grid&gt;
+    &lt;ComboBox x:Name=&quot;comb_color&quot; HorizontalAlignment=&quot;Left&quot;
+        ItemsSource=&quot;{Binding Source={StaticResource ColorEnumKey}}&quot;
+        SelectedItem=&quot;{x:Static local:ColorEnum.Blue}&quot;
+        VerticalAlignment=&quot;Top&quot; Width=&quot;142&quot; Margin=&quot;30,33,0,0&quot; Height=&quot;27&quot;&gt;
+    &lt;/ComboBox&gt;
+　　　　　　　　　　　・
+　　　　　　　　　　　・
+　　　　　　　　　　　・
+&lt;/Grid&gt;
+</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__tag_start">&lt;Window</span>.Resources<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ObjectDataProvider</span>&nbsp;x:<span class="xaml__attr_name">Key</span>=<span class="xaml__attr_value">&quot;ColorEnumKey&quot;</span>&nbsp;<span class="xaml__attr_name">MethodName</span>=<span class="xaml__attr_value">&quot;GetValues&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">ObjectType</span>=<span class="xaml__attr_value">&quot;{x:Type&nbsp;sys:Enum}&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ObjectDataProvider</span>.MethodParameters<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;x</span>:Type&nbsp;<span class="xaml__attr_name">TypeName</span>=<span class="xaml__attr_value">&quot;local:ColorEnum&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ObjectDataProvider.MethodParameters&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ObjectDataProvider&gt;</span>&nbsp;
+&lt;/Window.Resources&gt;&nbsp;
+&nbsp;
+<span class="xaml__tag_start">&lt;Grid</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ComboBox</span>&nbsp;x:<span class="xaml__attr_name">Name</span>=<span class="xaml__attr_value">&quot;comb_color&quot;</span>&nbsp;<span class="xaml__attr_name">HorizontalAlignment</span>=<span class="xaml__attr_value">&quot;Left&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">ItemsSource</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Source={StaticResource&nbsp;ColorEnumKey}}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">SelectedItem</span>=<span class="xaml__attr_value">&quot;{x:Static&nbsp;local:ColorEnum.Blue}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">VerticalAlignment</span>=<span class="xaml__attr_value">&quot;Top&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;142&quot;</span>&nbsp;<span class="xaml__attr_name">Margin</span>=<span class="xaml__attr_value">&quot;30,33,0,0&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;27&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ComboBox&gt;</span>&nbsp;
+　　　　　　　　　　　・&nbsp;
+　　　　　　　　　　　・&nbsp;
+　　　　　　　　　　　・&nbsp;
+<span class="xaml__tag_end">&lt;/Grid&gt;</span>&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">ObjectDataProviderを使用すると、Xamlにおいてメソッドを実行し、バインドするソースを生成することができます。<br>
+今回は、EnumクラスのGetValuesメソッドを使用し、ユーザー定義のColorEnumというEnumの全ての一覧をArrayクラスとして取り出しています。そして、これをComboBoxのデータソースとしてバインドさせています。<br>
+SelectedItemにEnum値をセットしているところにも注目して下さい。Enum値はこのようにセットすることができます。&nbsp;</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">特に説明は要りませんが、ColorEnumも掲載しておきます。いたって普通のEnumです。</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public enum ColorEnum
+{
+    White = 0,
+    Blue = 1,
+    Red = 2,
+    Black = 3
+}</pre>
+<div class="preview">
+<pre class="js">public&nbsp;enum&nbsp;ColorEnum&nbsp;
+<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;White&nbsp;=&nbsp;<span class="js__num">0</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Blue&nbsp;=&nbsp;<span class="js__num">1</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Red&nbsp;=&nbsp;<span class="js__num">2</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Black&nbsp;=&nbsp;<span class="js__num">3</span>&nbsp;
+<span class="js__brace">}</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">また、ComboBoxの選択肢の設定や取得は以下のようにしてできます。</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">js</span>
+<pre class="hidden">//設定の例
+comb_color.SelectedItem = ColorEnum.Red;
+
+//取得の例　（色をEnumで取得する）
+comb_color.SelectedItem;
+
+//取得の例　（色を文字で取得する）
+comb_color.SelectedItem.ToString();</pre>
+<div class="preview">
+<pre class="js"><span class="js__sl_comment">//設定の例</span>&nbsp;
+comb_color.SelectedItem&nbsp;=&nbsp;ColorEnum.Red;&nbsp;
+&nbsp;
+<span class="js__sl_comment">//取得の例　（色をEnumで取得する）</span>&nbsp;
+comb_color.SelectedItem;&nbsp;
+&nbsp;
+<span class="js__sl_comment">//取得の例　（色を文字で取得する）</span>&nbsp;
+comb_color.SelectedItem.ToString();</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;最後に、全体のコードを掲載しておきます。</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;Window x:Class=&quot;ComboboxEnumBinding.MainWindow&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:d=&quot;http://schemas.microsoft.com/expression/blend/2008&quot;
+        xmlns:mc=&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;
+        xmlns:local=&quot;clr-namespace:ComboboxEnumBinding&quot;
+        xmlns:sys=&quot;clr-namespace:System;assembly=mscorlib&quot;
+        mc:Ignorable=&quot;d&quot;
+        Title=&quot;MainWindow&quot; Height=&quot;350&quot; Width=&quot;525&quot;&gt;
+
+    &lt;Window.Resources&gt;
+
+        &lt;ObjectDataProvider x:Key=&quot;ColorEnumKey&quot; MethodName=&quot;GetValues&quot;
+                            ObjectType=&quot;{x:Type sys:Enum}&quot;&gt;
+            &lt;ObjectDataProvider.MethodParameters&gt;
+                &lt;x:Type TypeName=&quot;local:ColorEnum&quot;/&gt;
+            &lt;/ObjectDataProvider.MethodParameters&gt;
+        &lt;/ObjectDataProvider&gt;
+
+    &lt;/Window.Resources&gt;
+
+    &lt;Grid&gt;
+        &lt;ComboBox x:Name=&quot;comb_color&quot; HorizontalAlignment=&quot;Left&quot;
+            ItemsSource=&quot;{Binding Source={StaticResource ColorEnumKey}}&quot;
+            SelectedItem=&quot;{x:Static local:ColorEnum.Blue}&quot;
+            VerticalAlignment=&quot;Top&quot; Width=&quot;142&quot; Margin=&quot;30,33,0,0&quot; Height=&quot;27&quot;&gt;
+        &lt;/ComboBox&gt;
+        &lt;Button x:Name=&quot;bttn_SelectRed&quot; Content=&quot;Select Red&quot; HorizontalAlignment=&quot;Left&quot; Margin=&quot;196,33,0,0&quot;
+             VerticalAlignment=&quot;Top&quot; Width=&quot;75&quot; Height=&quot;27&quot; Click=&quot;bttn_SelectRed_Click&quot;/&gt;
+        &lt;Button x:Name=&quot;bttn_ShowSelectedColor&quot; Content=&quot;Selected Color&quot; HorizontalAlignment=&quot;Left&quot;
+             Margin=&quot;124,122,0,0&quot; VerticalAlignment=&quot;Top&quot; Width=&quot;99&quot; Height=&quot;30&quot;
+             Click=&quot;bttn_ShowSelectedColor_Click&quot;/&gt;
+    &lt;/Grid&gt;
+&lt;/Window&gt;
+</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__tag_start">&lt;Window</span>&nbsp;x:<span class="xaml__attr_name">Class</span>=<span class="xaml__attr_value">&quot;ComboboxEnumBinding.MainWindow&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">xmlns</span>=<span class="xaml__attr_value">&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__keyword">xmlns</span>:<span class="xaml__attr_name">x</span>=<span class="xaml__attr_value">&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__keyword">xmlns</span>:<span class="xaml__attr_name">d</span>=<span class="xaml__attr_value">&quot;http://schemas.microsoft.com/expression/blend/2008&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__keyword">xmlns</span>:<span class="xaml__attr_name">mc</span>=<span class="xaml__attr_value">&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__keyword">xmlns</span>:<span class="xaml__attr_name">local</span>=<span class="xaml__attr_value">&quot;clr-namespace:ComboboxEnumBinding&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__keyword">xmlns</span>:<span class="xaml__attr_name">sys</span>=<span class="xaml__attr_value">&quot;clr-namespace:System;assembly=mscorlib&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mc:<span class="xaml__attr_name">Ignorable</span>=<span class="xaml__attr_value">&quot;d&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Title</span>=<span class="xaml__attr_value">&quot;MainWindow&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;350&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;525&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Window</span>.Resources<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ObjectDataProvider</span>&nbsp;x:<span class="xaml__attr_name">Key</span>=<span class="xaml__attr_value">&quot;ColorEnumKey&quot;</span>&nbsp;<span class="xaml__attr_name">MethodName</span>=<span class="xaml__attr_value">&quot;GetValues&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">ObjectType</span>=<span class="xaml__attr_value">&quot;{x:Type&nbsp;sys:Enum}&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ObjectDataProvider</span>.MethodParameters<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;x</span>:Type&nbsp;<span class="xaml__attr_name">TypeName</span>=<span class="xaml__attr_value">&quot;local:ColorEnum&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ObjectDataProvider.MethodParameters&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ObjectDataProvider&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Window.Resources&gt;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Grid</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ComboBox</span>&nbsp;x:<span class="xaml__attr_name">Name</span>=<span class="xaml__attr_value">&quot;comb_color&quot;</span>&nbsp;<span class="xaml__attr_name">HorizontalAlignment</span>=<span class="xaml__attr_value">&quot;Left&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">ItemsSource</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Source={StaticResource&nbsp;ColorEnumKey}}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">SelectedItem</span>=<span class="xaml__attr_value">&quot;{x:Static&nbsp;local:ColorEnum.Blue}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">VerticalAlignment</span>=<span class="xaml__attr_value">&quot;Top&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;142&quot;</span>&nbsp;<span class="xaml__attr_name">Margin</span>=<span class="xaml__attr_value">&quot;30,33,0,0&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;27&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ComboBox&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Button</span>&nbsp;x:<span class="xaml__attr_name">Name</span>=<span class="xaml__attr_value">&quot;bttn_SelectRed&quot;</span>&nbsp;<span class="xaml__attr_name">Content</span>=<span class="xaml__attr_value">&quot;Select&nbsp;Red&quot;</span>&nbsp;<span class="xaml__attr_name">HorizontalAlignment</span>=<span class="xaml__attr_value">&quot;Left&quot;</span>&nbsp;<span class="xaml__attr_name">Margin</span>=<span class="xaml__attr_value">&quot;196,33,0,0&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">VerticalAlignment</span>=<span class="xaml__attr_value">&quot;Top&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;75&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;27&quot;</span>&nbsp;<span class="xaml__attr_name">Click</span>=<span class="xaml__attr_value">&quot;bttn_SelectRed_Click&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Button</span>&nbsp;x:<span class="xaml__attr_name">Name</span>=<span class="xaml__attr_value">&quot;bttn_ShowSelectedColor&quot;</span>&nbsp;<span class="xaml__attr_name">Content</span>=<span class="xaml__attr_value">&quot;Selected&nbsp;Color&quot;</span>&nbsp;<span class="xaml__attr_name">HorizontalAlignment</span>=<span class="xaml__attr_value">&quot;Left&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Margin</span>=<span class="xaml__attr_value">&quot;124,122,0,0&quot;</span>&nbsp;<span class="xaml__attr_name">VerticalAlignment</span>=<span class="xaml__attr_value">&quot;Top&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;99&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;30&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Click</span>=<span class="xaml__attr_value">&quot;bttn_ShowSelectedColor_Click&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/Grid&gt;</span>&nbsp;
+<span class="xaml__tag_end">&lt;/Window&gt;</span>&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">using <a class="libraryLink" href="https://code.msdn.microsoft.com/WPF-ComboBoxEnum-ddd26709/https://code.msdn.microsoft.com/WPF-ComboBoxEnum-ddd26709/https://msdn.microsoft.com/ja-JP/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;
+
+namespace ComboboxEnumBinding
+{
+    /// &lt;summary&gt;
+    /// MainWindow.xaml の相互作用ロジック
+    /// &lt;/summary&gt;
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void bttn_SelectRed_Click(object sender, RoutedEventArgs e)
+        {
+            comb_color.SelectedItem = ColorEnum.Red;
+        }
+
+        private void bttn_ShowSelectedColor_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(comb_color.SelectedItem.ToString());
+        }
+    }
+    public enum ColorEnum
+    {
+        White = 0,
+        Blue = 1,
+        Red = 2,
+        Black = 3
+    }
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">using</span>&nbsp;<a class="libraryLink" href="https://code.msdn.microsoft.com/WPF-ComboBoxEnum-ddd26709/https://code.msdn.microsoft.com/WPF-ComboBoxEnum-ddd26709/https://msdn.microsoft.com/ja-JP/library/System.Windows.aspx"  title="Auto generated link to System.Windows">System.Windows</a>;&nbsp;
+&nbsp;
+<span class="cs__keyword">namespace</span>&nbsp;ComboboxEnumBinding&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;MainWindow.xaml&nbsp;の相互作用ロジック</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;MainWindow&nbsp;:&nbsp;Window&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;MainWindow()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitializeComponent();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;bttn_SelectRed_Click(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;RoutedEventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comb_color.SelectedItem&nbsp;=&nbsp;ColorEnum.Red;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;bttn_ShowSelectedColor_Click(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;RoutedEventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MessageBox.Show(comb_color.SelectedItem.ToString());&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">enum</span>&nbsp;ColorEnum&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;White&nbsp;=&nbsp;<span class="cs__number">0</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blue&nbsp;=&nbsp;<span class="cs__number">1</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Red&nbsp;=&nbsp;<span class="cs__number">2</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black&nbsp;=&nbsp;<span class="cs__number">3</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="endscriptcode">ちょっとした手間ですが、これによりバグが発生しにくく、読みやすく保守がしやすいコードを書くことができますので、是非参考にしてみて下さい。<br>
+特にコードを書く際にはインテリセンスを使用し、Enumの名前で文字色を確認しながら書けますので、楽に間違いなくコードを書くことができます。</div>
+</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">（ヒント）<br>
+＃今回のサンプルコードは要点を明らかにするためにMVVMパターンで書いていませんが、通常はMVVMパターンを使用することをお勧めします。<br>
+＃データベースにColorの一覧があり、それをデータソースとしてComboBoxにバインドする際にも、そのままでは1や3といったマジックナンバーを設定することになってしまいますので、今回と同じようにEnumを定義し、それを利用するようにすると良いでしょう。Enumからその値を取り出したり、逆に値からEnumに変換する方法は本題から外れますし、いくつか方法がありますのでここではご紹介しませんが、検索すれば簡単に見つかると思います。</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿<p>
+    This example demonstrates reading a video file via VideoFrameReader class.
+</p>
+<p>
+    First, the total seconds of the video is read to adjust slider range.
+    Then whenever the slider is moved, the video is seeked to the specified second
+    and a Bitmap instance is acquired via VideoFrameReader.GetFrame method.
+    Finally this Bitmap is downloaded and displayed via a simple &lt;img&gt; tag.
+    If reading the frame at the specified second fails, a custom error image is downloaded.
+</p>

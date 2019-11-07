@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=E26C1359372FE948C3C39B3F0FB94413" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/007decc8-6c12-4163-b4b5-9d2256e5c10eCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=76DF6246C5394201214B48DD1A8F406B" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>.NET Framework 4 Calendar Week Range Utility</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>.NET Framework 4 Calendar Week Range Utility</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            .NET Framework, CLR, .NET Framework 4.0
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            calendars, Calendars in the .NET Framework
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/27/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/NET-Framework-4-Calendar-3360a84a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>The way in which the weeks of the year are counted, and the way in which particular date ranges are assigned to particular weeks, depends on which day is considered the first day of the week and on how the rule that determines what the first week of the
+ year is in a particular year.&nbsp; In addition, each <strong><span style="color:#888888">Calendar</span></strong> class supported by the .NET Framework supports a different range of dates. This often makes enumerating the weeks of the year in a particular
+ calendar year confusing.</p>
+<h1><span>Building the Sample</span></h1>
+<p>The example is packaged with an MSBuild project file that targets the .NET Framework Version 4. Download the sample code files to your computer. Open the solution file (GetWeekRange.sln) in Visual Studio 2010 and build the solution.</p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p>The sample is a Windows Forms application that, at its most simple level, wraps a call to the
+<strong>GetWeekOfYear</strong> method of a designated calendar class to display the week ranges of a particular year. The sample allows you to select the calendar with which you'd like to work and to indicate the year for which you'd like to get date range
+ information. In addition, for the two calendar classes (the <strong>JapaneseCalendar</strong> and
+<strong>JapaneseLunisolarCalendar</strong> classes) in the .NET Framework that support multiple eras, you can indicate the era to which the designated year belongs. You can then indicate which day is considered the first day of the week and which calendar week
+ rule you'd like to apply in determining week ranges.</p>
+<p>The sample also illustrates how to work with the calendar classes in the <strong>
+<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Globalization.aspx"  title="Auto generated link to System.Globalization">System.Globalization</a></strong> namespace in the .NET Framework. The .NET Framework allows you to work with calendar classes in two ways. You can work with dates in all calendars by calling relevant
+<strong>Calendar</strong> class methods. In addition, all classes derived from the
+<strong>Calendar</strong> class except the lunisolar calendar classes, the <strong>
+PersianCalendar</strong> class, and the <strong>JulianCalendar</strong> can be the current calendar for a specifric culture. In this case, date and time operations work with that calendar automatically. You can change the current calendar of the sample by uncommenting
+ relevent lines of code in the samples <strong>Form.Load</strong> event handler.</p>
+<h1><span>Source Code Files</span></h1>
+<p>The Calendar Week Range Utility (WeekRange.exe) is a Windows Forms application that consists of the following project files:</p>
+<ul>
+<li>WeekRange.sln, a Visual Studio solution file that serves as a container for its two individual language projects.
+</li><li>FormatUtilityCS.csproj, a C# project file. </li><li>FormatUtilityVB.vbproj, a Visual Basic project file. </li></ul>
+<h1>More Information</h1>
+<p>For more information about working with calendars in the .NET Frmework, see <a title="Working with Calendars" href="http://go.microsoft.com/fwlink/?LinkId=204465" >
+Working with Calendars.</a> For information on calculating the week of the year for a particular date, see the documentation for the
+<a title="Calendar.GetWeekOfYear" href="http://go.microsoft.com/fwlink/?LinkId=204466" >
+Calendar.GetWeekOfYear </a>method.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+
+Formatter.exe, the Format Utility, is a Windows forms application that allows 
+you to apply standard or custom format strings to either numeric values or date 
+and time values. A text box then displays the result string.
+
+You indicate whether the input value is a date/time or a number by 
+selecting a radio button. The date/time or numeric value is interepreted
+using the conventions of the current culture.
+
+A drop-down combo box allows you to either select one of the supported
+standard format strings, or you can enter your own standard or custom 
+format string. Note that the standard numeric format strings do not 
+include precision specifiers; if you want to include a precision
+specifier in a format string, you must enter it yourself.
+
