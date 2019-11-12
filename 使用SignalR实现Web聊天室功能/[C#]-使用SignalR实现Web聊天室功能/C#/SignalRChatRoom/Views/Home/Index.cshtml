@@ -1,0 +1,103 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-2.2.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/Scripts/layer/layer.min.js"></script>
+    <!--这里要注意,这是虚拟目录,也就是你在OWIN Startup中注册的地址-->
+    <script src="/signalr/hubs"></script>
+
+    <script type="text/javascript">
+        var chat;
+        var roomcount = 0;
+        
+        $(function() {
+            chat = $.connection.chatRoomHub;
+            chat.client.showMessage = function(message) {
+                alert(message);
+            };
+            chat.client.sendMessage = function(roomname, message) {
+                $("#" + roomname).find("ul").each(function() {
+                    $(this).append('<li>' + message + '</li>');
+                });
+            };
+            chat.client.removeRoom = function(data) {
+                alert(data);
+            };
+            chat.client.joinRoom = function (roomname) {
+                var html = '<div style="float:left; margin-left:360px; border:double; height:528px;width:493px" id="' + roomname + '" roomname="' + roomname + '"><button onclick="RemoveRoom(this)">退出</button>\
+                                    ' + roomname + '房间\
+                                                聊天记录如下:<ul>\
+                                                </ul>\
+                                    <textarea class="ChatCore_write" id="ChatCore_write" style="width:400px"></textarea> <button onclick="SendMessage(this)">发送</button>\
+                                    </div>';
+                $("#RoomList").append(html);
+            };
+
+            //注册查询房间列表的方法
+            chat.client.getRoomlist = function(data) {
+                if (data) {
+                    var jsondata = $.parseJSON(data);
+                    $("#roomlist").html(" ");
+                    for (var i = 0; i < jsondata.length; i++) {
+                        var html = ' <li>房间名:' + jsondata[i].RoomName + '<button roomname="' + jsondata[i].RoomName + '" onclick="AddRoom(this)">加入</button></li>';
+                        $("#roomlist").append(html);
+                    }
+                }
+            };
+            // 获取用户名称。
+            $('#username').html(prompt('请输入您的名称:', ''));
+
+            $.connection.hub.start().done(function() {
+                $('#CreatRoom').click(function() {
+                    chat.server.createRoom($("#Roomname").val());
+                });
+            });
+        });
+        
+        function SendMessage(btn) {
+            var message = $(btn).prev().val();
+            var room = $(btn).parent();
+            var username = $("#username").html();
+            message = username + ":" + message;
+            var roomname = $(room).attr("roomname");
+            chat.server.sendMessage(roomname, message);
+            $(btn).prev().val('').focus();
+        }
+        
+        function RemoveRoom(btn) {
+            var room = $(btn).parent();
+            var roomname = $(room).attr("roomname");
+            chat.server.removeUserFromRoom(roomname);
+        }
+        
+        function AddRoom(roomname) {
+            var data =$(roomname).attr("roomname");
+            chat.server.joinRoom(data);
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <div>名称:<p id="username"></p></div>
+        输入房间名:
+        <input type="text" value="聊天室1" id="Roomname" />
+        <button id="CreatRoom">创建聊天室</button>
+    </div>
+    <div style="float:left;border:double">
+        <div>房间列表</div>
+        <ul id="roomlist"></ul>
+    </div>
+    <div id="RoomList">
+    </div>
+</body>
+</html>

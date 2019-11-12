@@ -1,0 +1,102 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>使用SignalR实现发送图片</title>
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/bootstrap-fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div>用户名:<p id="username"></p></div>
+        <input type="text" id="message" />
+        <br/>
+        <br />
+        <input id="fileinput" type="file">
+        <br />
+        <input type="button" id="sendmessage" value="Send" />
+        <input type="hidden" id="displayname" />
+        <ul id="discussion"></ul>
+    </div>
+    <script type="text/javascript" src="~/Scripts/jquery-2.2.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="/Scripts/fileinput.js" type="text/javascript"></script>
+    <script src="/Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var userName = '@Session["username"]';
+            $('#username').html(userName);
+            // 引用自动生成的集线器代理
+            var chat = $.connection.chatHub;
+            // 定义服务器端调用的客户端sendMessage来显示新消息
+
+            chat.client.sendMessage = function (name, message) {
+                // 向页面添加消息
+                $('#discussion').append('<li><strong>' + htmlEncode(name)
+                    + '</strong>: ' + htmlEncode(message) + '</li>');
+            };
+
+            chat.client.receiveImage = function (name, base64) {
+                // 向页面添加消息
+                $('#discussion').append('<image style="width:auto;height:100px;" src=' + base64
+                    + '/>');
+            };
+
+            // 设置焦点到输入框
+            $('#message').focus();
+            // 开始连接服务器
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').click(function () {
+                    // 调用服务器端集线器的Send方法
+                    chat.server.send(userName, $('#message').val());
+                    // 清空输入框信息并获取焦点
+                    $('#message').val('').focus();
+                });
+            });
+
+            $("#fileinput").fileinput({
+                allowedFileExtensions: ["jpg", "png", "gif", "jpeg"],
+                maxImageWidth: 700,
+                maxImageHeight: 700,
+                resizePreference: 'height',
+                maxFileCount: 1,
+                resizeImage: true
+            });
+
+            $("#fileinput").on('fileloaded', function (event, file, previewId, index, reader) {
+                var readers = new FileReader();
+                readers.onloadend = function () {
+                    $(".file-preview-image").attr('src', readers.result);
+                };
+                readers.readAsDataURL(file);
+            });
+
+            $('#sendmessage').click(function() {
+                var imagesJson = $('.file-preview-image').map(function() {
+                    var $this = $(this);
+                    return {
+                        image: $this.attr('src'),
+                        filename: $this.attr('data-filename')
+                    };
+                }).toArray();
+
+                chat.server.sendImage(userName, imagesJson);
+            });
+        });
+
+    // 为显示的消息进行Html编码
+    function htmlEncode(value) {
+        var encodedValue = $('<div />').text(value).html();
+        return encodedValue;
+    }
+    </script>
+    
+</body>
+</html>

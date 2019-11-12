@@ -1,0 +1,8 @@
+
+Base64Converter.exe is a console-mode utility that performs base64 encoding 
+and decoding. It illustrates how to encode or decode an entire file in a 
+single operation by calling a base64 encoding or decoding method of the   
+Convert class. It also illustrates how to perform base64 encoding or
+decoding of a file stream by calling the methods of the FromBase64Transform
+and ToBase64Transform classes.
+

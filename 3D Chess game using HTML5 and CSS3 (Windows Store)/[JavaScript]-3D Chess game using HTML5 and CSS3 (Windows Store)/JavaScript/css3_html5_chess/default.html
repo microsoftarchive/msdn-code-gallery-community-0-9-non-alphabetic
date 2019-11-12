@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>css3_chess</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+
+    <!-- css3_chess references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="/js/board.js"></script>
+    <script src="/js/piece.js"></script>
+    <script src="/js/state.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="outer">
+            <div id="resizer">
+                <div id="inner">
+                    <div id="a"></div>
+                    <div id="b"></div>
+                    <div id="c"></div>
+                    <div id="d"></div>
+                    <div id="e"></div>
+                    <div id="f"></div>
+                    <div id="g"></div>
+                    <div id="h"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="overlay">
+        <div id="innerOverlay"></div>
+    </div>
+    <canvas id="rotateOverlay" height="1400" width="1400"></canvas>
+    <div id="offscreen">
+    </div>
+    <div>
+        <button class="start">Start/Play</button>
+        <button class="spin">180&deg;</button>
+        <button class="add">Add/Remove</button>
+        <button class="ghost">Reach</button>
+    </div>
+    <select class="choosePiece" style="display: none">
+        <option>knight - white</option>
+        <option>knight - black</option>
+        <option>pawn - white</option>
+        <option>pawn - black</option>
+        <option>queen - white</option>
+        <option>bishop - white</option>
+        <option>bishop - black</option>
+    </select>
+    <audio id="snd1" style="display: none" controls="controls"> 
+        <source src="/sounds/hit-01.wav"/> 
+    </audio>
+    <audio id="snd2" style="display: none" controls="controls"> 
+        <source src="/sounds/whip.wav"/> 
+    </audio>
+</body>
+</html>
