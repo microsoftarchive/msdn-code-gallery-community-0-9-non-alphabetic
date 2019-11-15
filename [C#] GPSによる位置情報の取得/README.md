@@ -54,8 +54,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/windowsphone" target="_blank"><img src="-ff950935.winphone_180x70(ja-jp,msdn.10).gif" border="0" alt="Windows Phone デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/windowsphone" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.WinPhone_180x70(ja-jp,MSDN.10).gif" border="0" alt="Windows Phone デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -66,4 +66,4 @@ Windows Phone デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

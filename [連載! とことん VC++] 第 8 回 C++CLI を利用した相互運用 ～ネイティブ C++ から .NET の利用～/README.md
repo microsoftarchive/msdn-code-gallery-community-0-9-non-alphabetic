@@ -33,11 +33,11 @@
 <p>&nbsp;</p>
 </div>
 <p>今回取り上げるサンプルでは、主に、C&#43;&#43; アプリケーションから .NET Framework クラス ライブラリなど、予め用意された .NET 対応のオブジェクトを利用する方法について取り上げます。また、次回の第 9 回では逆に、Visual Basic や C# など他の .NET 対応プログラミング言語から利用させるために、C&#43;&#43; 版の .NET 対応のオブジェクトを作成する上での注意点や実装の特徴について取り上げます。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="02" style="font-size:120%; margin-top:20px">2. 今回作成するサンプル アプリケーション</h2>
 <p>今回は、次図に示すアプリケーションを作成します。この主要部分は、ネイティブ C&#43;&#43; で記述された Windows アプリケーションですが、C&#43;&#43;/CLI も用いて .NET のライブラリを利用しています。</p>
-<p><img src="26127-img08_01.jpg" alt="" width="483" height="293"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26127/1/img08_01.jpg" alt="" width="483" height="293"></p>
 <p style="color:#333333"><strong>図 8.1 今回作成するサンプル アプリケーション</strong></p>
 <p>ADO.NET を利用して、データ ベースからデータを読み込み、ネイティブ コードで 記述されたユーザー インターフェイスに、そのデータを表示しています。また、下部の帯グラフも .NET のグラフィック関連のライブラリを使用しており、表示先で あるメインウィンドウは、ネイティブ コードで実装されています。このほか、ネイティブ コードでオープンしたファイルに対して、.NET のオブジェクトを使用して、データ を保存するコードも記述します。このように、従来のネイティブ コードと .NET の コードを併用する際には、ネイティブ
  コードと .NET コードをどう連携させるかがポイントとなり、ここでは、その特徴や留意点なども取り上げます。</p>
@@ -183,7 +183,7 @@ BOOL&nbsp;InitInstance(HINSTANCE&nbsp;hInstance,&nbsp;int&nbsp;nCmdShow)&nbsp;
 </div>
 <p>&nbsp;</p>
 <p>のちほど、「TODO(1):」から「TODO(3):」までの各箇所に、必要なサンプル コードを追加するほか、ウィンドウ プロシージャの一部を修正します。この時点でビルドして、実行すると、次図のようなメニュー バーと 3 つの EDIT コントロールを伴うウィンドウが表示されます。1 つ目の EDIT コントロールの「ABC」というテキスト表示は、試験的な表示であり、このあとは修正します。</p>
-<p><img src="26128-img08_02.jpg" alt="" width="482" height="297"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26128/1/img08_02.jpg" alt="" width="482" height="297"></p>
 <p style="color:#333333"><strong>図 8.2 初期状態のサンプル アプリケーション</strong></p>
 <div style="padding:0pt 15px; margin:0pt 0pt 30px; background-color:#efefef; border:1px solid #333333">
 <p><strong>Note:</strong></p>
@@ -257,11 +257,11 @@ GO</pre>
 <p><strong>Note:</strong></p>
 <p>上記の Sales データ ベースを削除して元の状態に戻すには、スクリプト ファイル内のデータ ベース作成より前の部分 (データ ベースの削除) だけ実行するよう、スクリプト ファイルの後半を削除してください。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="03" style="font-size:120%; margin-top:20px">3. C&#43;&#43;/CLI の利用のシナリオ</h2>
 <p>C&#43;&#43;/CLI の具体例を確認する前に、C&#43;&#43;/CLI を使うべき状況を改めて整理しておきましょう。そもそも C&#43;&#43;/CLI は、.NET 向けの実装するために使用するので、まずは、Visual C&#43;&#43; において、.NET を使用するパターンにどのようなものがあるか、まとめてみましょう。次図は、C&#43;&#43;/CLI を使用するケースも含め、Visual C&#43;&#43; において .NET Framework を用いる実装パターンを挙げたものです。</p>
-<p><img src="26129-img08_03x600.jpg" alt="" width="600" height="464"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26129/2/img08_03x600.jpg" alt="" width="600" height="464"></p>
 <p style="color:#333333"><strong>図8.3 Visual C&#43;&#43;における .NET Framework 関連の実装パターン</strong></p>
 <p>主なパターンとして、この図の中央の縦に並んだ 6 通りの実装が考えられます。</p>
 <p>このうち (5) と (6) は、.NET Framework が提供する「COM 相互運用機能」を使用して、C&#43;&#43; アプリケーションと .NET 対応アプリケーションを連携させる方法です。COM 相互運用機能を用いれば、.NET Framework の実行環境が提供する専用のレイヤーを介することで、COM サーバーの COM オブジェクトは、.NET 対応アプリケーションにとって、.NET 版オブジェクト (マネージ オブジェクト) として利用できます。</p>
@@ -279,13 +279,13 @@ GO</pre>
  Framework の機能を享受できるので、利用する価値は十分あるでしょう。</p>
 <p>いずれにしても、それぞれのパターンの長所と短所を考慮しつつ、それぞれの状況に適切した選択肢を選ぶことになります。</p>
 <p>ここでは、特に既存資産のネイティブ コードと .NET 対応のマネージコードの連携に役立つ「ハイブリッド型」のアプリケーションについて取り上げます。特にこの第 8 回では (3) のパターンを扱い、次回の第 9 回では (4) のパターンを扱います。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="04" style="font-size:120%; margin-top:20px">4. C&#43;&#43;/CLI を使用するプロジェクトの基本設定</h2>
 <p>まずは、Visual C&#43;&#43; のプロジェクトが C&#43;&#43;/CLI に対応できように構成しましょう。</p>
 <p>初めから、プロジェクト テンプレートとして「Windows フォーム アプリケーション」などの .NET 対応のものを使用していれば、C&#43;&#43;/CLI を利用できる環境になっていますが、ここでは基本的な設定方法を確認するため、今回のサンプル アプリケーションの App08 プロジェクトは、「Win32 プロジェクト」というネイティブ コード対応のものを使用しています。このプロジェクトで、C&#43;&#43;/CLI を利用できるように設定しましょう。</p>
 <p>この設定は、App08 のプロジェクト プロパティ ページで行えます。次図のように、App08 のプロジェクト プロパティ ページを開き (ソリューション エクスプローラー上の ［App08］ プロジェクトを右クリックして ［プロパティ］ を選択)、左側のツリーでは ［構成プロパティ］ ノード配下の ［全般］ ノードをクリックします。このとき、右側の「共通言語ランタイム サポート」という項目では「共通言語ランタイムのサポート (/clr)」を選択します。</p>
-<p><img src="26130-img08_04.jpg" alt="" width="700" height="525"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26130/1/img08_04.jpg" alt="" width="700" height="525"></p>
 <p style="color:#333333"><strong>図 8.4 共通言語ランタイムをサポートするように変更</strong></p>
 <p>この「共通言語ランタイム サポート」という項目では、文字通り、.NET Frameworkのランタイムである共通言語ランタイムに対応するか否かを指定します。ここで、共通言語ランタイムをサポートするように設定すれば、C&#43;&#43;/CLI も利用できるようになります。</p>
 <p>この項目では、次表のようにいくつかのオプションが指定でき、サポート状況が異なります。</p>
@@ -331,18 +331,18 @@ GO</pre>
  の管理下にすべて置かれます。この3) の選択肢は、ポインターなどのきめ細かいメモリ操作はできませんが、最も信&#38972;性の高い実装方法です。</p>
 <p>このほか表には載せませんでしたが、「共通言語ランタイム サポート、古い構文 (/clr:oldSyntax)」という選択肢があります。これは、Visual C&#43;&#43; .NET 2003 までに使用していた .NET 向けの古い構文「C&#43;&#43; マネージ拡張」に対応するために残されています。</p>
 <p>これで、今回のサンプル用のプロジェクトで C&#43;&#43;/CLI が利用できるようになりました。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="05" style="font-size:120%; margin-top:20px">5. .NET Framework クラスライブラリへの参照</h2>
 <p>C&#43;&#43;/CLI を使用して .NET 対応の実装を行う際、ほとんどの場合は、.NET Framework クラス ライブラリも使用することになるでしょう。クラス ライブラリを使用するには、プロジェクトからライブラリを参照できるように構成する必要があります。この設定をしておかないと、ビルドすることができません。ここで、今回必要なライブラリを参照できるように設定しておきましょう。</p>
 <p>再び、プロジェクト プロパティ ページを開き、左側のツリーでは ［共通プロパティ］ ノードを展開し、その配下の ［Frameworkと参照］ ノードをクリックして選択します。右側のペインには、このプロジェクトが現在参照しているライブラリ ファイル (正確にはアセンブリファイル) の一覧が表示されますが、今のところありません。</p>
-<p><img src="26131-img08_05.jpg" alt="" width="700" height="525"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26131/1/img08_05.jpg" alt="" width="700" height="525"></p>
 <p style="color:#333333"><strong>図 8.5 プロジェクトが参照しているライブラリ</strong></p>
 <p>ここで、今回のサンプルに必要なライブラリを追加します。上図のプロパティ ページの左寄りの下部にある ［新しい参照の追加］ ボタンをクリックします。次図のように ［参照の追加］ ダイアログ ボックスが表示されたら、［.NET］ タブをクリックして、.NET 標準のライブラリ一覧に切り替えます。この一覧を下方にスクロールして、［コンポーネント］ 列の名前が「<a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Data.aspx" target="_blank" title="Auto generated link to System.Data">System.Data</a>」(System.Data.dll) を見つけて選択します。</p>
-<p><img src="26132-img08_06.jpg" alt="" width="654" height="414"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26132/1/img08_06.jpg" alt="" width="654" height="414"></p>
 <p style="color:#333333"><strong>図 8.6 System.Data.dll を選択</strong></p>
 <p>［OK］ ボタンをクリックして追加します。すると、次図のように一覧に「<a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Data.aspx" target="_blank" title="Auto generated link to System.Data">System.Data</a>」が表示されます。この <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Data.aspx" target="_blank" title="Auto generated link to System.Data">System.Data</a> アセンブリは、ADO.NET の基本機能を使用する際に必要になります。</p>
-<p><img src="26133-img08_07.jpg" alt="" width="700" height="525"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26133/1/img08_07.jpg" alt="" width="700" height="525"></p>
 <p style="color:#333333"><strong>図 8.7 System.Data.dll を追加</strong></p>
 <p>このほか、同様の手順で以下のアセンブリも追加してください。今回は、C&#43;&#43;/CLI の特徴を理解するのが目的なので、ライブラリのどの機能で、どのアセンブリが必要になるかは意識する必要はありません。</p>
 <p><a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Data.aspx" target="_blank" title="Auto generated link to System.Data">System.Data</a> (ADO.NET 関連、追加済み)<br>
@@ -351,10 +351,10 @@ System (今回使用するアセンブリの一部で依存するので必要)<b
 <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Windows.Forms.aspx" target="_blank" title="Auto generated link to System.Windows.Forms">System.Windows.Forms</a> (Windows フォーム関連、メッセージ ボックスなど)<br>
 <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Xml.aspx" target="_blank" title="Auto generated link to System.Xml">System.Xml</a> (XML データ関連)</p>
 <p>これらを追加すると、図 8.7 のプロジェクト プロパティ ページの参照するアセンブリの一覧には、次のようにアセンブリ名が表示されるはずです。</p>
-<p><img src="26134-img08_08.jpg" alt="" width="700" height="248"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26134/1/img08_08.jpg" alt="" width="700" height="248"></p>
 <p style="color:#333333"><strong>図 8.8 今回使用するアセンブリの一覧</strong></p>
 <p>これで、.NET Framework クラスライブラリを使用して、C&#43;&#43;/CLI のプログラム コードを書く準備ができました。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="06" style="font-size:120%; margin-top:20px">6. 基本 (1) - .NET Framework のデータ型の基礎</h2>
 <p>具体的なコードを記述する前に、C&#43;&#43;/CLI との基本的な構文にも関わる .NET Framework の基本事項を少し確認しましょう。</p>
@@ -398,7 +398,7 @@ public:&nbsp;
 なお、C# では class キーワードを用いると参照型となり、struct キーワードを用いると値型になります。この点は、C&#43;&#43; と C# で異なるので注意してください。</p>
 </div>
 <p>このような値型と参照型の違いによって、変数の定義方法も若干異なります。この点を次に説明します。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="07" style="font-size:120%; margin-top:20px">7. 基本 (2) - 変数宣言とインスタンスの確保</h2>
 <p>値型か参照型かによって、変数の宣言方法が異なります。次表はそれぞれの宣言方法をまとめたものです。前述の例 8.3 の RecordV 型と RecordC 型を例にしています。</p>
@@ -452,7 +452,7 @@ rec5&nbsp;=&nbsp;gcnew&nbsp;RecordC();</pre>
 <p><strong>Note:</strong></p>
 <p>&nbsp;厳密にいうと、参照型のオブジェクトに埋め込まれた値型のメンバー変数は、参照型のオブジェクトの一部として、マネージヒープに確保されます。また、値型のオブジェクトに埋め込まれた参照型のメンバー変数の場合は、値型オブジェクトの一部としてスタックに確保されるのは、あくまでポインターに当たる参照用の変数だけであり、参照型のオブジェクト本体は、マネージヒープに配置されます。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="08" style="font-size:120%; margin-top:20px">8. ADO.NET の利用 ～ライブラリの基本的な使用～</h2>
 <p>.NET Framework の ADO.NET には、データ ベースからデータを読み込んでキャッシュする DataSet オブジェクトが用意されています。これを利用すると、非接続の状態でデータ ベース上の閲覧などができるので、サーバーの負荷を軽減することができます。ここでは、C&#43;&#43; ネイティブ コードのアプリケーションで、この DataSet を利用してみましょう。ただし、ここでのテーマは、C&#43;&#43;/CLI にあるので、ADO.NET の詳細にはこだわらず、C&#43;&#43;/CLI を利用する際の注意点や特徴を確認します。</p>
@@ -587,12 +587,12 @@ BOOL&nbsp;GetDatabase()&nbsp;<span class="js__sl_comment">//&larr;[8]</span>&nbs
 <p>最終的には、例外の有無に関わらず、[20] の finally ブロックが実行され、Close メソッドが呼びされて、データ ベースへの接続が閉じられます。</p>
 <p>また、[21] では .NET Framework クラス ライブラリの MessageBox クラスの Show メソッドを呼び出して、.NET版 のメッセージボックスを表示しています。その際、引数には文字列を整形すべく、[22] では String クラスの Format メソッドを使用しています。</p>
 <p>このサンプル アプリケーションを実行すると、メイン ウィンドウが表示される前に、データ ベースからデータが読み込み込まれ、メッセージ ボックスには読み込んだデータの件数が表示されます。</p>
-<p><img src="26135-img08_09.jpg" alt="" width="233" height="178"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26135/1/img08_09.jpg" alt="" width="233" height="178"></p>
 <p style="color:#333333"><strong>図 8.9 データを読み込んだのちメッセージボックスを表示する</strong></p>
 <p>［OK］ ボタンをクリックして、メッセージ ボックスを閉じると、メイン ウィンドウが表示されるので、メイン ウィンドウを閉じて、アプリケーションを終了しておいてください。</p>
 <p>ここまでは、.NET Framework の ADO.NET を用いてデータを読み込み、その結果を .NET 版のユーザー インターフェイスであるメッセージ ボックスに表示していました。つまり、.NET 環境の範囲内で行うべき処理が完結していたので、.NET 環境とネイティブ環境でのデータのやり取りは発生しませんでした。</p>
 <p>このあとは、マネージ オブジェクトである DataSet に読み込んだデータを、ネイティブ コードのユーザー インターフェイスである 3 つの EDIT コントロールに表示させるようにします。そのためには、.NET 版のデータとネイティブ環境のデータとの間で、相互に受け渡す変換処理が必要になる場合があります。特に、文字列のやり取りでは必要です。次にこの点を確認します。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="09" style="font-size:120%; margin-top:20px">9. ネイティブ コード用の文字列と .NET 版の文字列との相互変換</h2>
 <p>既に触れたように、.NET では文字列を String 型 (のマネージ オブジェクト) として扱います。一方、ネイティブ コードの文字列は、Unicode 文字列の wchar_t 型配列や ANSI 文字列の char 型配列、また、長さを記憶できる BSTR 型と様々です。よって、マネージ環境とネイティブ環境との間で、文字列をやり取りするには、これらの違いを意識した文字列の相互変換が必要になります。</p>
@@ -810,10 +810,10 @@ LRESULT&nbsp;CALLBACK&nbsp;WndProc(HWND&nbsp;hWnd,&nbsp;UINT&nbsp;message,&nbsp;
 </div>
 <p>なお、[42] のクライアント領域を無効化する InvalidateRect 関数は、このあと実装するグラフを描画させるためのものであり、今のところ影響はありません。<br>
 ここで実行すると、データを 3 件読み込んだ旨のメッセージ ボックスが表示された後、次図のようにメインウィンドウには、Products テーブル内の 1 件目のデータが表示されます。そして、［レコード］ メニューの ［前のレコード］ や ［次のレコード］ をクリックすると、表示されるレコードがそれぞれ前後に移動します。</p>
-<p><img src="26136-img08_10.jpg" alt="" width="480" height="289"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-ee06b200/image/file/26136/1/img08_10.jpg" alt="" width="480" height="289"></p>
 <p style="color:#333333"><strong>図 8.10 DataSet のデータが表示される</strong></p>
 <p>以上、マネージ オブジェクトである String 型と、ネイティブ データの文字列との間での相互変換の方法について確認しました。この方法は、マネージ環境とデータをやり取りする多くの状況で利用できるでしょう。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="10" style="font-size:120%; margin-top:20px">10. ネイティブなデバイス コンテキストと .NET 版の Graphics オブジェクトの併用</h2>
 <p>次に、.NET 版の Graphics オブジェクトを併用して、ネイティブなウィンドウのクライアント領域に描画してみましょう。これを利用すれば、.NET 向けに実装された描画コードを、ネイティブ C&#43;&#43; アプリケーションで再利用することができます。次のコードを追加してください。</p>
@@ -904,7 +904,7 @@ BOOL&nbsp;UpdateControlsToSource();&nbsp;
 <p><strong>Note:</strong></p>
 <p>このようなグラデーションを伴う二次元グラフィックを実装したい場合、GDI&#43; のネイティブ API を使用することもできます。そもそも、.NET の Graphics オブジェクトは、GDI&#43; をラップしたオブジェクトなので、直接、GDI &#43; を利用したほうが、実行の負荷は少なくなるでしょう。ただし、既に Graphics オブジェクトを使用したマネージ コードの実装がある場合は、ここで紹介した方法を使用するとで、ネイティブ コードのユーザー インターフェイス上で再利用することができます。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="11" style="font-size:120%; margin-top:20px">11. ネイティブなファイルハンドルと .NET コードの連携</h2>
 <p>最後にもう 1 つ、ネイティブなファイル ハンドルを .NET のプログラム コードから利用する方法について確認しましょう。</p>
@@ -1063,7 +1063,7 @@ delete fs; // [B] ここではファイルハンドルは閉じない<br>
 <br>
 safeHandle-&gt;DangerousRelease(); // [C] カウントダウン、ファイルハンドルは閉じる</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="12" style="font-size:120%; margin-top:20px">12. まとめ</h2>
 <p>今回は、C&#43;&#43;/CLI を用いて、.NET のクラス ライブラリをネイティブ コードの中で併用する方法について取り上げました。単に、ライブラリを使うだけなら、それほど難しくありませんが、特にハイブリッド型の実装では、ネイティブ環境のデータと .NET 環境のマネージ データとの間での、相互変換が必要になります。そこで、文字列の扱いや、デバイス コンテキスト、ファイル ハンドルなど、代表的なリソースについて、相互にやり取りする方法についても確認しました。<br>
@@ -1072,8 +1072,8 @@ safeHandle-&gt;DangerousRelease(); // [C] カウントダウン、ファイル�
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -1084,4 +1084,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

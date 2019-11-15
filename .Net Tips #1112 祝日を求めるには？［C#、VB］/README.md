@@ -19,16 +19,16 @@
 <div>これは次の記事のサンプルコードです。</div>
 <blockquote>
 <div>@IT 2015/07/22 掲載<br>
-<img id="68637" src="-top_news025.png" alt="" width="120" height="90"><br>
+<img id="68637" src="http://image.itmedia.co.jp/ait/articles/1507/08/top_news025.png" alt="" width="120" height="90"><br>
 <strong><a href="http://www.atmarkit.co.jp/ait/subtop/features/dotnet/dotnettips_index.html" target="_blank">.NET TIPS：</a><br>
 <a href="http://www.atmarkit.co.jp/ait/articles/1507/22/news024.html" target="_blank">祝日を求めるには？［C#、VB］</a></strong><br>
 <br>
 カレンダーを表示するプログラムを作ろうとしたとき、厄介なのは祝日だ。日本の祝日には、特定の日に固定されていないものがあるからだ。法律に書いてある通りにロジックを組めば祝日を決定できるとはいうものの、なかなか面倒なコーディングになる。本稿では、2007年以降のある年の祝日を求める方法を紹介しよう。</div>
 </blockquote>
-<div><img id="140171" src="140171-01.png" alt="" width="640" height="320">
+<div><img id="140171" src="https://i1.code.msdn.s-msft.com/net-tips-1112-5fc5e409/image/file/140171/1/01.png" alt="" width="640" height="320">
 <br>
 <br>
-<img id="140172" src="140172-02.png" alt="" width="640" height="320"><br>
+<img id="140172" src="https://i1.code.msdn.s-msft.com/net-tips-1112-5fc5e409/image/file/140172/1/02.png" alt="" width="640" height="320"><br>
 <br>
 以下の解説は記事の概要である。ぜひ記事のほうもお読みいただきたい。</div>
 <div>&nbsp;</div>

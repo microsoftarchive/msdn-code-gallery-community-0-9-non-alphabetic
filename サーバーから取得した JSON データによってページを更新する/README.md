@@ -18,7 +18,7 @@
 <p>JSON (JavaScript Object Notation) は、JavaScript のオブジェクト リテラルをもとにしたデータ形式です。JavaScript との親和性に優れることから、Ajax 通信でも多く利用されるフォーマットです。jQuery でも $.getJson メソッドを利用することで HTTP GET 通信で JSON 形式のデータを取得できます。</p>
 <p>たとえば本稿で紹介するサンプルは、JSON 形式でデータを提供する郵便番号検索 Web サービス <a href="http://zip.ricollab.jp/" target="_blank">
 ricollab</a>&nbsp;から、指定された郵便番号に対応する住所を取得する例です。</p>
-<p class="MsoNormal" style="margin:0mm 0mm 0pt">&nbsp;<img src="19093-image001.gif" alt="図 1" width="280" height="356"></p>
+<p class="MsoNormal" style="margin:0mm 0mm 0pt">&nbsp;<img src="http://i4.code.msdn.microsoft.com/jquery-howto-30d0d63b/image/file/19093/1/image001.gif" alt="図 1" width="280" height="356"></p>
 <p>なお、郵便番号検索 Web サービスは、「http://zip.ricollab.jp/search?q=<em>郵便番号</em>&amp;type=json」のような URL でアクセスすることで、以下のような JSON データを返すものとします (コメントは著者によるもの)。</p>
 <div style="margin:20px 0px; padding:10px; background-color:#dedfde">
 <p>{<br>
@@ -88,8 +88,8 @@ $('#btn').click(function () {<br>
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp/"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/asp.net/" target="_blank"><img title="ASP.Net デベロッパーセンター" src="-ff950935.asp_net_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp/"><img title="Code Recipe" src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/asp.net/" target="_blank"><img title="ASP.Net デベロッパーセンター" src="http://i.msdn.microsoft.com/ff950935.ASP_NET_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -100,4 +100,4 @@ ASP.Net デベロッパーセンターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

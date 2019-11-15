@@ -45,7 +45,7 @@
 </div>
 <div class="endscriptcode">&nbsp;</div>
 <p>PortName は、使いたい COM ポートの名前です。ポート名は、アクセスしたい周辺機器を PC に接続し、コントロール パネルの &quot;ハードウェアとサウンド&quot; &rarr; &quot;デバイス マネージャ&quot; を選択し、&quot;ポート (COM と LPT)&quot;で確認してください。例を挙げると、</p>
-<p><img src="22147-01.jpg" alt="図 1" width="337" height="72"></p>
+<p><img src="http://i2.code.msdn.microsoft.com/com-howto-6c7ff269/image/file/22147/1/01.jpg" alt="図 1" width="337" height="72"></p>
 <p>この例では、ポート名は &quot;COM8&quot; です。ポート名は PC に接続された周辺機器の種類や、その他様々な要因で変化するので、都度確認してください。</p>
 <p>※手順は Windows 7 を前提に説明しています。</p>
 <p>他の変数、BaudRate (ボーレート)、Parity (パリティ)、DataBits (データ ビッツ)、StopBits (ストップ ビッツ) は、PC に接続する周辺機器毎に異なります。大抵の場合、周辺機器のマニュアルや Web で公開された情報に記載されているので、それを参考にしてください。</p>
@@ -241,8 +241,8 @@ myPort.Write(buffer,&nbsp;<span class="cs__number">0</span>,&nbsp;buffer.Length)
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/windows/" target="_blank"><img src="-ff950935.windows_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Windows デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/windows/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.windows_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Windows デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他の Windows 7 対応を見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/windows/gg581817" target="_blank">
@@ -254,4 +254,4 @@ Windows デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

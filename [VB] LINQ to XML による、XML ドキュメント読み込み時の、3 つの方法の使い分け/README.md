@@ -87,7 +87,7 @@
 </div>
 </div>
 <p>「デバッグなしで開始」すると、XDocument クラスを用いた場合の結果は図 1 上、XElement クラスを用いた場合の結果は図 1 下のようになります。</p>
-<p><img src="18835-image001.gif" alt="図 1" width="570" height="534"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/dataaccess-howto-e287efd1/image/file/18835/1/image001.gif" alt="図 1" width="570" height="534"></p>
 <p>図 1 XDocument クラスを用いた場合 (上)、XElement クラスを用いた場合 (下)</p>
 <p>XDocument クラスを用いた場合は、読み込んだ XML ドキュメントのルート要素ノード &lt;CodeRecipe&gt; は、ルート ノードの子扱いになります。一方、XElement クラスを用いると，読み込んだ XML ドキュメントのルート要素ノードはルート ノード扱いになります。<br>
 そのため、XElement クラスを用いると、XDocument クラスを用いた場合より一階層下のコレクションが返されるようになります。</p>
@@ -124,7 +124,7 @@
 </div>
 </div>
 </div>
-<p><img src="18836-image002.gif" alt="図 2" width="443" height="184"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/dataaccess-howto-e287efd1/image/file/18836/1/image002.gif" alt="図 2" width="443" height="184"></p>
 <p>図 2 2 段階の処理で混合内容のテキストを取得した結果</p>
 <h2 style="font-size:120%; margin-top:20px">関連リンク</h2>
 <ul>
@@ -136,7 +136,7 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img title="Code Recipe" src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -146,4 +146,4 @@
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

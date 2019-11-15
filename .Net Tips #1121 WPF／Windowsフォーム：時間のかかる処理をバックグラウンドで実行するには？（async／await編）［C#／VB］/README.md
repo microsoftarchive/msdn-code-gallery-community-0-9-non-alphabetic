@@ -18,7 +18,7 @@
 <div>これは次の記事のサンプルコードです。</div>
 <blockquote>
 <div>@IT 2015/12/02 掲載<br>
-<img id="68637" src="-top_news025.png" alt="" width="120" height="90"><br>
+<img id="68637" src="http://image.itmedia.co.jp/ait/articles/1507/08/top_news025.png" alt="" width="120" height="90"><br>
 <strong><a href="http://www.atmarkit.co.jp/ait/subtop/features/dotnet/dotnettips_index.html" target="_blank">.NET TIPS：</a><br>
 <a href="http://www.atmarkit.co.jp/ait/articles/1512/02/news019.html" target="_blank">WPF／Windowsフォーム：時間のかかる処理をバックグラウンドで実行するには？（async／await編）［C#／VB］</a></strong><br>
 <br>
@@ -31,7 +31,7 @@
 <br>
 なお、<strong>コードは Windows フォームのものを紹介するが、 WPF でも同様である</strong>。</div>
 </blockquote>
-<div><img id="145251" src="145251-%e7%94%bb%e5%83%8f6a.png" alt="" width="286" height="181"><br>
+<div><img id="145251" src="https://i1.code.msdn.s-msft.com/net-tips-1121-b9308cbc/image/file/145251/1/%e7%94%bb%e5%83%8f6a.png" alt="" width="286" height="181"><br>
 &nbsp;<br>
 &nbsp;<br>
 &nbsp;<br>
@@ -162,7 +162,7 @@
 <div class="endscriptcode">&nbsp;</div>
 <p>&nbsp;</p>
 <h2>● 非同期処理を学ぶには？</h2>
-<div style="float:left; margin-right:8px"><a href="http://amzn.to/1XA8tVF" target="_blank"><img id="145252" src="145252-51mmclqpjzl%5b1%5d.jpg" alt="" width="117" height="150" border="none"></a></div>
+<div style="float:left; margin-right:8px"><a href="http://amzn.to/1XA8tVF" target="_blank"><img id="145252" src="https://i1.code.msdn.s-msft.com/net-tips-1121-b9308cbc/image/file/145252/1/51mmclqpjzl%5b1%5d.jpg" alt="" width="117" height="150" border="none"></a></div>
 <p>以上のように、 async／await で簡単に非同期処理の記述ができる。 しかしながら、 記述が簡潔で分かりやすくなったとはいっても、 非同期処理の動作まで簡単になったわけではないのだ。 非同期処理（マルチスレッド プログラミング）の本質的な困難さは変わらない。 基本からしっかり理解しておくことをお勧めする。</p>
 <p>筆者は「<strong><a href="http://amzn.to/1XA8tVF" target="_blank">C#によるマルチコアのための非同期/並列処理プログラミング</a></strong>」という本を出している（<a href="https://gihyo.jp/dp/ebook/2013/978-4-7741-5907-2" target="_blank">電子書籍版</a>もあり）。 C# でマルチスレッド プログラミングを解説した本は、 ちょっと珍しいのではないかと思う。 参考にしていただければ幸いである。</p>
 <p style="clear:both">&nbsp;</p>

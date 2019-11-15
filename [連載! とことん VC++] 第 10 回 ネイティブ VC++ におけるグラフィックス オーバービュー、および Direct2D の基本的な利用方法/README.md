@@ -23,16 +23,16 @@
 <p>この一連の連載の最終回である今回は、今までの連載のサンプル コードの中で何回か使用してきたグラフィックスに関する実装方法について、改めて取り上げます。</p>
 <p>現在、Visual C&#43;&#43; などを用いてネイティブ コードのアプリケーションを開発する際に、グラフィックスを使用する場合、GDI や GDI&#43;、DirectX など、様々な実装テクノロジが選択肢として用意されています。今回は、それぞれのテクノロジの位置付けや特徴などを概観したのち、特に、Windows 7 から新たに標準装備された Direct2D に関して、API を用いた具体的なプログラミング方法について確認します。また、既存のソフトウェア資産を有効活用するためにも、従来の GDI と Direct2D
  を併用する相互運用の方法についても取り上げます。ただし、紙面の都合もあるので、API で使用するオブジェクトの個々のメンバー関数や引数の詳細について掘り下げるよりも、今後、Direct2D を利用する上で基礎となるように、主要なオブジェクトの特徴や手順のポイントなどに焦点を当てます。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="02" style="font-size:120%; margin-top:20px">2. 今回作成するサンプル アプリケーション</h2>
 <p>今回のサンプルでは、次の図 10.1 のように、一般的なネイティブ コードの Windows アプリケーションのウィンドウ上に、Direct2D を用いて図形を描画する方法を確認します。</p>
-<p><img src="42258-image001.jpg" alt="図 10.1" width="580" height="357"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-7e652493/image/file/42258/1/image001.jpg" alt="図 10.1" width="580" height="357"></p>
 <p><strong>図 10.1 Direct2D による基本的な描画</strong></p>
 <p>この例では、円の右上部に重ねた四角形は、半透明の状態で下の円が透けて見えるように合成した「アルファ ブレンディング」が使用されています。また、円の右下部に重ねた四角形も下の円が透けているほか、四角形自体の色が徐々に変化する「グラデーション」が用いられ、このグラデーションでは、上部のほうへ行くほど透明度が無くなり、円の輪郭が見えづらくなっています。このほか、円の枠線は、「ベクター グラフィック」が使用されており、しかも、「アンチエイリアス」と呼ばれる機能によって、輪郭が滑らかになるように補正されています。この図形の描画を題材に、Direct2D
  の基本的な手順を確認します。</p>
 <p>また、記事の後半では次の図 10.2 のように、1 つのウィンドウの中で、従来の GDI を用いた描画と併せて、Direct2D による描画を行う方法についても確認します。このウィンドウの左上の文字列と左側の円は、従来の GDI を用いて描画したものであり、右半分は Direct2D で描画した図形です。既存の GDI ベースのソフトウェア資産に、部分的に Direct2D を併用する場合などは、このような手法を用いることになるでしょう。</p>
-<p><img src="42259-image002.jpg" alt="図 10.2" width="580" height="357"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-7e652493/image/file/42259/1/image002.jpg" alt="図 10.2" width="580" height="357"></p>
 <p><strong>図 10.2 従来の GDI による描画との併用</strong></p>
 <div style="margin:10px 0px; padding:10px 10px 0px 10px; border:double 1px #CCCCCC">
 <p style="margin:0"><strong>Note:</strong></p>
@@ -40,7 +40,7 @@
 <p>開発環境としては、Visual C&#43;&#43; 2010 Express (または上位エディション) をインストールすれば、Direct2D 関連のヘッダー ファイルやインポート ライブラリもインストールされるので、このサンプルを作成することができます。このあとのサンプルの作成手順の説明では、Visual C&#43;&#43; 2010 Express を前提にしています。今回も、サンプルを机上でも理解できるように、サンプル固有の実装部分を一通り掲載していますが、環境があれば試しに作成してみてください。</p>
 <p>なお、Direct2D 対応の開発環境自体は、Visual C&#43;&#43; 2008 と Windows SDK 7.0 を併用する方法でも実現できます。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="03" style="font-size:120%; margin-top:20px">3. Windows におけるグラフィック オーバービュー</h2>
 <p>まずは、サンプルを確認する前に、Windows におけるグラフィック関連の主な API を整理してみましょう。</p>
@@ -118,7 +118,7 @@ COM ベース</td>
 <p>特に、今後においてネイティブ コードのプログラムを新規に開発するのであれば、2 次元グラフィックを実装する際に、Direct2D や DirectWrite を使用することが奨励されています。</p>
 <p>一方、Windows 7 でも GDI や GDI&#43; がサポートされていることもあり、しばらくは、これらに対応したアプリケーションも利用され、Direct2D などの新機能を使用する場合には、1 つのアプリケーションの中で、従来の GDI などと併用する形態になることもあるでしょう。</p>
 <p>このあとは、この Direct2D の基本的な使用方法と、GDI と Direct2D を併用する方法について確認していきましょう。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="04" style="font-size:120%; margin-top:20px">4. Direct2D 対応の開発環境の準備</h2>
 <p>Direct2D を用いた描画の実装は、従来の GDI と同様に、Windows プロシージャを伴う一般的な構造の Windows アプリケーションの中に作り込むことができます。ここでは、Visual C&#43;&#43; 2010 Express の「Win32 プロジェクト」を使用して、標準的な Windows アプリケーションに、Direct2D に関わる実装を追加していきます。</p>
@@ -127,7 +127,7 @@ COM ベース</td>
 <p>Direct2D のライブラリを利用できるようにするために必要な点は、他のライブラリを利用する場合と同様に、リンク時のインポート ライブラリの指定と、ヘッダー ファイルのインクルードです。</p>
 <p>まず、インポート ライブラリを追加するために、プロジェクト プロパティ ページを開きます (ソリューション エクスプローラー上で「App10」プロジェクトを右クリックして、[プロパティ] をクリック)。</p>
 <p>そして、プロジェクト プロパティ ページの左側のツリーで、[構成プロパティ]、[リンカー]、[入力] の順にクリックして展開した後、右側の「追加の依存ファイル」の欄に、次図と同じになるように「D2d1.lib」を追加します (この「追加の依存ファイル」の行の右端のドロップダウン リストから「&lt;編集...&gt;」をクリックすれば、対話形式でこのライブラリ名を入力できます)。</p>
-<p><img src="42260-image003.jpg" alt="図 10.3" width="580" height="197"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-7e652493/image/file/42260/1/image003.jpg" alt="図 10.3" width="580" height="197"></p>
 <p><strong>図 10.3 インポート ライブラリ D2d1.lib の指定</strong></p>
 <p>また、インクルードすべきヘッダー ファイルは「D2d1.h」です。次のように、既存のファイル stdafx.h の末尾に、インクルード ディレクティブを追加します。</p>
 <p><strong>例 10.1 Direct2D 関連のヘッダーのインクルード</strong><br>
@@ -148,7 +148,7 @@ COM ベース</td>
 </div>
 </div>
 <p>これで準備ができました。続いて、図 10.1 の実行結果となるように、順に実装していきましょう。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="05" style="font-size:120%; margin-top:20px">5. 主なオブジェクトなどの基本構成</h2>
 <p>まずは、Direct2D で使用する主なオブジェクトなどのプログラムの全体的な構成を理解するために、次に示すように、ファイル App10.cpp の冒頭のディレクティブの直後あたりに、グローバル変数と関数のプロトタイプ宣言を追加してください。</p>
@@ -415,7 +415,7 @@ COM ベース</td>
 </div>
 </div>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="06" style="font-size:120%; margin-top:20px">6. デバイス非依存の初期化と後処理 ～COM、および Direct2D として～</h2>
 <p>まず、Direct2D は COM ベースの API であることから、COM としての初期化と後処理が必要です。この例では、COM の初期化と後処理について、それぞれ、[10] と [13] で行っています。[10] のように、初期化の CoInitializeEx 関数の 2 番目の引数には、ここでは STA (Single Thread Apartment) を指定しています。Direct2D では、STA も MTA も指定することができますが、単純に描画するだけなら、STA で十分でしょう。</p>
@@ -428,7 +428,7 @@ COM ベース</td>
  のグローバル変数) を介して、ファクトリ オブジェクトにアクセスできるようになります。</p>
 <p>なお、ここでは STA の COM の環境を使用しているので、[17] の引数には、このシングルスレッド対応であることを指定しています。</p>
 <p>一方、[42] の DeleteDeviceIndependentResources 関数の内部では、後処理として、COM の作法に従って、[43] のように Release メソッドを呼び出して、ファクトリ オブジェクトを解放しています。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="07" style="font-size:120%; margin-top:20px">7. デバイス依存の初期化と後処理</h2>
 <p>デバイス非依存の初期化として、Direct2D のファクトリ オブジェクトの作成が済んだら、次に行うべきことは、レンダー ターゲットごとの初期化です。つまり、特定の描画先であるデバイスに依存した初期化を行います。この例では、[19] の CreateDeviceResources に実装しています (どのタイミングで呼び出すかは後述)。</p>
@@ -438,7 +438,7 @@ COM ベース</td>
 <p>ここで指定する論理的なサイズは、意外と重要な情報です。このサンプルでは、レンダー ターゲットのサイズには、ウィンドウ (のクライアント領域) のサイズをそのまま渡しています。つまり、物理的なウィンドウのサイズが 400&times;300 (ピクセル) であるなら、レンダー ターゲットの論理的サイズも 400&times;300 となります。この設定によって、レンダー ターゲットに描画された図形は、1 : 1 の倍率で物理的なウィンドウにマップされます。</p>
 <p>そして、実行中にエンドユーザーが物理的なウィンドウのサイズを変更した場合、レンダー ターゲットの論理的なサイズは変化しないので、レンダー ターゲットの領域がウィンドウに納まるようにスケーリングされます。たとえば、レンダー ターゲットの論理的なサイズが 400&times;300 であるとき、物理的なウィンドウのサイズを 200&times;150 に変更すると、論理的なサイズ 100 が物理的な 50 ピクセルにマップされ、もともとの大きさの 2 分の 1 に縮小されます。</p>
 <p>次の図 10.4 は、このサンプルのウィンドウの縦幅を小さくして、図形が縦方向に縮小した様子を表しています。なお、このような物理ウィンドウのサイズに応じたスケーリングは、すべての種類のレンダー ターゲットで起こるわけではなく、HWND に対応付いたレンダー ターゲット (ID2D1HwndRenderTarget インターフェイスのオブジェクト) における固有の振る舞いです。</p>
-<p><img src="42261-image004.jpg" alt="図 10.4" width="580" height="177"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-7e652493/image/file/42261/1/image004.jpg" alt="図 10.4" width="580" height="177"></p>
 <p><strong>図 10.4 ウィンドウの高さを小さくすると、縦方向に図形が縮小</strong></p>
 <div style="margin:10px 0px; padding:10px 10px 0px 10px; border:double 1px #CCCCCC">
 <p style="margin:0"><strong>Note:</strong></p>
@@ -455,7 +455,7 @@ COM ベース</td>
 <p>ここでは、[27] でグラデーションの開始点 (0.0f) の色を指定し、[28] で終了点 (1.0f) の色を指定しています。入れ子の内側の 4 つの要素の並びでは、色の 3 要素と透明度も指定できるので、このグラデーションでは、色の変化と同時に、透明度の変化を表すこともできます。</p>
 <p>このように、描画の素材となるブラシには、グラデーションやアルファ ブレンドなどの図形に対するきめ細かい制御も指定できます。</p>
 <p>なお、これらの後処理については、特に難しいことないでしょう。[41] の DeleteDeviceResources 関数にあるように、それぞれのオブジェクトのインターフェイス ポインターを介して、Release メンバー関数を呼び出して、オブジェクトを解放すればよいのです。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="08" style="font-size:120%; margin-top:20px">8. 具体的な描画方法</h2>
 <p>必要な初期化に関して一通り済んだら、いよいよ描画です。</p>
@@ -494,7 +494,7 @@ COM ベース</td>
 </li></ul>
 <p>この DirectWrite のハンズオンでは、様々な修飾を加えたテキストの表示例のほか、Direct2D を併用して、文字の形状に画像データを表示する例も掲載されています。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="09" style="font-size:120%; margin-top:20px">9. GDI との相互運用の準備</h2>
 <p>次に、GDI のデバイス コンテキスト (HDC) に対応付けたレンダー ターゲットを使用して、GDI と Direct2D を併用する方法を確認してみましょう。次に、図 10.2 に示す実行結果となるように修正と追加を行った完成コードを示します。以下の説明を参考にして、修正してみてください。</p>
@@ -656,7 +656,7 @@ COM ベース</td>
  番目の出力引数 (pcDCRenderTarget) に取得されます。このポインター変数はグローバル変数であり、例 10.2 の [3] に ID2D1DCRenderTarget* 型として宣言してあります。</p>
 <p>この [58] の呼び出しで、1 番目の引数として渡すプロパティの構造体 props は、[55] に定義されています。ここでも [56] のように、D2D1::RenderTargetProperties ヘルパー関数を使用して、構造体を構築しています。この構造体を構築する際は、[57] に記述されたように、これから作成するレンダー ターゲットが GDI 互換である点が指定されています。</p>
 <p>[59] 以降のブラシの作成に関しては、この新しいレンダー ターゲット (pDCRenderTarget) に関して行う点を除けば、今までと同様です。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="10" style="font-size:120%; margin-top:20px">10. HDC を介した相互運用</h2>
 <p>レンダー ターゲットやブラシなど必要なオブジェクトの準備ができたので、実際の描画手順を確認しましょう。</p>
@@ -671,9 +671,9 @@ COM ベース</td>
 <p>[63] 以降の描画手順については、描画対象がデバイス コンテキスト向けのレンダー ターゲット (pDCRenderTarget) である点を除けば、今までと同様です。</p>
 <p>これで一通り確認が済みました。これを実行すると、図 10.2 のように表示されます。ここでは、手順を示すのが目的なので、まったく同じ円を異なる 2 つの方法で 1 つのウィンドウに描画しましたが、この手順を使用すれば、既存の GDI ベースのグラフィックに、Direct2D ベースの任意の新しい描画表現を追加できるようになります。</p>
 <p>なお、先述のとおり GDI ではアンチエイリアスが行われていないので、GDI を用いた左側の円のほうは輪郭が粗く、右側の Direct2D を用いた円のほうは滑らかになっています。</p>
-<p><img src="42262-image005.jpg" alt="図 10.5" width="521" height="144"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-7e652493/image/file/42262/1/image005.jpg" alt="図 10.5" width="521" height="144"></p>
 <p><strong>図 10.5 GDI (左) と Direct2D (右) の比較</strong></p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="11" style="font-size:120%; margin-top:20px">11. まとめ</h2>
 <p>今回は、グラフィック関連のテクノロジについて概観したのち、Direct2D の基本的な使い方について確認しました。図形描画のほか、グラデーションやアルファ ブレンディングなど、見栄えを良くするいくつかの実装方法について確認しました。</p>
@@ -685,13 +685,13 @@ COM ベース</td>
 <li><a href="http://code.msdn.microsoft.com/ja-jp/VisualC-howto-d2f1efe1/">逆引き (10) - MFC アプリケーションのビューの中で、Direct2D を使用する
 </a></li></ul>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -702,4 +702,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

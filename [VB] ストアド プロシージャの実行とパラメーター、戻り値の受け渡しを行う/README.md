@@ -110,7 +110,7 @@ da.Fill(ds)&nbsp;
 </div>
 </div>
 <p>上記の実行結果は以下になります。</p>
-<p><img src="18564-image001.gif" alt="図 1" width="368" height="230"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/dataaccess-howto-ec5ddd99/image/file/18564/1/image001.gif" alt="図 1" width="368" height="230"></p>
 <h2 style="margin-top:30px">参考リンク</h2>
 <ul>
 <li><a href="http://msdn.microsoft.com/ja-jp/library/tyy0sz6b.aspx" target="_blank">コマンドの実行 (ADO.NET)</a>
@@ -121,7 +121,7 @@ da.Fill(ds)&nbsp;
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -131,4 +131,4 @@ Code Recipe へ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

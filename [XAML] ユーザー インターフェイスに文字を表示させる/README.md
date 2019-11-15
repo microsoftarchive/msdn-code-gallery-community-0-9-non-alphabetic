@@ -35,7 +35,7 @@
 </div>
 </div>
 <p>Visual Studio の XAML デザイナー上でみると、このようになっています。</p>
-<p><img src="21370-image001.gif" alt="図 1" width="300" height="210" style="margin-bottom:20px"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/silverlight-howto-b11afc27/image/file/21370/1/image001.gif" alt="図 1" width="300" height="210" style="margin-bottom:20px"></p>
 <p>各コントロールのプロパティの説明です。</p>
 <dl><dt><strong>Content:</strong></dt><dt></dt><dd>表示させる文字列です。Label コントロールのときに使用します。 </dd><dt><strong>Text:</strong></dt><dt></dt><dd>表示させる文字列です。TextBlock コントロールのときに使用します。 </dd><dt><strong>Height:</strong></dt><dt></dt><dd>コントロールの見た目の高さです。 </dd><dt><strong>HorizontalAlignment:</strong></dt><dt></dt><dd>パネル内のコントロールの水平方向の位置を、Left、Center、Right、Stretch で表します。ここでは Left が指定されているので、コントロールはパネル内で左寄せされて表示されます。ただし、Margin プロパティが設定されていたときは、その値の分のマージンが設定されます。
 </dd><dt><strong>Margin:</strong></dt><dt></dt><dd>4 つのパラメーターは、順に左側、上側、右側、下側のマージンを示します。マージンとは、その親となるパネルまたはグリッドの縁からの距離です。主に Grid パネルに貼り付けているときに使用します。
@@ -65,7 +65,7 @@
 </div>
 </div>
 </div>
-<div class="endscriptcode"><img src="21371-image002.gif" alt="図 2" width="332" height="233"></div>
+<div class="endscriptcode"><img src="http://i1.code.msdn.microsoft.com/silverlight-howto-b11afc27/image/file/21371/1/image002.gif" alt="図 2" width="332" height="233"></div>
 <p>&nbsp;</p>
 <p>各プロパティは、プログラムの実行時に変更することができます。<br>
 <br>
@@ -109,8 +109,8 @@ textBlock1.Text&nbsp;=&nbsp;<span class="cs__string">&quot;テキストブロッ
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="-ff950935.silverlight_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="http://msdn.microsoft.com/ff950935.silverlight_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">

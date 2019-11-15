@@ -26,7 +26,7 @@
 <p>たとえば、アニメーションのフレームワークである Windows Animation Manager では、利用者のプログラムがタイマー イベントの通知を受け取るには、Windows Animation Manager 側から呼び出される COM オブジェクトを、利用者側で実装する必要があります。このような COM ベースの API を利用する開発者の方も、COM サーバー側の仕組みを理解しておけば、この API を有効活用できるようになるでしょう。</p>
 <p>まずは、COM サーバーの基本的な形態や基本的な内部構造を確認した後、いくつかポイントとなる実装方法や仕組みを確認していきます。</p>
 <p>なお、今回取り上げる COM サーバーでも必要となる、COM 関連の基礎知識は<a href="http://code.msdn.microsoft.com/VisualC-7c6bc862">前回</a>に説明しているので、予め<a href="http://code.msdn.microsoft.com/VisualC-7c6bc862">前回</a>の記事をお読みになることをお奨めします。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="02" style="font-size:120%; margin-top:20px">2. COM サーバー (COM コンポーネント) の基本形態</h2>
 <p>COM サーバーの形態は、「アウトプロセス (out-of-process)」と「インプロセス (in-process)」の 2 種類に分類できます。</p>
@@ -43,7 +43,7 @@ EXE 形式の実装を含む、COM サーバーの実装全般については、
 <li><a href="http://msdn.microsoft.com/en-us/library/ms690101.aspx" target="_blank">COM Server Responsibilities (英語版)</a>
 </li></ul>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="03" style="font-size:120%; margin-top:20px">3. DLL 形式の COM サーバーの基本構造</h2>
 <p>それでは、DLL として COM サーバーを実装する際に必要となる基本構造 (必要となる要素) を確認しましょう。ここでは、1 つの COM オブジェクトを提供する上で必要な実装を考えます。</p>
@@ -89,11 +89,11 @@ EXE 形式の実装を含む、COM サーバーの実装全般については、
 <p>そのほか、その 1) の COM オブジェクトのインスタンスを作成するために、2) の「クラス オブジェクト」を記述する必要があります。このクラス オブジェクトは「クラス ファクトリ」とも呼ばれ、定義済みの IClassFactory インターフェイス(または IClasFactory2 インターフェイス)を実装する必要があります。クラス オブジェクトは、COM Library や COM クライアントが、最終目的である 1) の COM オブジェクトのインスタンスを作成するために利用します。</p>
 <p>そのほか、3) から 5) までの 4 つの関数を一般に実装します (詳しくは後述)。</p>
 <p>次に、この表に挙げた各実装の役割について確認しつつ、実行時の基本的な動作を確認しましょう。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="04" style="font-size:120%; margin-top:20px">4. COM クライアント、COM Library、COM サーバーの基本的な連携動作</h2>
 <p>次図は、COM クライアントが COM オブジェクトのインスタンスを取得するために、COM Library の CoCreateInstance 関数を呼び出し、インターフェイス ポインターを取得するまでの基本的な連携動作の流れについて、簡略化して示したものです。図中の手順を表す数字 (1) から (10) の順に実行されます。</p>
-<p><img src="22190-01.jpg" alt="図 1" width="600" height="359"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/visualc-dbc36ad9/image/file/22190/1/01.jpg" alt="図 1" width="600" height="359"></p>
 <p><strong>図 2.1 COM オブジェクトのインスタンスを取得するまでの流れ</strong></p>
 <p>この図の (1) のように、COM クライアントが COM オブジェクトのインスタンスを取得するために CoCreateInstance 関数を呼び出すと、CoCreateInstance 関数の内部では、(2) のように DLL 側の DllGetClassObject 関数を呼び出します。ただし、初期状態では COM サーバーの DLL がロードされていないので、CoCreateInstance 関数内部では、COM クライアントから引数として受け取った CLSID をもとに、レジストリを調べて対応する
  DLL ファイルのパスを求め、その DLL をロードしたうえで (2) の呼び出しを行います。(この流れを実現するには、予めレジストリへの登録が必要です。この登録方法は後述します。)</p>
@@ -111,7 +111,7 @@ EXE 形式の実装を含む、COM サーバーの実装全般については、
 <p>一方、表 2.A の 4) に挙げた DllCanUnloadNow 関数は、上記の流れとは別に、必要に応じて COM Library が呼び出します。この DllCanUnloadNow 関数は、DLL をアンロードしてよいかどうか、COM Library が問い合せに利用します。</p>
 <p>1 つの DLL では、複数の COM オブジェクトや複数のクラス オブジェクトが利用される場合があり、1 つでもオブジェクトが利用されていれば、DLL のアンロードは都合悪いはずです。DLL 側ではオブジェクトの使用状況を追跡する責任があり、その使用状況に応じて、アンロードの是非を DllCanUnloadNow 関数の戻り値を介して回答する責任があります。</p>
 <p>次に、前図 2.A の流れでも言及したレジストリ情報の登録方法について確認しましょう。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="05" style="font-size:120%; margin-top:20px">5. COM サーバーのレジストリへの登録</h2>
 <p>COM サーバーに関する情報をレジストリに書き込む方法は、どのような方法であっても、ある決められた形式の情報をレジストリに書き込んでおきさえすれば、COM サーバーとして構成できます。独自のインストーラーを作成してレジストリに書き込んでもよいですし、レジストリ エディター (regedit.exe) を使用して手作業で書き込むという方法も可能です。</p>
@@ -161,7 +161,7 @@ EXE 形式の実装を含む、COM サーバーの実装全般については、
 <li>Win32 アプリケーション プロジェクトを使用し、プロジェクト名は CalcComp とします。 </li><li>プロジェクトの新規作成時に起動する「Win32 アプリケーション ウィザード」では、アプリケーションの種類として「DLL」を選択します。(他のオプションは、既定のままにします。)
 </li></ol>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="06" style="font-size:120%; margin-top:20px">6. CLSID や COM インターフェイスのなどの定義</h2>
 <p>まず、COM オブジェクトにとって必要となる CLSID と、COM クライアントからアクセスさせる COM インターフェイスの IID、および型の定義を記述しましょう。このサンプルでは、次のように、新規にヘッダー ファイルを作成して記述します。なお、この情報は COM サーバーだけでなく、COM クライアントでも使用されるものであり、COM クライアントはこのヘッダーを入手することで、COM オブジェクトにアクセスするコードを記述することができます。</p>
@@ -202,10 +202,10 @@ EXE 形式の実装を含む、COM サーバーの実装全般については、
 <p>CLSID と IID の GUID 値は、ソース コードの複数個所で使用することがあるので、[1] や [2] のように予め定数として定義します。上記の値は、GUID 値の生成ツールである guidgen.exe を使用して自動生成した値を使用しました。この値は、このサンプル固有なものなので、このサンプルでのみ使用してください。</p>
 <p>Visual Studio 2010 の上位エディションでは、guiedgen.exe をメニュー ([ツール] - [GUID の作成]) から起動できます。また、Windows SDK にも guidgen.exe が含まれます。このツールを起動すると次図のようになり、ここでは 3 番のオプションを選択した後、[新規 GUID] ボタンをクリックして生成しています。そののち、[コピー] ボタンをクリックすれば、GUID を含む定数定義がクリップボートにコピーされるので、それをペーストして一部修正したのが、このサンプル
  コードです。</p>
-<p><img src="22191-02.jpg" alt="図 2" width="358" height="296"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/visualc-dbc36ad9/image/file/22191/1/02.jpg" alt="図 2" width="358" height="296"></p>
 <p><strong>図 2.2 GUID の自動生成</strong></p>
 <p>また、例 2.3 の [3] では ICalcObject インターフェイスを定義し、加算を行う Add メソッドを定義しました。<a href="http://code.msdn.microsoft.com/VisualC-7c6bc862">前回</a>触れたように、IUnknown インターフェイスを継承する必要があり、このインターフェイスは暗黙的に QueryInterface、AddRef、Release の 3 つのメンバーを備えています。よって、このインターフェイスは、合計 4 つのメソッドを持ちます。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="07" style="font-size:120%; margin-top:20px">7. COM インターフェイス定義のバリエーション</h2>
 <p>ここで、横道にそれますが、COM インターフェイスのバリエーションをいくつか見ていきましょう。</p>
@@ -267,7 +267,7 @@ DECLARE_INTERFACE_(&nbsp;ICalcObject,&nbsp;IUnknown&nbsp;)&nbsp;
 </div>
 <div class="endscriptcode">&nbsp;</div>
 <p>このマクロで記述しておくと、C&#43;&#43; コンパイラー環境ではクラスと仮想関数の定義のソース コードに展開されたうえで、コンパイルされます。一方、C 言語コンパイラーの環境では、構造体の定義のソース コードに展開されたうえで、コンパイルされます。このマクロを用いて、ヘッダーに記述しておけば、このヘッダーを C&#43;&#43; 環境と C 言語環境のどちらでも利用できるのです。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="08" style="font-size:120%; margin-top:20px">8. COM オブジェクトの実装</h2>
 <p>次に、前述の COM インターフェイスを実装したオブジェクト本体のコードを確認しましょう。次のようになります。なお今回は、STA (Single Thread Apartment) で動作することを前提にして、マルチ スレッドへの対応は考えないことにします。</p>
@@ -377,7 +377,7 @@ DECLARE_INTERFACE_(&nbsp;ICalcObject,&nbsp;IUnknown&nbsp;)&nbsp;
 </div>
 <p>そして、[15] がこのインターフェイスの固有の Add メソッドです。このメソッドでは、2 つの引数の加算結果を、3 番目の出力引数として返します。COM インターフェイスのメソッドでは、AddRef メソッドや Release メソッドは例外として、その他のメソッドの戻り値を HRESULT 型にしなければならないというルールがあるので、計算結果などを受け取るのなら、[15] の 3 番目の引数のようにポンイターにする必要があります。</p>
 <p>なお、[7] の CCalcObject クラスのコンストラクターとデストラクターには、オブジェクト インスタンスの数に連動して、グルーバルな参照カウンター (g_cLock) の増減を行っています。この扱いは後述します。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="09" style="font-size:120%; margin-top:20px">9. クラス オブジェクトの実装</h2>
 <p>次に、クラス オブジェクトのコードを示します。</p>
@@ -513,7 +513,7 @@ private:&nbsp;
 <p>[20] の CreateInstance メソッドは、図 2.1 の (6) で触れた目的のオブジェクトのインスタンスを作成するメソッドです。ここでは、[21] のように CCalcObject インスタンスを作成しています。なお、[20] の CreateInstance メソッドでは、2 番目の引数 (riid) に指定されたインターフェイス ID のポインターを返す必要があるので、[22] のように、CCalcObject インスタンス (pObj) の QueryInterface メソッドを呼び出して、インターフェイス
  ポインター取得しています。</p>
 <p>[23] は、COM サーバーをメモリから解放したくない場合、COM クライアントが引数を TRUE に設定して呼び出す可能性があります。その場合、クライアントによって使用状態であることを意味するので、グローバルな参照カウンター (g_cLock) を増加させています。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="10" style="font-size:120%; margin-top:20px">10. DllGetClassObject 関数と DllCanUnloadNow 関数</h2>
 <p>残りは 2 つの関数です。この関数は、DLL の外部から呼び出せるように、この関数名のままエクスポートする必要があるので、モジュール定義ファイル (.def ファイル) も使用します。以下に示します。</p>
@@ -604,7 +604,7 @@ private:&nbsp;
 <p>$(ProjectDir)CalcComp.def</p>
 </div>
 <p>これで、DLL の実装が済みました。もう 1 つ、レジストリの登録作業が残っています。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="11" style="font-size:120%; margin-top:20px">11. レジストリの登録</h2>
 <p>この COM サーバーをレジストリに登録するため、次のレジストリ登録用のファイルを作成します。(このファイルは CalcComp プロジェクトに追加する必要はありません。)</p>
@@ -666,7 +666,7 @@ private:&nbsp;
 <p>特に、64 ビット OS 環境で実行する場合に注意してください。今回使用している Visual C&#43;&#43; 2010 Express のプロジェクトは、既定で x86 対応 (32 ビット版) です。そのため、64 ビット OS 環境で今回の COM サーバーを使用すると、32 ビットのエミュレーション環境 (WOW) で実行されます。そのため、レジストリの登録も、例 2.11 のように WOW 上のレジストリ エディターを使用して、WOW 上のレジストリに登録しておきます。</p>
 <p>つまり、64 ビット OS 環境では、64 ビット向けのレジストリと、WOW 向けのレジストリとは別々に管理されており、COM サーバーの登録も正しい環境のレジストリに対して行う必要があるのです。</p>
 <p>これで、今回の DLL 版の COM サーバー (COM コンポーネント) を利用する準備が完了しました。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="12" style="font-size:120%; margin-top:20px">12. COM クライアントからのアクセス</h2>
 <p>既に COM クライアントの実装方法について<a href="http://code.msdn.microsoft.com/VisualC-7c6bc862">前回</a>説明しましたので、前述の CalcObject にアクセスするには、どうすればよいかお分かりでしょう。クライアントに必要なファイルは、例 2.3 にある CLSID や IID、インターフェイスが定義されたヘッダー ファイルだけです。</p>
@@ -712,7 +712,7 @@ int&nbsp;_tmain(int&nbsp;argc,&nbsp;_TCHAR*&nbsp;argv[])&nbsp;
 </div>
 <div class="endscriptcode">&nbsp;</div>
 <p>この例 2.12 では、[1] のように ICalcObject インターフェイス ポインター (pObj) を使用して Add メソッドを呼び出すと、2 つの引数が加算され、その算出結果が次行で「ret=25」と表示されるはずです。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="13" style="font-size:120%; margin-top:20px">13. まとめ</h2>
 <p>まとめ</p>
@@ -721,13 +721,13 @@ int&nbsp;_tmain(int&nbsp;argc,&nbsp;_TCHAR*&nbsp;argv[])&nbsp;
 <ul>
 <li><a href="http://code.msdn.microsoft.com/ja-jp/VisualC-howto-e6f45ec7 ">[逆引き] Windows Animation Manager を使用して、タイマー駆動のアニメーションを実装する</a>
 </li></ul>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -738,5 +738,5 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 </div>

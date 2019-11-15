@@ -37,7 +37,7 @@
 </div>
 </div>
 <p>この connectionString の値を取得するには ConfigurationManager クラスを使用します。このクラスを使用するには、参照設定を行い、<a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Configuration.aspx" target="_blank" title="Auto generated link to System.Configuration">System.Configuration</a> を追加する必要があります。</p>
-<p><img src="18561-image001.gif" alt="図 1" width="580" height="335"></p>
+<p><img src="http://i2.code.msdn.microsoft.com/dataaccess-howto-e6f5fe59/image/file/18561/1/image001.gif" alt="図 1" width="580" height="335"></p>
 <p>コードは以下になります。取得した接続文字より SQL Server に接続してクエリを行います。</p>
 <div>
 <div class="scriptcode">
@@ -72,7 +72,7 @@
 <p>接続文字列は、ConfigurationManager クラスの ConnectionStrings プロパティで取得します。</p>
 <p>また、ConfigurationManager クラスには、他にも AppSetting と言うプロパティが存在し、接続文字列以外の一般的な設定値を取得することができます。</p>
 <p>接続文字列を、下図のようにアプリケーションの設定機能で設定している場合は、この設定値が app.config (web.config) に保存され、My.Settings.[設定名] で接続文字列を取得することも可能です。下図の場合であれば、Dim connectonString As String = My.Setting.NorthwindConnectionString のようになります。</p>
-<p><img src="18563-image002.gif" alt="図 2" width="580" height="134"><br>
+<p><img src="http://i1.code.msdn.microsoft.com/dataaccess-howto-e6f5fe59/image/file/18563/1/image002.gif" alt="図 2" width="580" height="134"><br>
 [<a href="http://msdn.microsoft.com/gg585574.DataAccess-howto-e6f5fe59(ja-jp,MSDN.10).jpg" target="_blank">拡大図</a>]</p>
 <h2 style="margin-top:30px">参考リンク</h2>
 <ul>
@@ -83,7 +83,7 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -93,4 +93,4 @@ Code Recipe へ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

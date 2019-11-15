@@ -21,7 +21,7 @@
 <hr>
 <h2 id="01" style="font-size:120%; margin-top:20px">1. はじめに</h2>
 <p>今回は前回に引き続き、C&#43;&#43;/CLI (Common Language Infrastructure) について取り上げます。前回では、次図の C&#43;&#43;/CLI を利用した実装パターンを挙げて、それぞれのメリットやデメリットについて説明したのち、主に (3) のパターンを説明しました。今回は (4) のパターンを取り上げます。</p>
-<p><img src="41268-img_0901.gif" alt="図 9.1" width="600" height="464"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-a1dc1f1d/image/file/41268/1/img_0901.gif" alt="図 9.1" width="600" height="464"></p>
 <p><strong>図 9.1 前回取り上げた Visual C&#43;&#43; における .NET Framework 関連の実装パターン</strong></p>
 <p>この (4) のパターンは、C&#43;&#43; ネイティブ コードと C&#43;&#43;/CLI によるマネージ コードを 1 つのアプリケーションの中で併用する「ハイブリッド型」の 1 つであり、ネイティブな C&#43;&#43; で記述されたクラスなどの既存資産を、他の .NET 対応アプリケーションから利用するための形態です。</p>
 <p>今回は、このような形態において、C&#43;&#43; 側での実装の特徴や注意点などを中心に、具体的なサンプルを用いながら確認していきます。</p>
@@ -32,7 +32,7 @@
 <li><a href="http://msdn.microsoft.com/ja-jp/library/xey702bw.aspx" target="_blank">Language Features for Targeting the CLR (英語)</a>
 </li></ul>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="02" style="font-size:120%; margin-top:20px">2. 今回作成するサンプル アプリケーション</h2>
 <p>今回のサンプルでは、既存のソフトウェア資産として、ネイティブ コード版の C&#43;&#43; のクラスが既にあることを前提にしており、このクラスを .NET 対応アプリケーションから再利用できるようにするため、C&#43;&#43;/CLI を用いて、必要な実装を追加します (プロジェクトの作り方や入力方法は後述します)。</p>
@@ -213,7 +213,7 @@ CFileCache::~CFileCache(<span class="cpp__keyword">void</span>)&nbsp;
 <p>最後に、[6] でオブジェクトを削除することで、オブジェクト内部のキャッシュも削除されます。</p>
 <p>今回作成するサンプルでは、例 9.2 と同様の方法で .NET 対応プログラムからもこの CFileCache クラスを利用できるようにするため、C&#43;&#43;/CLI を用いて実装を追加していきます。</p>
 <p>まずは、基本的な実装方法のポイントから確認していきましょう。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="03" style="font-size:120%; margin-top:20px">3. .NET 向けの基本的な実装 ～単純なラッパーではない点に注意～</h2>
 <p>例 9.1 のネイティブ コード版の CFileCache クラスを .NET 環境から利用させるための、最も基本的な実装方法は、C&#43;&#43;/CLI を用いてマネージ コードのクラスを作成し、このマネージ クラスを介して、ネイティブ コードのクラスを利用させる方法です。つまり、ネイティブ コード版の CFileCache オブジェクトにアクセスするための、マネージ コード版のラッパー クラスを作ります。</p>
@@ -264,7 +264,7 @@ CFileCache::~CFileCache(<span class="cpp__keyword">void</span>)&nbsp;
 <p style="margin:0px"><strong>Note:</strong></p>
 <p>この後のサンプルでは、Visual C&#43;&#43; 2010 Express を用いながら、順に作成していきます。また、作成したサンプルの動作を確認するには、Visual C# 2010 Express などの他の言語製品も必要になりますが、机上でも確認ができるように、C# での実行結果なども示しています。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="04" style="font-size:120%; margin-top:20px">4. ラッパーのためのハイブリッド型のプロジェクトの準備</h2>
 <p>前述のようなラッパークラスを実装するには、C&#43;&#43;/CLI を用いてマネージ コード対応のクラス本体を実装するほか、このラッパー クラスの内部ではネイティブ コードのクラスにアクセスするために、ネイティブ コードのプログラムも併記することになります。この理由から、最初にマネージ コードとネイティブ コードを併用する「ハイブリッド型」に対応したプロジェクトを用意する必要があります。</p>
@@ -296,9 +296,9 @@ CFileCache::~CFileCache(<span class="cpp__keyword">void</span>)&nbsp;
 </div>
 </li><li>ビルドを行い、正常終了することを確認します。 </li></ol>
 <p>これで、このあと必要となる「ハイブリッド型」のプロジェクトの準備ができました。このクラス ライブラリ プロジェクトの主な目的は、.NET 対応のクラス ライブラリ (DLL) を作成することですが、プロジェクトのプロパティ ページで、「共通言語ランタイム サポート」の設定を確認すると、次図のように「共通言語ランタイム サポート (/clr)」となっています。前回触れたように、これは「ハイブリッド型」のアプリケーションを構築するための設定です。</p>
-<p><img src="41269-img_0902.gif" alt="図 9.2" width="600" height="450"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-a1dc1f1d/image/file/41269/1/img_0902.gif" alt="図 9.2" width="600" height="450"></p>
 <p><strong>図 9.2 マネージコードとネイティブコードを併用可能な設定</strong></p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="05" style="font-size:120%; margin-top:20px">5. ラッパー クラスの作成</h2>
 <p>それでは、ネイティブ コード版の CFileCache クラスをラッブした、マネージ コード版のクラスを作成してみましょう。ここでは、FileCacheWrapper という名前のクラスを作成します。</p>
@@ -307,7 +307,7 @@ CFileCache::~CFileCache(<span class="cpp__keyword">void</span>)&nbsp;
 <li>ソリューション エスクプローラーのツリー上で、MyInteropLib プロジェクト ノードを右クリックし、ショートカット メニューが表示されたら、[追加]、[クラス] の順にクリックします。
 </li><li>[クラスの追加] ダイアログ ボックスが表示されたら、一覧から「C&#43;&#43; クラス」を選択して、追加をクリックします。 </li><li>次図のように、「汎用 C&#43;&#43; クラス ウィザード」が起動するので、右側中央の［マネージ］チェック ボックスがチェックされていることを確認します。クラス名欄には「FileCacheWrapper」と入力し、ファイル名は既定のままにして、[完了] ボタンをクリックします。
 </li></ol>
-<p><img src="41270-img_0903.gif" alt="図 9.3" width="600" height="388"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-a1dc1f1d/image/file/41270/1/img_0903.gif" alt="図 9.3" width="600" height="388"></p>
 <p><strong>図 9.3 マネージ クラスの追加</strong></p>
 <p>[マネージ] チェック ボックスをチェックすることで、マネージ コード対応クラス (マネージ クラス) のソース コードのひな形が生成されます。</p>
 <p>FileCacheWrapper クラスのひな形が生成されたら、CFileCache クラスのラッパー クラスとするため、次のように修正してください。(個々の意味については、順に説明します。)</p>
@@ -423,7 +423,7 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <p>また、この FileCacheWrapper クラスでは、[5] のように、マネージ クラス ManagedData のオブジェクトもメンバーとして追加しました。この ManagedData の定義は、[16] にあります。</p>
 <p>結局のところ、ラッパー クラスである FileCacheWrapper は、そのメンバーとして (いわば子オブジェクトとして)、[4] の CFileCache 型のネイティブ オブジェクトと、[5] の ManagedData 型のマネージ オブジェクトという 2 種類のオブジェクトを持っていることになります。このうち、後者の ManagedData オブジェクト自体は特別な機能を実装していませんが、特に後処理において、これら 2 種類のオブジェクトの扱いに注意すべき点があるので、このような構成にしました。</p>
 <p>このあとは、このサンプル コードの中で、いくつか特徴と注意点を確認してみましょう。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="06" style="font-size:120%; margin-top:20px">6. ラッパー クラスの公開 ～アクセス修飾子の注意点～</h2>
 <p>この例 9.5 の C&#43;&#43;/CLI を用いたサンプル コードでも、private や public などのアクセス修飾子が登場し、その使い方は従来の C&#43;&#43; とほぼ同様です。ただし、従来の C&#43;&#43; におけるアクセス修飾子と若干の違いがあります。</p>
@@ -431,7 +431,7 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <p>一方、.NET のマネージ コードでは、public であることは、型 (クラス) の外部からアクセスできるだけでなく、DLL ファイル (正確にはアセンブリ ファイルという) の外部からアクセス可能であることを意味しています。エクスポートなどの特殊な記述は必要ありません。</p>
 <p>ここでは、[3] の FileCacheWrapper クラスは、外部のプログラムから利用されるので public 修飾子が付いています。一方、[16] の ManagedData クラスは DLL ファイル (アセンブリ ファイル) の外部に公開する必要はないので、public が付いていません。その結果的、アセンブリの内部だけで利用できるようになります。</p>
 <p>なお、名前空間の使用方法も従来と同様であり、今回は [1] の MyInteropLib 名前空間の中に、各クラスが定義されています。名前空間には public などのアクセス修飾子を付けることはできませんが、複数のクラスの論理的なグループとして、DLL ファイルの外部からも認識できます。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="07" style="font-size:120%; margin-top:20px">7. 各メンバーの定義</h2>
 <p>次に、この FileCacheWrapper クラスの機能を確認しながら、クラス内の各メンバーの特徴について確認します。</p>
@@ -499,7 +499,7 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <p>また、例 9.5 の [10] のインデックス付きプロパティは、例 9.1 のネイティブ版の CFileCache クラスに定義された演算子 [ ] のオーバーロード (例 9.1 の末尾の CFileCache::operator[](int ndx)) に相当するものであり、ここでは、これをラップしたものが例 9.5 の [10] のプロパティに当たります。</p>
 <p>なお、このプロパティの中の [11] の get アクセサーでは、指定されたインデックスが有効範囲であるか、あらかじめ確認するために利用できます。ここでは [12] のように、有効な範囲であるかチェックし、有効でない場合は、[13] のように例外をスローしています。従来の C&#43;&#43; とは異なり、スローできるデータは、マネージ クラスである Exception クラスか、または、その派生クラスだけです。ここでは、インデックスの範囲外を意味する「IndexOutOfRangeException」をスローしています。このクラスも、Exception
  クラスの派生クラスです。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="08" style="font-size:120%; margin-top:20px">8. 後処理の注意点 ～デストラクターとファイナライザー～</h2>
 <p>ここで、マネージ オブジェクトの後処理を担当する 2 つのメソッド「デストラクター」と「ファイナライザー」の使用方法について改めて確認します。</p>
@@ -529,7 +529,7 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <li style="list-style:none none">d. そのオブジェクトに含まれる子オブジェクトなどの、ネイティブオブジェクトの後処理 </li></ol>
 </li></ul>
 <p>このあとは、これらを行う理由や記述方法について、それぞれ個別に確認しましょう。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="09" style="font-size:120%; margin-top:20px">9. デストラクターで実装すべきこと</h2>
 <p>前述のおとり、デストラクターの作法として (a) から (c) までの 3 つの行うべきことがあります。<br>
@@ -550,7 +550,7 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <p style="margin:0px"><strong>Note:</strong></p>
 <p>正確にいうと、C&#43;&#43;/CLI で記述したデストラクターのメソッド本体は、プライベートなメソッドになり、このプライベート メソッドを間接的に呼び出すパブリック メソッドとして、IDisposalbe インターフェイスの Dispose メソッドが、コンパイラによって生成されます (実際は、もうワンクッション別のメソッド呼び出しが中間に介在します) 。なお、この Dispose メソッドに関しては、ソース コード上のデストラクターのアクセス修飾子に関係なく、パブリック メソッドになります。</p>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="10" style="font-size:120%; margin-top:20px">10. ファイナライザーで実装すべきこと</h2>
 <p>ファイナライザーに後処理を実装しておけば、万が一、プログラマーがデストラクターの呼び出しを忘れても、ガベージ コレクションの際には、確実に後処理を行うことができます。ただし、行うべき後処理に注意してください。前述の作法 (d) に挙げたとおり、ネイティブ オブジェクトの後処理だけです。</p>
@@ -571,7 +571,7 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <li><a href="http://msdn.microsoft.com/ja-jp/library/b1yfkh5e.aspx" target="_blank">アンマネージ リソースをクリーンアップするための Finalize および Dispose の実装</a>
 </li></ul>
 </div>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="11" style="font-size:120%; margin-top:20px">11. サンプルの利用</h2>
 <p>最後に参考までに、このラッパー クラスを C# から利用した実行の様子を示しておきます。</p>
@@ -580,22 +580,22 @@ FileCacheWrapper::!FileCacheWrapper()&nbsp;&nbsp;<span class="cpp__com">//&larr;
 <p>MyInteropLib.dll</p>
 </div>
 <p>この DLL ファイルへの参照の追加を行った C# のコンソール プロジェクトにおいて、例 9.3 のサンプル コードを入力して実行すると、次のようにコンソールには表示されます。(次図の実行結果では、プログラム ファイルと同一のフォルダーに「Test.txt」というファイルがあることが前提です。このファイルには「Test」という半角 4 バイトが、ANSI 文字列として含まれています。)</p>
-<p><img src="41271-img_0904.jpg" alt="図 9.4" width="550" height="210"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-a1dc1f1d/image/file/41271/1/img_0904.jpg" alt="図 9.4" width="550" height="210"></p>
 <p><strong>図 9.4 FileCacheWrapper を利用した実行結果</strong></p>
 <p>例 9.3 の [3] では、Length プロパティを参照した結果を表示するためのもので、実際には、図 9.4 のコンソールの 1 行目のように「Length=4」と表示されます。</p>
 <p>また、例 9.3 の [4] では「fileCache[2]」とインデックスを使用して、3 バイト目を参照しています (先頭のインデックス値はゼロ)。ここでは、ファイルのデータは「Test」という 4 バイトになっており、図 9.4 のコンソールの 2 行目には「s」と表示されます。また、例 9.3 の [4] の次行では、「fileCache[5]」と参照しており、添え字が範囲外なので、例外が発生します。そのため、例 9.3 の [5] の catch ブロックに制御が移り、図 9.4 のコンソール画面には例外オブジェクトの型
  (IndexOutOfRangeException) が表示されます。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="12" style="font-size:120%; margin-top:20px">12. まとめ</h2>
 <p>今回は、C&#43;&#43;/CLI を使用して、既存のネイティブ コード版の C&#43;&#43; のクラスを、.NET 側から再利用できるようにするため、マネージ版ラッパー クラスの実装方法について確認しました。いくつか、主な C&#43;&#43;/CLI の構文の特徴を確認したほか、マネージ クラスの中に、ネイティブ オブジェクトをラップするという実装形態において、留意すべき点を取り上げました。特に、.NET 管理下のマネージ オブジェクトと、ネイティブ環境下のオブジェクトでは、その削除方法が異なります。この違いを意識しながら、デストラクターやファイナライザーなどの後処理で実装すべき点などを確認しました。</p>
-<p><a href="#top" target="_self"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top" target="_self"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -606,4 +606,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

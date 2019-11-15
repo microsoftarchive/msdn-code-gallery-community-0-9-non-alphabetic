@@ -126,7 +126,7 @@
 </div>
 <p>上記の手法は、Wait (Any) モデルと呼ばれ、3 つの異なる接続を用いて、それぞれ別のクエリを行い、いずれかが終了したタイミングで EndExecuteReader メソッドを実行する形になります。(これとは別に、Wait (ALL) と呼ばれる、全ての終了を待つモデルも存在します。)</p>
 <p>実行すると、commandText2、commandText3、commandText1 の順番に処理されるのが分かります。これは、SQL の中に WAITFOR DELAY が指定してあるためです。</p>
-<p><img src="23433-img01.gif" alt="図 1" width="500" height="140"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/dataaccess-howto-960aff91/image/file/23433/1/img01.gif" alt="図 1" width="500" height="140"></p>
 <h2 style="margin-top:30px; font-size:120%">参考リンク</h2>
 <ul>
 <li><a href="http://msdn.microsoft.com/ja-jp/library/zw97wx20.aspx" target="_blank">非同期操作 (ADO.NET)</a>
@@ -135,8 +135,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/data" target="_blank"><img src="-ff950935.data_180x70(ja-jp,msdn.10).gif" border="0" alt="データ アクセス デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/data" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.Data_180x70(ja-jp,MSDN.10).gif" border="0" alt="データ アクセス デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="/ja-jp/ff363212" target="_blank">逆引きサンプル コード一覧へ</a>

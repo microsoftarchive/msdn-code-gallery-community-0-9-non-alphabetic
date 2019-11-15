@@ -84,7 +84,7 @@
 </div>
 </div>
 <p>上記のコードを実行すると以下のような結果が表示されます。</p>
-<p><img src="23488-408_1.jpg" alt="図 1" width="252" height="111"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/dataaccess-howto-c0a81ff0/image/file/23488/1/408_1.jpg" alt="図 1" width="252" height="111"></p>
 <p>1 行目は、ProductName 列を Chai から更新！と更新しました。更新行の元データは <span style="color:#339966"><strong>DataRowVersion</strong></span>.Original に存在します。<br>
 また、3 行目は削除しましたが、削除された元データも同じく <span style="color:#339966"><strong>DataRowVersion</strong></span>.Original に存在します。</p>
 <p>DataRowVersion は以下のような値を取ります。</p>
@@ -120,8 +120,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70(ja-jp,msdn.10).jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/data" target="_blank"><img src="-ff950935.data_180x70(ja-jp,msdn.10).gif" border="0" alt="データ アクセス デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://msdn.microsoft.com/ff950935.coderecipe_180x70(ja-jp,MSDN.10).jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/data" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.Data_180x70(ja-jp,MSDN.10).gif" border="0" alt="データ アクセス デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -131,4 +131,4 @@
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt=""> ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt=""> ページのトップへ</a></p>

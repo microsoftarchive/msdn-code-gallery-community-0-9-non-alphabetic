@@ -13,13 +13,13 @@
 - 06/22/2011
 ## Description
 
-<h2 style="padding:10px"><img src="-learn_sm.png" alt=""> このコンテンツのポイント</h2>
+<h2 style="padding:10px"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/Learn_sm.png" alt=""> このコンテンツのポイント</h2>
 <p><img src="23089-ie0601.jpg" alt="" width="280" height="176" align="right" style="margin:-1em 0 0 1em">Internet Explorer 9 で新たに導入された、新しい HTML5 機能の 1 つが、Canvas 要素です。これは、Canvas 2D API と一緒に使用します。Canvas 要素は、「HTML5 仕様」で定義されているように、解像度依存のビットマップ
  キャンバス上へのグラフィックのレンダリングを可能にします。キャンバスに描画するには、Canvas 2D コンテキストなどの &quot;コンテキスト&quot; を使用します。これは、W3C Canvas 2D API 仕様に指定されています。<br>
 Internet Explorer 9 では、Canvas 要素のサポートが導入されます。2D Canvas 描画 API が、サポートされる唯一のコンテキストとなります。Internet Explorer 9 のすべてのグラフィックスと同様、Canvas は、Windows と GPU によるハードウェア アクセラレーションに対応しています。<br>
 今回はこの Canvas の特長と、実装方法について、確認していきましょう。</p>
 <p>IE9 の Canvas サポートの詳細については、<a href="http://msdn.microsoft.com/ja-jp/ie/ff468705#_HTML5_canvas" target="_blank">MSDN オンライン</a>を参照してください。</p>
-<h2 style="padding:10px"><img src="-code_sm.png" alt=""> 今回紹介するコード</h2>
+<h2 style="padding:10px"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/Code_sm.png" alt=""> 今回紹介するコード</h2>
 <h4>(1) Canvas の API を使って四角形を描画する</h4>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
@@ -129,14 +129,14 @@ Internet Explorer 9 では、Canvas 要素のサポートが導入されます�
 <ul>
 <li>HTML 文書を作成する機能自体の改良を実施する </li><li>Web アプリケーションを開発するための様々な仕様を追加する </li></ul>
 <p>ということになります。</p>
-<p><img src="22744-ie0102.gif" alt="文章構造" width="181" height="173" align="left" style="margin-right:1em">前者は、セマンティックス要素の追加のことで、文章構造をロジカルにし、可読性を高め、SEO 対策等にも利用可能なようにするということです。HTML5 が提供するこれらの新しい
+<p><img src="http://i2.code.msdn.s-msft.com/internetexplorer-10line-b49a0af1/image/file/22744/1/ie0102.gif" alt="文章構造" width="181" height="173" align="left" style="margin-right:1em">前者は、セマンティックス要素の追加のことで、文章構造をロジカルにし、可読性を高め、SEO 対策等にも利用可能なようにするということです。HTML5 が提供するこれらの新しい
  Semantics タグにより、DIV や SPAN その他の ID 属性を持った class 要素をリプレースすることができます。具体的には、Header, Footer, Article, Section, Nav, Aside, Hgroup, Figure, Figcaption, Address 等々があります。</p>
 <p>なお、後者は、本稿以下で順次ご紹介する、HTML5 で初めて登場した新タグや新しく追加された API のことです。</p>
 <p>以上 2 つの特長により、Flash や Silverlight 等のブラウザー プラグインで実現できる Web アプリケーションとして必要な機能のうちの一部を、標準の HTML5 及び JavaScript でシンプルに実現できる、ということになります。</p>
 <div style="clear:both"></div>
 <h3 id="0101">Web アプリケーション プラットフォームとしての HTML5</h3>
 <p>この図では、広義の HTML5 という部分と、狭義の HTML5 という部分について、提示しています。広義の HTML5 の中には、Web Sockets や Web Storage 等々色々あります。このシリーズでは、主に W3C HTML5 と書いてある箇所をメインに、IE9 や IE10 PP1、そして HTML Labs にある実装を元に、構文要素、Video/Audio、Canvas、フォーム要素、リッチテキスト API、ドラッグ アンド ドロップ API 等々順次ご紹介して行きます。</p>
-<p class="Recipe"><img src="22745-ie0103.jpg" alt="一般的に HTML5 に含められる API 類" width="504" height="366" align="middle"></p>
+<p class="Recipe"><img src="http://i1.code.msdn.s-msft.com/internetexplorer-10line-b49a0af1/image/file/22745/1/ie0103.jpg" alt="一般的に HTML5 に含められる API 類" width="504" height="366" align="middle"></p>
 <h3 id="0102">Canvas の特長と実装方法</h3>
 <p>Canvas とは、Javascript で 2D の図形を描くことができるブロック要素のことです。Canvas 要素は、図などのフォーマットではなく、グラフィックスを描画する領域を示す指定した範囲内で、図形などの線画、画像などの 2D Graphics を自由に描画できます。すなわちグラフィックスの描画が可能な領域を示します。<br>
 実装方法としては、下記の通りです。まずは Canvas を定義します。</p>
@@ -200,9 +200,9 @@ CanvasPad (英語)</a>) や <a href="http://www.beautyoftheweb.jp/" target="_bla
 <h3 id="0104">HTML5 オーサリングのためのツール</h3>
 <p>マイクロソフトでは、HTML5 対応のツールとして、下記 2 製品があります。</p>
 <ul>
-<li style="margin-bottom:1.5em"><img src="22746-ie0104.gif" alt="Microsoft Visual Studio 2010 Service Pack 1" width="360" height="44"><br>
+<li style="margin-bottom:1.5em"><img src="http://i4.code.msdn.s-msft.com/internetexplorer-10line-b49a0af1/image/file/22746/1/ie0104.gif" alt="Microsoft Visual Studio 2010 Service Pack 1" width="360" height="44"><br>
 Visual Studio 2010 Service Pack 1 には、HTML5 インテリセンスと検&#35388; (バリデーション) が含まれています。また、豊富な CSS3 対応のための改良がされています。
-</li><li style="margin-bottom:1.5em"><img src="22747-ie0105.gif" alt="Microsoft Expression Web 4 Service Pack 1" width="360" height="44"><br>
+</li><li style="margin-bottom:1.5em"><img src="http://i2.code.msdn.s-msft.com/internetexplorer-10line-b49a0af1/image/file/22747/1/ie0105.gif" alt="Microsoft Expression Web 4 Service Pack 1" width="360" height="44"><br>
 Expression Web 4 Service Pack 1 には、HTML5 コード エディター サポートと、HTML5 のデザイン ビューのサポートがあります。CSS3 の新仕様からの多くの新プロパティが含まれています。
 </li></ul>
 <p style="margin-top:20px"><a href="#top"><img src="9536-image.png" border="0" alt=""> ページのトップへ</a></p>
@@ -347,8 +347,8 @@ SVG は、DOM の利用により多くの操作が必要で、より多くのメ
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/ie" target="_blank"><img src="-ff950935.ie_180x70(ja-jp,msdn.10).jpg" border="0" alt="Internet Explorer デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/ie" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.ie_180x70(ja-jp,MSDN.10).jpg" border="0" alt="Internet Explorer デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ie/hh226882" target="_blank">
@@ -359,4 +359,4 @@ SVG は、DOM の利用により多くの操作が必要で、より多くのメ
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

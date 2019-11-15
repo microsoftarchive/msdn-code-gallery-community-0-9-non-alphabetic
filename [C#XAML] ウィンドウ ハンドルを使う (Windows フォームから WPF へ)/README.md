@@ -83,7 +83,7 @@
 <p>&nbsp;</p>
 <h2 style="margin-top:30px">実行結果</h2>
 <p><br>
-<img src="18797-image001.png" border="0" alt="" width="589" height="383"></p>
+<img src="http://i4.code.msdn.microsoft.com/cvbxaml-wpf-windows-wpf-d00e8e66/image/file/18797/1/image001.png" border="0" alt="" width="589" height="383"></p>
 <h2 style="margin-top:30px">ポイント</h2>
 <p>ここでは、Windows Vista や Windows 7 の Aero Glass を使って WPF アプリケーションの背景を半透明化しています。WPF はウィンドウのクライアント領域を描画しますが、Aero Glass は WPF の機能ではなく、タイトル バーや枠の描画は Windows 自身に任されています。ここでは、四辺の枠の太さのうち左側を最大値にすることで、ウィンドウ全体を枠として半透明で描画します。このとき、WPF のウィンドウの背景 (Background プロパティ) は Transparent
  (透明) に設定しておかなければなりません。</p>
@@ -141,8 +141,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/netframework/" target="_blank"><img title=".NET Framework デベロッパー センター" src="-ff950935.netframework_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img title="Code Recipe" src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/netframework/" target="_blank"><img title=".NET Framework デベロッパー センター" src="http://i.msdn.microsoft.com/ff950935.netframework_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -153,4 +153,4 @@
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

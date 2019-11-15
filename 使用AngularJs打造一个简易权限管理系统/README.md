@@ -25,7 +25,7 @@
 <p><span style="font-size:20px"><strong>描述</strong></span></p>
 <p><span>首先看下整个项目的架构设计图：<br>
 </span></p>
-<p><img src="-383187-20160508113957189-1354902211.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/383187/201605/383187-20160508113957189-1354902211.png" alt=""></p>
 <p><span>从上图可以看出整个项目的一个整体结构，接下来，我来详细介绍了项目的整体架构：</span></p>
 <p><span></span><span>采用Asp.net Web API来实现REST 服务。这样的实现方式，已达到后端服务的公用、分别部署和更好地扩展。</span><span>Web层依赖应用服务接口，并且使用Castle Windsor实现依赖注入。</span></p>
 <ul>

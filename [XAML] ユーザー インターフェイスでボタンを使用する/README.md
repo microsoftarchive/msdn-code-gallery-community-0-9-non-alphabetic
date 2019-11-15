@@ -30,7 +30,7 @@
 </div>
 </div>
 <p>Visual Studio の XAML デザイナー上でみると、このようになっています。</p>
-<p><img src="21463-image001.gif" alt="図 1" width="265" height="176"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/silverlight-howto-0abdabe7/image/file/21463/1/image001.gif" alt="図 1" width="265" height="176"></p>
 <p>各コントロールのプロパティの説明です。</p>
 <dl><dt><strong>Content: </strong></dt><dd>ボタンの上に表示される文字列です。 </dd><dt><strong>Height: </strong></dt><dd>コントロールの見た目の高さです。 </dd><dt><strong>HorizontalAlignment: </strong></dt><dd>パネル内のコントロールの水平方向の位置を、Left、Center、Right、Stretch で表します。ここでは Left が指定されているので、コントロールはパネル内で左寄せされて表示されます。ただし、Margin プロパティが設定されていたときは、その値の分のマージンが設定されます。
 </dd><dt><strong>Margin: </strong></dt><dd>4 つのパラメーターは、順に左側、上側、右側、下側のマージンを示します。マージンとは、その親となるパネルまたはグリッドの縁からの距離です。主に Grid パネルに貼り付けているときに使用します。
@@ -54,7 +54,7 @@
 </div>
 </div>
 </div>
-<p><img src="21464-image002.gif" alt="図 2" width="345" height="178"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/silverlight-howto-0abdabe7/image/file/21464/1/image002.gif" alt="図 2" width="345" height="178"></p>
 <p>Button コントロールは、クリックされると Clicked というイベントを発生します。</p>
 <p>Visual Studio の XAML デザイナー上で、貼り付けている Button コントロールをダブルクリックすると、イベント発生時に実行されるイベント ハンドラーが生成します。</p>
 <p>以下の例は、ボタンがクリックされたらボタンに表示されている文字を &quot;OK!&quot; に変更し、文字色を青に変更するプログラムの例です。</p>
@@ -109,8 +109,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="-ff950935.silverlight_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="http://msdn.microsoft.com/ff950935.silverlight_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">

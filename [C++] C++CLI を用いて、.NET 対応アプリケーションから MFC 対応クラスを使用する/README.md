@@ -132,7 +132,7 @@ END</pre>
 <ol>
 <li>.NET 向け (CLR 向け) の「クラス ライブラリ」プロジェクト テンプレートを用いて、プロジェクトを新規に作成します。ここでは、プロジェクト名を「MyMFCInterop」とします。
 </li><li>このプロジェクトを MFC 対応にするため、プロジェクトのプロパティ ページを表示させ (ソリューション エクスプローラー上で、MyMFCInterop プロジェクト ノードを右クリックして [プロパティ] をクリック)、左のツリーでは、[構成プロパティ] ノード配下の [全般] を選択します。このときの右ペインでは、「MFC の使用」欄を「共有 DLL で MFC を使う」を選択します (図 8.1)。なお、「共通言語ランタイム サポート」欄が、「共通言語ランタイム サポート (/clr)」になっていることを確認します。この設定によってハイブリッド型になります。
-<p><img src="41364-img08-01.gif" alt="" width="600" height="448"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-howto-76f9cd9e/image/file/41364/1/img08-01.gif" alt="" width="600" height="448"></p>
 <p><strong>図 8.1 MFC 対応およびハイブリッド型の設定</strong></p>
 <div style="padding:0pt 15px; margin:0pt 0pt 30px; background-color:#efefef; border:1px solid #333333">
 <h4 style="margin:0.75em 0pt -0.5em">Note:</h4>
@@ -362,7 +362,7 @@ END</pre>
 <div class="endscriptcode">&nbsp;</div>
 </strong>
 <p>これを実行すると、Main メソッド内の最後の ShowDialog メンバー関数を呼び出した際に、次図のように MFC 版のダイアログ ボックスが表示されます。</p>
-<p><img src="41365-img08-02.gif" alt="" width="352" height="139"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-howto-76f9cd9e/image/file/41365/1/img08-02.gif" alt="" width="352" height="139"></p>
 <p><strong>図 8.2 C# のプログラム コードから呼び出された MFC 版のダイアログ ボックス</strong></p>
 </li></ol>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
@@ -370,8 +370,8 @@ END</pre>
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -383,4 +383,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tbody>
 </table>
 <p>&nbsp;</p>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

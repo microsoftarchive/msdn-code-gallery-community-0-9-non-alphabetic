@@ -83,7 +83,7 @@
 <p>Now that we have all our images &ndash; it is time to start detecting the faces within those images. Once we have detected the faces we can then start to &ldquo;recognise&rdquo; them. This sample shows how to detect faces and parts of faces within a given
  image.</p>
 <div>
-<h1><img id="75521" src="75521-screenhunter_02%20feb.%2004%2016.22.gif" alt="" width="718" height="473"></h1>
+<h1><img id="75521" src="http://i1.code.msdn.s-msft.com/dave-gordon-computer-b1012ed0/image/file/75521/1/screenhunter_02%20feb.%2004%2016.22.gif" alt="" width="718" height="473"></h1>
 <h1>Building the Sample</h1>
 </div>
 <p>The sample was written in Visual Studio 2012, on Windows Server x64. It should run on any machine with Windows XP and better with the appropriate configuration. You will need to install Intel's

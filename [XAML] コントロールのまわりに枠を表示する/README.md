@@ -32,7 +32,7 @@
 </div>
 </div>
 <p>Visual Studio の XAML デザイナー上でみると、このようになっています。Button コントロールのまわりに見える灰色の部分が Border コントロールです。</p>
-<p><img src="22423-image001.gif" alt="図 1" width="288" height="184"></p>
+<p><img src="http://i3.code.msdn.s-msft.com/silverlight-howto-cfd14ff7/image/file/22423/1/image001.gif" alt="図 1" width="288" height="184"></p>
 <p>Border コントロールは、別のコントロールやパネルとともに使用します。Border コントロールの中に入れることができるコントロールまたはパネルは、1 つのみです。</p>
 <p>各コントロールのプロパティの説明です。</p>
 <dl><dt><strong>BorderBrush:</strong> </dt><dd>枠の色です。 </dd><dt><strong>BorderThickness:</strong> </dt><dd>枠の線の幅です。 </dd><dt><strong>Height:</strong> </dt><dd>コントロールの見た目の高さです。 </dd><dt><strong>HorizontalAlignment:</strong> </dt><dd>パネル内のコントロールの水平方向の位置を、Left、Center、Right、Stretch で表します。ここでは Left が指定されているので、コントロールはパネル内で左寄せされて表示されます。ただし、Margin プロパティが設定されていたときは、その値の分のマージンが設定されます。
@@ -46,8 +46,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="-ff950935.silverlight_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="http://msdn.microsoft.com/ff950935.silverlight_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">

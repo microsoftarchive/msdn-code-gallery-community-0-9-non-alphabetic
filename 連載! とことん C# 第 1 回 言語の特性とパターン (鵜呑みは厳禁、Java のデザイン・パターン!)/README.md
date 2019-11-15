@@ -481,8 +481,8 @@ class Program
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/netframework/" target="_blank"><img title=".NET Framework デベロッパー センター" src="-ff950935.netframework_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/netframework/" target="_blank"><img title=".NET Framework デベロッパー センター" src="http://i.msdn.microsoft.com/ff950935.netframework_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt;&nbsp;<a href="http://msdn.microsoft.com/ja-jp/ff357685" target="_blank">連載! とことん Visual C# 一覧へ</a>

@@ -20,10 +20,10 @@
 }</p>
 </div>
 <p>このような場合、ICollection を選択して、マウスで右クリックをおこない、[インタフェースの実装] を選択します。実装が必要なメソッドやプロパティのスタブ コードが挿入されるため、あとはゆっくりと中身のロジックだけを実装すれば OK です。</p>
-<p><img src="18074-image001.png" alt="図 1" width="500" height="93"></p>
+<p><img src="http://i4.beta.code.msdn.microsoft.com/visualstudio-tips-cbffb9c2/image/file/18074/0/image001.png" alt="図 1" width="500" height="93"></p>
 <p>※Visual Basic の場合は、「Implements ICollection」と入力して Enter キーを押すと、実装が必要なスタブ コードが自動生成されます。</p>
 <p>また、抽象クラス (abstract class) を継承したクラスの場合は、「override」&#43; Space キーを入力すると、オーバーライド可能なメンバーの一覧がインテリセンスで表示され、選択すると、そのスタブ コードが挿入されます。</p>
-<p><img src="18075-image002.png" alt="図 2" width="498" height="291"></p>
+<p><img src="http://i2.beta.code.msdn.microsoft.com/visualstudio-tips-cbffb9c2/image/file/18075/0/image002.png" alt="図 2" width="498" height="291"></p>
 <p>※Visual Basic の場合は、「Overrides」と入力してください。</p>
 <div style="margin:20px 0px; padding:10px; background-color:#dedfde">
 <p>public class Class1 : DictionaryBase<br>
@@ -40,7 +40,7 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ee708292" target="_blank">
@@ -50,4 +50,4 @@ Code Recipe へ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

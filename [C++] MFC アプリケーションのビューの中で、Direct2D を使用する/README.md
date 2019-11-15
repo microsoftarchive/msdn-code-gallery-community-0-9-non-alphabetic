@@ -20,7 +20,7 @@
 <p>動作確認環境: Visual Studio 2010 (MFC を利用できるエディション、Express よりも上位のエディション) 、Windows 7 において検&#35388; (Direct2D を利用可能な Windows OS であれば利用可能)</p>
 <hr>
 <p>ここでは、次の図 10.1 に示すように、MFC アプリケーションのビュー (CView) のクライアント領域に、従来の GDI のデバイス コンテキスト (CDC) を使用して文字列を表示するほか、同じデバイス コンテキストを使用して Direct2D による図形を表示する方法を示します。</p>
-<p><img src="42230-488_001.jpg" alt="図 1" width="553" height="352"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-howto-d2f1efe1/image/file/42230/1/488_001.jpg" alt="図 1" width="553" height="352"></p>
 <p style="color:#3f3f3f"><strong>図 10.1 CDC を使用してビュー上に GDI のテキストと Direct2D の図形を表示する</strong></p>
 <p>作成の手間を減らすため、まずは Visual C&#43;&#43; 2010 の MFC アプリケーション プロジェクトの新規作成を開始し (プロジェクト名は「MFCAppD2D」)、MFC アプリケーション ウィザードを起動して、以下の設定で、単一のウィンドウを持つ SDI アプリケーションを作成します。Direct2D の使用方法の要点を把握しやすくするために、ウィザードで選択する機能オプションは、単純なものを選んでいます。</p>
 <ul>
@@ -47,7 +47,7 @@
 <li style="margin-bottom:8px">プロジェクト プロパティ ページを開くため、ソリューション エクスプローラー上で「MFCAppD2D」プロジェクトを右クリックして、[プロパティ] をクリックします。
 </li><li style="margin-bottom:8px">プロジェクト プロパティ ページの左側のツリーで、[構成プロパティ]、[リンカー]、[入力] の順にクリックして展開した後、右側の「追加の依存ファイル」の欄に、次図 10.2 と同じになるように「D2d1.lib」を追加します (この「追加の依存ファイル」の行の右端のドロップダウン リストから「&lt;編集...&gt;」をクリックすれば、対話形式でこのライブラリ名を入力できます)。
 </li></ul>
-<p><img src="42231-488_002.jpg" alt="図 2" width="580" height="185"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-howto-d2f1efe1/image/file/42231/1/488_002.jpg" alt="図 2" width="580" height="185"></p>
 <p style="color:#3f3f3f"><strong>図 10.2 Direct2D のライブラリを利用可能にする</strong></p>
 <p>Direct2D のヘッダーをインクルードするため、ファイル stdafx.h の末尾に、次のようにディレクティブを追加します。</p>
 <p style="margin:20px 0px 0px 0px; border-left:7px solid #666666; padding-left:12px">
@@ -279,8 +279,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -291,4 +291,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

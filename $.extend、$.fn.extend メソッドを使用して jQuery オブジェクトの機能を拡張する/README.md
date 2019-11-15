@@ -42,8 +42,8 @@ window.alert(&nbsp;
 </div>
 </div>
 </div>
-<p><img src="18632-arrow.gif" alt="" width="35" height="42"></p>
-<p><img src="18634-image001.jpg" alt="図 1" width="209" height="186"></p>
+<p><img src="http://i2.code.msdn.microsoft.com/jquery-howto-a0e2c41c/image/file/18632/1/arrow.gif" alt="" width="35" height="42"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/jquery-howto-a0e2c41c/image/file/18634/2/image001.jpg" alt="図 1" width="209" height="186"></p>
 <p>$.extend メソッドには、「メソッド名: 匿名関数」のハッシュとして追加したいメソッドをいくつでも指定できます。$.extend メソッドで定義された静的メソッドには、「$.メソッド名(...)」、または「jQuery.メソッド名(...)」でアクセスできます。</p>
 <p>もうひとつ、よく&#20284;たメソッドとして、$.fn.extend メソッドがあります。こちらは jQuery に対してインスタンス メソッドを追加するためのメソッドです。たとえば以下は、現在の要素セットに対して一律、指定された色で枠線を付与する border メソッドを追加しています。</p>
 <div class="scriptcode">
@@ -78,16 +78,16 @@ $(<span class="js__string">'li.new'</span>).border(<span class="js__string">'Blu
 </div>
 </div>
 </div>
-<p><img src="18633-arrow.gif" alt="" width="35" height="42"></p>
-<p><img src="18635-image002.jpg" alt="図 2" width="337" height="272"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/jquery-howto-a0e2c41c/image/file/18633/1/arrow.gif" alt="" width="35" height="42"></p>
+<p><img src="http://i2.code.msdn.microsoft.com/jquery-howto-a0e2c41c/image/file/18635/1/image002.jpg" alt="図 2" width="337" height="272"></p>
 <p>「メソッド名: 匿名関数」のハッシュとして記述する点は、$.extend メソッドと共通です。ただし、インスタンス メソッドを定義する場合、(メソッド チェーンを切らないように) 戻り値はできるだけ jQuery オブジェクトとするのが望ましいでしょう。</p>
 <p>$.extend メソッドで定義された静的メソッドには、「$(セレクター式).メソッド名(...)」でアクセスできます。</p>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/asp.net/" target="_blank"><img src="-ff950935.asp_net_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="ASP.NET デベロッパーセンター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/asp.net/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.ASP_NET_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="ASP.NET デベロッパーセンター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
@@ -98,4 +98,4 @@ ASP.NET デベロッパーセンターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

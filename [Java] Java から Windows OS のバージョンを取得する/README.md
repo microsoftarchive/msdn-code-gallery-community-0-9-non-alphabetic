@@ -196,7 +196,7 @@ Windows 7 上で実行すると以下のように表示されます。</p>
 上記コードで構造体のメンバにも加えている通り、サービスパックの情報など、&#26684;納できる情報は他にもあります。<br>
 詳しくは <a href="http://msdn.microsoft.com/en-us/library/ms724833(v=vs.85).aspx" target="_blank">
 OSVERSIONINFOEX&nbsp; Structure</a>&nbsp;をご参照ください。</p>
-<p>&nbsp;<img src="17509-sample1_3.png" alt="" width="380" height="331"></p>
+<p>&nbsp;<img src="http://i1.beta.code.msdn.microsoft.com/windows-howto-ea3f0b44/image/file/17509/0/sample1_3.png" alt="" width="380" height="331"></p>
 <h2>関連リンク</h2>
 <ul>
 <li><span lang="EN-US"><a href="http://java.sun.com/javase/ja/6/docs/ja/api/java/lang/System.html#getProperties()" target="_blank">System (Java Platform SE 6)&nbsp;</a>&nbsp;</span>
@@ -213,8 +213,8 @@ OSVERSIONINFOEX&nbsp; Structure</a>&nbsp;をご参照ください。</p>
 <table>
 <tbody>
 <tr>
-<td valign="top"><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td valign="top"><a href="http://msdn.microsoft.com/ja-jp/windows/" target="_blank"><img src="-ff950935.windows_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Windows デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td valign="top"><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td valign="top"><a href="http://msdn.microsoft.com/ja-jp/windows/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.windows_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Windows デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td valign="top">
 <ul>
 <li>もっと他の Windows 7 対応を見る &gt;&gt;<a href="http://msdn.microsoft.com/ja-jp/windows/gg581817" target="_blank">Windows XP から Windows 7 アプリ移行 実践ガイド へ</a>
@@ -227,7 +227,7 @@ Windows デベロッパー センターへ</a> </li></ul>
 </tbody>
 </table>
 <div>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 </div>
 <div class="mcePaste" id="_mcePaste" style="width:1px; height:1px; overflow:hidden; top:0px; left:-10000px">
 &#65279;</div>

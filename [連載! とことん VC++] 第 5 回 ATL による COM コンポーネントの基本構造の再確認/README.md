@@ -34,7 +34,7 @@
 <p>(2) プロジェクトの新規作成時に起動する「Win32 アプリケーション ウィザード」では、「アプリケーションの設定」ページにある「アプリケーションの種類」のオプションで、「DLL」オプションを選択します。また、「共通ヘッダー ファイルを追加」のオプションで、「ATL」チェック ボックスをチェックして、ATL のヘッダーを利用可能にしておきます。</p>
 <p>(3) ほかは既定値のままにして、プロジェクトを新規作成します。</p>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="02" style="font-size:120%; margin-top:20px">2. 今回作成する COM コンポーネント</h2>
 <p>最初に、</p>
@@ -88,7 +88,7 @@ COM Library が呼び出す。DLL のアンロード是非の問い合せに答�
 </tbody>
 </table>
 <p>これらの一連の実装を行う場合、第 2 回で解説した通常の C&#43;&#43; を用いた方法に比べると、ATL を用いた方法では、&#26684;段にコーディングが簡潔になります。その実装手順を順に確認していきましょう。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="03" style="font-size:120%; margin-top:20px">3. CLSID、IID、COM インターフェイスの定義 ～ MIDL の利用 ～</h2>
 <p>CLSID などの識別子やインターフェイスの型を定義する際に、C&#43;&#43; を用いて手作業で記述することは可能ですが、一般的には MIDL (Microsoft Interface Definition Language) を使用して定義します。</p>
@@ -148,7 +148,7 @@ library&nbsp;CalcComp2Lib&nbsp;&nbsp;<span class="js__sl_comment">//&larr;[4]</s
 <ul>
 <li>CalcComp2_h.h&nbsp; ---- ICalcObject2 インターフェイスの定義 </li><li>CalcComp2_i.c ---- CLSID_CalcObject2、IID_ICalcObject2 などの識別子の定義 </li><li>Debug\CalcComp2.tlb ---- タイプ ライブラリ </li></ul>
 <p>これで、必要な識別子と COM インターフェイスの定義が出来ました。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="04" style="font-size:120%; margin-top:20px">4. COM オブジェクト固有の実装</h2>
 <p>次に、今回の COM オブジェクトの固有部分である ICalcObject2 インターフェイスの Add メソッドを実装しましょう。以下の例 5.2 に示す 2 つのファイル (ヘッダー ファイルと C&#43;&#43; ファイル) をプロジェクトに追加してください。</p>
@@ -214,7 +214,7 @@ STDMETHODIMP&nbsp;CCalcObject2::Add(int&nbsp;op1,&nbsp;int&nbsp;op2,&nbsp;int*&n
 <p>たとえば、IUnknown インターフェイスでの AddRef メソッドや Release メソッドによる参照カウンターの増減や、要求された IID に対応するインターフェイス ポインターを返す QueryInterface メソッドの実装、またクラス ファクトリでのインスタンス作成手順などは、対象となるインターフェイスやクラスの型が異なる点を除けば、基本的な手順は同じです。</p>
 <p>ATL では、このような実装のために、型の違いをパラメータとしたクラス テンプレートが用意されています。これらのテンプレート ライブラリを使用すれば、前述のルーチン ワークの実装を簡潔に記述できます。しかも、Visual Studio では、ウィザードによってこれらの実装のほとんどを自動生成できるので、プログラマーが固有に記述すべき点は、前述の Add メソッドの部分がほとんど全てです。</p>
 <p>ここでは、ATL の基本的な使い方を理解するのが目的なので、残りの部分も手作業で作成することにします。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="05" style="font-size:120%; margin-top:20px">5. IUnknown インターフェイスの実装</h2>
 <p>次に、COM オブジェクトが実装すべき IUnknown インターフェイスの各メソッドを実装します。ATL のテンプレートとマクロを使用すれば、これらの各メソッドの実装コードをわざわざ記述する必要はなくなります。COM オブジェクトにあたる CCalcObject2 クラスの定義を、次のように変更しましょう。使用するクラスの関係で、stdafx.h にも ATL のヘッダーを 1 つ追加します。修正すべき箇所は太字部分だけです。</p>
@@ -279,7 +279,7 @@ public:&nbsp;
 <p>このマクロの記述は QueryInterface メソッドの内部実装に反映され、QueryInterface メソッドに問い合わせると、ICalcObject2 インターフェイス ポインターを返せるようになります。内部的には、QueryInterface メソッドが返せるインターフェイス一覧のテーブルが作られ、そのテーブルを照会して、該当するインターフェイス ポインターを返すような実装になります。</p>
 <p>結局のところ、CCalcObject2 オブジェクトに関する Add メソッド、Release メソッド、および QueryInterface メソッドに関する実装はこれだけです。C&#43;&#43; ファイル (CalcObject2.cpp) にも、これらのメソッドの実装を記述する必要はありません。</p>
 <p>これで、表 5.A の「1) オブジェクト本体」が完成しました。問題がなければ、この時点でも正常にコンパイルできます。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="06" style="font-size:120%; margin-top:20px">6. クラス ファクトリの実装</h2>
 <p>次に、表 5.A の「2) クラス オブジェクト」 (クラス ファクトリ) を実装します。クラス ファクトリは、特定の CLSID のオブジェクトを生成することが主な役割であり、これも ATL のクラス テンプレートを利用できます。ここでは、CCalcObject2 クラスのオブジェクト インスタンスを作成するためのクラス ファクトリが必要であり、次のように CCalcObject2 クラスを変更します。</p>
@@ -333,7 +333,7 @@ OBJECT_ENTRY_AUTO(__uuidof(CalcObject2),&nbsp;CCalcObject2)&nbsp;&nbsp;<span cla
 [3] の 1 番目のパラメータの「__uudiof(CalcObject2)」は、今回の CLSID を表現する方法の 1 つです。ここで使用される「CalcObject2」という名前は、MIDL (例 5.1) の coclass キーワードの後に指定されたクラス名であり、MIDL コンパイラによって、この CalcObject2 クラスという名前に、CLSID を割り当てるソース コードも生成されています。そのために、この表記が可能なのです。
 <p>なお、[3] のマクロでは、ATL が自己登録の際に使用する関数を指定する効力があります。そのため、CalcObject2 クラスには、[2] のように予め決められた名前の自己登録用の関数 (UpdateRegistry) を用意しておく必要があります。ここでは、[3] のマクロを正常に動作させるために、[2] にダミーの関数を用意しました。</p>
 問題がなければ、ここで時点でも正常にコンパイルできます。
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="07" style="font-size:120%; margin-top:20px">7. 基本的な関数の実装とエクスポート</h2>
 <p>次に、表 5.A の「3) DllGetClassObject 関数」と「4) DllCanUnloadNow 関数」を実装しましょう。これも、予め用意された ATL のクラスを使用して、簡単に実装できます。次のように追加と修正を行ってください。</p>
@@ -442,7 +442,7 @@ STDAPI&nbsp;DllCanUnloadNow(<span class="js__operator">void</span>)&nbsp;&nbsp;<
 <p>これだけで、2 つの関数が備えるべき実装が実現できます。DllGetClassObject 関数の役割は、クライアントから要求された CLSID (引数 rclsid) に対して、対応するクラス ファクトリを返すことですが、そのためにも、例 5.4 の [3] のマクロを使用した CLSID との対応付けが必要です。</p>
 <p>これで、第 2 回に作成した COM コンポーネントと同様の実装になりました。仮にこの時点でビルドして DLL を作成し、手動でレジストリに登録すれば、<a href="http://code.msdn.microsoft.com/ja-jp/VisualC-7c6bc862 ">第 1 回</a>に説明した COM クライアントと同様の要領で、この ATL の COM コンポーネントを呼び出すことができます。</p>
 <p>しかし、ここではより ATL らしくするため、自己登録機能も実装しましょう。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="08" style="font-size:120%; margin-top:20px">8. レジストリ登録用のスクリプトの定義と利用</h2>
 <p>自己登録機能のために必要な実装は、表 5.A の「5) DllRegisterServer 関数 / DllUnRegister 関数」です。この関数の最も原始的な実装は、レジストリ登録用の API を呼び出して、1 つずつ、レジストリ キーを作成する方法です。これは単純作業ですが、意外と手間がかかります。</p>
@@ -564,7 +564,7 @@ OBJECT_ENTRY_AUTO(__uuidof(CalcObject2),&nbsp;CCalcObject2)&nbsp;
 </div>
 <div class="endscriptcode">&nbsp;</div>
 [2] のように、DECLARE_REGISTRY_RESOURCEID マクロの 1 行だけになります。このマクロのパラメータには、読み込むべきレジストリ スクリプトのリソース ID (ここでは IDR_CALCCOMP2) を指定します。そのため、[1] のヘッダーも必要です。 このマクロは、UpdateRegistry 関数に展開され、レジストリ スクリプトを読み込み、これをもとにレジストリに登録を行うようになります。
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="09" style="font-size:120%; margin-top:20px">9. 自己登録用関数の実装とエクスポート</h2>
 <p>次に、表 5.A の 5) に挙げた 2 つの関数の実装とエクスポートを行います。次のように追加修正してください (太字部分)。</p>
@@ -637,7 +637,7 @@ STDAPI&nbsp;DllUnregisterServer(<span class="js__operator">void</span>)&nbsp;<sp
 <p>また、[1] や [2] のように、2 つの関数の実装は、CalcComp2Module オブジェクト (変数 _AtlModule) の同名のメンバー関数を呼び出すだけです。このように実装しておけば、必要に応じて、例 5.8 の [2] でマクロを用いて定義した UpdateRegistry 関数が呼び出されます。</p>
 <p>これで COM コンポーネントは完成です。Regsvr32.exe ツールを使用して、このコンポーネントの自己登録機能を呼び出して、レジストリに登録できるようになりました。</p>
 <p>ここではビルドの際に、この自己登録を行えるようにするため、プロジェクトを設定しておきましょう。そのためには、プロジェクト プロパティ ページを開き、プロパティ ページが開いたら、左ペインのツリーで、[構成プロパティ]、[リンカー]、[全般] の順にノードを展開し、右ペインで「出力の登録」という欄の値を「はい」へ変更します。</p>
-<p><img src="23735-01.jpg" alt="図 1" width="470" height="352"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-1fdd477c/image/file/23735/1/01.jpg" alt="図 1" width="470" height="352"></p>
 <p><strong>図 5.1 ビルド時の登録の指定</strong></p>
 <p>なお、ビルド時に登録するためには、管理者として Visual Studio を起動する必要があります。このあとは、一旦 Visual Studio を終了して、管理者として再度起動してプロジェクトを開いておいてください。</p>
 <p>ここでビルドを行い、登録も成功すれば、正常にビルドが終了します。</p>
@@ -745,7 +745,7 @@ ATL シンプル オブジェクト ウィザードによって、レジスト�
 </tr>
 </tbody>
 </table>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="10" style="font-size:120%; margin-top:20px">10. クライアントの作成</h2>
 <p>クライアントについては、<a href="http://code.msdn.microsoft.com/ja-jp/VisualC-7c6bc862 ">第 1 回</a>で作成したものと同様なので詳細は割愛します。ただし、今までと違う点は、タイプ ライブラリを利用できる点です。クライアントのビルド時に、タイプ ライブラリを使用することで、必要なインターフェイスの型や CLSID などの識別子が定義されたヘッダー ファイルが自動的に生成され、これを利用できます。</p>
@@ -801,19 +801,19 @@ int&nbsp;_tmain(int&nbsp;argc,&nbsp;_TCHAR*&nbsp;argv[])&nbsp;
 <p>このディレクティブに指定された「no_namespace」は、生成されるヘッダーに名前空間を含まないようにするためのものです。既定では、タイプ ライブラリ名の名前空間内に定義されます。また、「named_guids」の指定によって、CLSID などの識別子が生成されます。最後の「raw_interfaces_only」の指定によって、COM インターフェイスが生成されます。これを付けないと、COM インターフェイスをラップしたオブジェクトの定義が生成されます。</p>
 <p>なお、[1] の次行にあるように、タイプ ライブラリ ファイル (.tlb ファイル) を直接指定することもできます。また、さらに次行に示すように、この #import ディレクティブによって生成されたヘッダー ファイル (calccomp2.tlh) を直接インクルードすることも可能です。</p>
 <p>これを実行すると、COM オブジェクトの Add メソッドが呼び出され、実行結果として「ret=25」とコンソールに表示されるはずです。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="11" style="font-size:120%; margin-top:20px">11. まとめ</h2>
 <p>今回は、ATL を用いた COM コンポーネントの基本的実装方法を確認しました。COM プログラミングにおける IUnknown インターフェイスの実装やクラス ファクトリの実装など、ルーチン ワークの部分はほとんど ATL で用意されおり、プログラマーが独自に記述すべき点は、例 5.2 の Add メソッドの固有機能を実装する部分など、ごく限られた部分であることが確認できました。また、固有の実装部分以外は、その多くが Visual Studio のウィザードによって生成されるコードであり、今回はそれを手作業で入力することによって、ATL
  のライブラリの基本的な使用方法について確認しました。実際の ATL プロジェクトには、これ以外のクラス テンプレートやマクロも使用されています。今後、それらについて調べたり、また、ATL のウィザードが生成したコードをカスタマイズしたりする際に、今回の記事がお役に立てば幸いです。</p>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -824,4 +824,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

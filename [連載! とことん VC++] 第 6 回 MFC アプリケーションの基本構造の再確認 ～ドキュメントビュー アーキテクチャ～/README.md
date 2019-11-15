@@ -23,7 +23,7 @@
 <p>今回から 2 回に渡り、MFC (Microsoft Foundation Class) ライブラリについて取り上げます。</p>
 <p>MFC ライブラリは、Windows プログラミングのための、C&#43;&#43; で記述されたオブジェクト指向のアプリケーション フレームワークです。MFC には、様々なユーザー インターフェイスやデータ操作、入出力、また、ネットワーク アクセスなど、豊富な機能が実装されています。開発者はこれら MFC の実装を利用することで、開発期間を短縮し、移植性や再利用性の高いコードを記述することができます。</p>
 <p>Visual C&#43;&#43; では、MFC を利用したアプリケーション (MFC アプリケーション) を開発するための、プロジェクト テンプレートやウィザードなどの各種ツールが用意されています。たとえば、Visual C&#43;&#43; 2010 で「MFC アプリケーション」プロジェクトを新規作成すると、「MFC アプリケーション ウィザード」が起動し、既定のオプション設定のままで、ソース コードを自動生成すれば、以下のような本&#26684;的なユーザー インターフェイスなどを備えた MFC アプリケーションを作成することができます。</p>
-<p><img src="24210-image001.jpg" alt="図 6.1" width="600" height="383"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24210/1/image001.jpg" alt="図 6.1" width="600" height="383"></p>
 <p><strong>図 6.1 MFC アプリケーション ウィザードで生成したソース コードの実行結果</strong></p>
 <p>これだけ豊富な機能があると、MFC を使い始めた方は、どこから習得したらよいか迷うかもしれません。しかし、まず習得すべき点は、やはり「ドキュメント/ビュー アーキテクチャ (ドキュメント/ビュー モデルとも呼ばれる)」でしょう。</p>
 <p>ドキュメント/ビュー アーキテクチャは、アプリケーション内部のデータに当たる「ドキュメント」と、そのデータを表示する「ビュー」とを分離して実装するアーキテクチャです。データの&#26684;納や保守の処理を、データ表示の処理から分離することで、アプリケーションの柔軟性や保守性が向上します。</p>
@@ -43,25 +43,25 @@
 </li><li>プロジェクトの新規作成時に起動する「Win32 アプリケーション ウィザード」では、「アプリケーションの設定」ページにある「アプリケーションの種類」のオプションで、「Windows アプリケーション」オプションを選択します。さらに、同じページの「追加オプション」にある「空のプロジェクト」チェック ボックスを必ずチェックして、プロジェクトを空の状態にします。
 </li><li>ほかは既定値のままにして、プロジェクトを新規作成します。 </li></ol>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="02" style="font-size:120%; margin-top:20px">2. 今回作成するアプリケーション ～基本的な MDI アプリケーション～</h2>
 <p>前図 6.1 の MFC アプリケーションでは多くの機能を盛り込んでいるので、ここではドキュメント/ビュー アーキテクチャに焦点を当て、できるだけ直接関係しない機能を削ることにします。今回は、図 6.2 のように、親ウィンドウの中に複数の子ウィンドウを含むことがでる「マルチ ドキュメント インターフェイス (MDI: Multiple Document Interface)」アプリケーションを作成します (以降は、「MDI アプリケーション」と表記)。</p>
 <p>MFC のドキュメント/ビュー アーキテクチャの典型的な実装形態としては、このような MDI のほかに、シングル ドキュメント インターフェイス (SDI: Single Document Interface) もあります。SDI は単一のウィンドウを持つアプリケーションです。MDI に比べると SDI では、いくつか構成要素が削られていますが、基本的な構造や使い方は MDI に類&#20284;しているので、MDI を理解しておけば、後から SDI について調べても、問題なく理解できるでしょう。</p>
-<p><img src="24211-image002.gif" alt="図 6.2" width="600" height="366"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24211/1/image002.gif" alt="図 6.2" width="600" height="366"></p>
 <p><strong>図 6.2 MFC を用いた MDI アプリケーション</strong></p>
 <p>実際のところ、これと同様のアプリケーションは、MFC アプリケーション ウィザードを用いて、対話操作で自動生成することができます。しかし、今回はドキュメント/ビュー アーキテクチャの基本的な利用方法を理解することが目的であるので、Windows アプリケーション向けの空のプロジェクト (前述の Note 参照) を出発点にして、手作業でコードを入力し、MDI アプリケーションを作り込んでいきます。</p>
 <div style="padding:0 15px; margin:0 0 30px; background-color:#efefef; border:solid 1px #333333">
 <p><strong>Note:<br>
 </strong>MFC アプリケーション ウィザードを用いて、図 6.2 と同様のサンプルを自動作成することもできます (アイコンやメニュー バー構成などは若干異なります)。参考までに、ウィザードで作成する場合の手順を巻末に掲載しています。余力のある方は試に行ってみてください。</p>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="03" style="font-size:120%; margin-top:20px">3. MFC ライブラリの利用準備</h2>
 <p>ここで、MFC ライブラリを利用できるようにするため、ビルド時に MFC ライブラリとリンクするように設定し、MFC 関連のヘッダーファイルもインクルードしておきましょう。</p>
 <p>まず、リンク時に MFC ライブラリを利用できるようにするため、プロジェクト プロパティ ページを開きます (ソリューション エクスプローラー上で SmallApp プロジェクトを右クリックして、[プロパティ] を選択)。</p>
 <p>左ペインのツリー上で [構成プロパティ]、[全般] の順に展開し、右ペインの「MFC の使用」プロパティには「共有 DLL で MFC を使う」に変更し (図 6.3)、[OK] をクリックします</p>
-<p><img src="24196-image003.gif" alt="図 6.3" width="600" height="280"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24196/1/image003.gif" alt="図 6.3" width="600" height="280"></p>
 <p><strong>図 6.3 MFC ライブラリを使用できるように指定</strong></p>
 <p>次に MFC 関連のヘッダーをインクルードします。今回は、MFC アプリケーション ウィザードが生成するコードに準じて、以下のようにプロジェクト内で共通して使用するヘッダー ファイル (stdafx.h) を作成し、SmallApp プロジェクトに追加してください。</p>
 <p><strong>例 6.1 MFC 関連のヘッダーをインクルードする汎用的なヘッダー</strong><br>
@@ -87,13 +87,13 @@
 <p>この例の [1] では、「0x0601」(Windows 7) をターゲットとしましたが、「0x0500」(Windows 2000) 以上であればコンパイルできます。サンプルを検&#35388;する環境に合わせて変更してください。</p>
 <p>このあと、プロジェクト内の各ソース ファイルでは、この stdafx.h をインクルードする記述を追加します。</p>
 <p>このあとは MFC ライブラリのクラスを使用します。まずは、ドキュメント/ビュー アーキテクチャ使用の有無に関わらず、一般に MFC アプリケーションとして最低限必要な実装を作成しましょう。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="04" style="font-size:120%; margin-top:20px">4. アプリケーション クラスの定義と使用</h2>
 <p>MFC アプリケーションには、いわばアプリケーションの中核ともいえる「アプリケーションクラス」のオブジェクトが 1 つ必要になります。アプリケーション クラスとは、MFC ライブラリが提供する CWinApp クラス (実際には、この派生クラスを使用) のことです。では早速、このクラスの役割を確認し、基本的な実装を行いましょう。</p>
 <p>通常、Windows アプリケーションには WinMain 関数があります。この WinMain 関数の内部では、アプリケーションの初期化から始まり、メイン ウィンドウとの対話操作を行うためのメッセージ ループ、そして、アプリケーションの終了処理に至るまで、アプリケーションのライフタイム全体の流れが記述されています。</p>
 <p>MFC では、WinMain 関数に相当する実装はライブラリ側に記述されているので、プログラマーが WinMain 関数を記述することはありません。MFC ライブラリが持つ WinMain 関数では、初期化から後処理までの一連の流れを実現するため、次図のように、「アプリケーション クラス」の 3 つのメンバー関数 (InitInstance、Run、および ExitInstance) を順に呼び出すように実装されています。</p>
-<p><img src="24215-image004.gif" alt="図 6.4" width="600" height="437"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24215/1/image004.gif" alt="図 6.4" width="600" height="437"></p>
 <p><strong>図 6.4 CWinApp 派生クラスによるアプリケーションのライフタイム</strong></p>
 <p>プログラマーは、図中の右にある CWinApp 派生クラスを定義する必要があります。3 つの関数は仮想関数であり、必要に応じて、これらのメンバー関数をオーバーライドします。このうち、特別な理由がない限り、Run 関数についてはオーバーライドせずに、基本クラスに実装された既存のメッセージ ループを利用すればよいでしょう。ExitInstance 関数の後処理も固有の処理を行う必要がなければ、オーバーライドする必要はありません。通常は、アプリケーション固有の振る舞いの準備のため、InitInstance 関数はオーバーライドします。</p>
 <p>ここでは、MDI アプリケーションを構成するために、InitInstance メソッドのみオーバーライドしましょう。次の CWinApp 派生クラスを SmallApp プロジェクトに追加してください。</p>
@@ -150,7 +150,7 @@ CSmallApp&nbsp;theApp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&larr;[3]
 <p>なお作法として、CWinApp 基本クラスの InitInstance 関数に実装された既定の初期処理を禁止する特別な事情がない限り、原則としては [5] のように、基本クラスの同名関数を呼び出しておくのがよいでしょう。(MFC のソース コードは提供されているので、基本クラスの実装を確認することもできます。)</p>
 <p>また、[6] で TRUE を返すことで、MFC ライブラリ内の WinMain 関数では、引き続きメッセージ ループ (Run 関数呼び出し) へと処理が続きます。仮に InitInstance 関数から FALSE を返すと、メッセージ ループに進まず、アプリケーションが終了します。そのため、InitInstance 関数内でダイアログ ボックスを表示してアプリケーションを終了したいような場合、つまり、メッセージ ループを必要とするメインウィンドウを利用しない場合は、意図的に FALSE を返すコードを記述することもあります。</p>
 <p>このほか、WinMain 関数から呼び出してもらうために、[3] のように、この CSmallApp クラスのグローバル オブジェクト インスタンスも確保するよう定義する必要もあります (変数名は任意)。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <p>&nbsp;</p>
 <hr>
 <h2 id="05" style="font-size:120%; margin-top:20px">5. フレーム ウィンドウ クラスの定義と使用</h2>
@@ -312,7 +312,7 @@ CSmallApp&nbsp;theApp;&nbsp;
 <p>LoadFrame 関数の引数には例 6.4 で記述したリソース スクリプトのリソース ID が指定されている点に注意してください。この引数の指定によって、フレーム ウィンドウには、該当するリソース ID を持つアイコン、タイトル バー、およびメニュー バーが反映されます。このほか、同じリソース ID のアクセラレーター (ショートカット キー) があれば反映されます。</p>
 <p>最後に、[11] を忘れないでください。メインのフレーム ウィンドウを作成したら、必ずメンバー変数 m_pMainWnd に対して、フレーム ウィンドウのポインターを設定してください。この設定を行わずに、InitInstance 関数の戻り値として TRUE を返しても、メッセージ ループに進むことができず、アプリケーションが強制終了します。</p>
 <p>結局のところ、InitInstance 関数での典型的な実装は、メインのフレーム ウィンドウを作成し、メンバー変数 m_pMainWnd に対して、そのポインターを設定することです。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="06" style="font-size:120%; margin-top:20px">6. 最低限の実装で実行 ～アプリケーション クラスとフレーム ウィンドウ～</h2>
 <p>これで、MFC アプリケーションとして典型的な最低限の実装ができました。この時点で、プロジェクトのソース コードは、以下の状態になっていることを確認してください。</p>
@@ -323,12 +323,12 @@ CSmallApp&nbsp;theApp;&nbsp;
 </strong>今回は、フレーム ウィンドウとして CMDIFrameWnd 派生クラスを使用しましたが、例 6.3 において、代わりに CFrameWnd から派生させれば、より汎用的な実装になります。</p>
 </div>
 <p>これを実行すると、次のように MDI の親ウィンドウにあたるフレーム ウィンドウが表示されます。</p>
-<p><img src="24212-image005.jpg" alt="図 6.5" width="600" height="335"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24212/1/image005.jpg" alt="図 6.5" width="600" height="335"></p>
 <p><strong>図 6.5 フレーム ウィンドウが表示される基本的な実装</strong></p>
 <p>アイコンやタイトル、メニュー バーも、例 6.4 のリソースが反映されます。</p>
 <p>さらに興味深いことに、次に示すように [ファイル] メニューの [アプリケーションの終了] は有効化 (黒色) されていますが、 [表示] メニューの [項目 1] は無効化 (グレー) されています。</p>
-<p><img src="24197-image006.jpg" alt="図6.6 メニュー項目の動的な有効化" width="600" height="92"></p>
-<p><img src="24216-image007.jpg" alt="図6.6 メニュー項目の無効化" width="600" height="92"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24197/2/image006.jpg" alt="図6.6 メニュー項目の動的な有効化" width="600" height="92"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24216/1/image007.jpg" alt="図6.6 メニュー項目の無効化" width="600" height="92"></p>
 <p><strong>図 6.6 メニュー項目の動的な有効化と無効化</strong></p>
 <p>この例では、[アプリケーションの終了] メニューのコマンド ID として、MFC の予約済みである ID_APP_EXIT を使用していました。このコマンド ID には、アプリケーションを終了するための標準実装 CWinApp::OnAppExit メンバー関数が、コマンド ハンドラーとして既にマップされているのです。MFC ライブラリの実行環境は、アプリケーションの実行時に、メニュー項目のコマンド ID にマップされたコマンド ハンドラーの有無を確認し、コマンド ハンドラーが存在する場合には、そのメニュー項目を動的に有効化し、存在しない場合には、動的に無効化するようになっています。そのため、図
  6.6 のような違いが現れました。</p>
@@ -341,12 +341,12 @@ CSmallApp&nbsp;theApp;&nbsp;
 <li><a href="http://msdn.microsoft.com/ja-jp/library/11861byt.aspx" target="_blank">テクニカル ノート 22: 標準コマンドの実装</a>
 </li></ul>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="07" style="font-size:120%; margin-top:20px">7. ドキュメント、ビュー、子フレーム ウィンドウの役割</h2>
 <p>MDI の親ウィンドウの実装が済んだので、今度は MDI の子ウィンドウを実装します。ここで、いよいよドキュメント/ビュー アーキテクチャを使用します。</p>
 <p>子ウィンドウを実装するには、データを管理するドキュメント クラスと、そのデータを子ウィンドウのクライアント領域に表示するビュー クラスを実装する必要があります。これらのクラスの相関関係をより正確に表すと、次図のようになります。</p>
-<p><img src="24198-image008.gif" alt="図 6.7" width="600" height="450"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24198/1/image008.gif" alt="図 6.7" width="600" height="450"></p>
 <p><strong>図 6.7 ドキュメント、ビュー、子フレームの関係</strong></p>
 <p>この図の [1]、[2]、および [3] のそれぞれの大きな枠が、1 つ分の子ウィンドウの実装です。それぞれの枠内は、ドキュメント、ビュー、子フレーム ウィンドウの 3 種類のクラスが 1 組の実装として構成されています。各クラスは、それぞれの枠内に記載たれたクラスから継承します。実行時には、子ウィンドウが 1 個表示されるごとに、これら 1 組の 3 種類のクラスのオブジェクトインスタンスが生成されます。</p>
 <p>この図の [1]、[2]、および [3] では、各組の実装が異なっています。その違いは、それぞれのドキュメント クラスが管理するデータの違いです。それぞれ順に、テキスト、イメージ、分析データを管理しています。基本的な考え方としては、管理するデータが異なれば、この 3 種類のクラスの別の組み合わせを用意することになります。</p>
@@ -357,7 +357,7 @@ CSmallApp&nbsp;theApp;&nbsp;
 <p><strong>Note:<br>
 </strong>SDI でドキュメント/ビュー アーキテクチャを使用する場合も、基本的には図 6.7 と同じ構造です。ただし、SDI ではウィンドウはメイン ウィンドウ 1 つなので、3 種類のクラスの組み合わせのうち、子フレーム ウィンドウの部分が、メインのフレーム ウィンドウになります。</p>
 </div>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="08" style="font-size:120%; margin-top:20px">8. ドキュメント、ビュー、子フレーム ウィンドウの実装</h2>
 <p>ドキュメント、ビュー、および子フレーム ウィンドウの各クラスを実装するには、前図 6.7 に記載したように、それぞれ、CDocument クラス、CView クラス、および CMDIChildFrame クラスから継承して、独自の実装を行います。ただし、子フレーム ウィンドウについては、一般的なフレームのままでも構わないので、継承せずに既存の CMIDChildFrame をそのまま使用しても構いません。</p>
@@ -502,7 +502,7 @@ CChildFrame::CChildFrame()&nbsp;
 <p>また、[6] や [8] に定義された GetDocument 関数は、少なくとも今回のサンプルでは記述しなくとも動作しますが、ビュー インスタンスに対応するドキュメント インスタンスを参照するために、通常は用意します。MFC アプリケーション ウィザードも同様のコードを生成します。この GetDocument 関数では、[9] のように、ポインター変数 m_pDocument が持つアドレスを返してください。このポインターは、MFC ライブラリによって設定されるもので、このビューのインスタンスに対応するドキュメントのインスタンスを表します。</p>
 <p>また、CView 基本クラスの OnDraw メンバー関数は純粋仮想関数であるので、ビュー クラスのインスタンスを作成できるようにするため、[7]、[10] のようにオーバーライドする必要があります。</p>
 <p>これで 3 種類のクラスの最低限の実装が済みました。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="09" style="font-size:120%; margin-top:20px">9. ドキュメント、ビュー、子フレーム ウィンドウのためのリソース</h2>
 <p>前述の 3 種類のクラスの実装に付随して、リソースの定義がいくつか必要です。最低限必要なリソースは、この 3 種類のクラスを管理するドキュメント テンプレートに伝えるべき文字列の情報 (後述) ですが、ここでは子ウィンドウが利用するアイコンと、子ウィンドウがアクティブな際に表示されるメニュー バーのリソースも追加しましょう。これらリソースの ID も、同じ値にする必要があります。既存のリソース スクリプトに、次の記述を追加してください (番号はリソース スクリプト内で連番になっています)。</p>
@@ -569,7 +569,7 @@ BEGIN&nbsp;
 </li></ul>
 </div>
 <p>これで 3 種類のクラスと関連するリソースの準備ができました。あとは、ドキュメント テンプレート オブジェクトを用意すれば、子ウィンドウを表示できるようになります。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="10" style="font-size:120%; margin-top:20px">10. ドキュメント テンプレートの登録と子ウィンドウの新規作成</h2>
 <p>ドキュメント テンプレートに関しては、わざわざプログラマーが継承して派生クラスを定義する必要はありません。MDI の場合であれば、既存の CMultiDocTemplate クラスを使用します。これは、CDocTemplate 派生クラスです。</p>
@@ -661,13 +661,13 @@ CSmallApp&nbsp;theApp;&nbsp;
 <p>ドキュメント テンプレート オブジェクトを作成したのち、[17] のように CWinApp クラスの AddDocTemplate 関数を呼び出して、アプリケーション クラス (のオブジェクト) にドキュメント テンプレートを追加します。</p>
 <p>次に、[18] に記述した CWinApp クラスの OnFileNew 関数を呼び出すと、[ファイル] メニューの [新規作成] コマンドに相当する動作が行われます。この OnFileNew 関数の内部では、[17] で追加されたドキュメント テンプレートを使用して、子ウィンドウを新規に表示します。(つまり、OnFileNew 関数を呼び出す前に、予めドキュメント テンプレートの追加が必要です。)</p>
 <p>この CWinApp::OnFileNew 関数の流れをより具体的に示すと、次図のようになります。</p>
-<p><img src="24213-image009.gif" alt="図 6.8" width="600" height="411"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24213/1/image009.gif" alt="図 6.8" width="600" height="411"></p>
 <p><strong>図 6.8 ドキュメント テンプレートを使用した子ウィンドウの作成</strong></p>
 <p>図中の左の CWinApp::OnFileNew 関数の内部では、追加されたドキュメント テンプレートを使用して、そのドキュメント テンプレートの OpenDocumentFile 関数を呼び出します。ドキュメント テンプレートの OpenDocumentFile 関数の内部では、例 6.8 の [15] から [16] の時点でコンストラクターの引数に渡されたリソース情報と 3 種類のランタイム型情報を使用して、ドキュメント、ビュー、および子フレーム ウィンドウのインスタンスを作成します。その結果、子ウィンドウが
  1 つ表示されます。</p>
 <p>この流れで登場する CWinApp::OnFileNew 関数と CDocTemplate::OpenDocumentFile 関数は、MFC ライブラリに実装済みなので、プログラマーが用意すべき実装は、最終的にインスタンスが作成される 3 種類のクラス (および、リソース文字列) だけです。</p>
 <p>このあと、CWinApp::OnFileNew 関数を繰り返し呼び出せば、呼び出した回数だけ、同じ要領で子ウィンドウが新規に表示されます。仮に、例 6.8 の [18] の箇所で、OnFileNew 関数を 2 回呼び出せば、子ウィンドウが 2 つ新規に表示されます。冒頭の図 6.2 の実行結果は、2 回呼び出した場合の例です。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="11" style="font-size:120%; margin-top:20px">11. 完成した MDI アプリケーションの確認</h2>
 <p>これで、MDI の構成要素が一通り揃いました。実際にこのプログラムを作成した方は、プログラムコードが次の状態になっているか確認してください。(例 6.8 の [18] の OnFileNew 関数を 2 回呼び出しても構いませんが、このサンプルは次回も使用しますので、すべての作業が済んだら、OnFileNew 関数の呼び出しは例 6.8 のように 1 回に戻しておいてください。)</p>
@@ -675,19 +675,19 @@ CSmallApp&nbsp;theApp;&nbsp;
 <li>汎用的なヘッダー --- 例 6.1 stdafx.h </li><li>アプリケーション クラス ---- 例 6.8 SmallApp.h、および SmallApp.cpp </li><li>フレーム ウィンドウ ---- 例 6.3 MainFrm.h および MainFrm.cpp </li><li>リソース ---- 例 6.7 resource.h および SmallApp.rc (例 6.4 の SmallApp.rc を含む) </li><li>アイコン ファイル ---- SmallApp.ico、SmallText.ico (いずれもオプション) </li><li>ドキュメント、ビュー、子フレーム ---- 例 6.6 SmallDoc.h、SmallDoc.cpp、SmallView.h、SmallView.cpp、ChildFrm.h、および ChildFrm.cpp
 </li></ul>
 <p>この状態で実行すると、次図のように子ウィンドウが表示されます。メニューは、子ウィンドウのリソースとして定義した例 6.7 のメニュー バー (正確にいえば、ドキュメント テンプレートのコンストラクター引数へ渡したリソースのメニュー バー) が表示されます。</p>
-<p><img src="24199-image010.gif" alt="図 6.9" width="600" height="359"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24199/1/image010.gif" alt="図 6.9" width="600" height="359"></p>
 <p><strong>図 6.9 完成した MDI アプリケーション</strong></p>
 <p>また、子ウィンドウ内の右上部の閉じるボタン ([&times;] ボタン) をクリックして、子ウィンドウを閉じると、次図のように、メニュー バーはメインのフレーム ウィンドウに使用されたリソースに切替わることが分かります。</p>
-<p><img src="24214-image011.jpg" alt="図 6.10" width="600" height="82"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/visualc-43c71460/image/file/24214/1/image011.jpg" alt="図 6.10" width="600" height="82"></p>
 <p><strong>図 6.10 メイン フレーム ウィンドウのメニュー バーに切替わる</strong></p>
 <p>確認が済んだら、アプリケーションを終了しておきましょう。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="12" style="font-size:120%; margin-top:20px">12. まとめ</h2>
 <p>今回は、MDI アプリケーションの主要なクラスの使用方法を理解するために、手作業で MDI アプリケーションを作成しました。実際のところ、MFC アプリケーション ウィザードを使用すれば、今回手作業で行った実装と同等のものは、すべて自動生成させることができます。</p>
 <p>ただ、提供された MFC のサンプル コードなどは、ウィザードで生成した後のソース コードのわけですから、それらのサンプルを読解したり、カスタマイズしたりする際には、今回の知識が役立つと思います。</p>
 <p>また、今回作成したサンプルには、子ウィンドウを新規作成するコマンドや、「開く」、「閉じる」などの一般的なデータに関わる操作、また、ドキュメントのシリアル化は実装されていません。また、ビューについても、実際の描画は実装していません。次回は、このドキュメント/ビュー アーキテクチャのサンプルを利用して、これらの機能をいくつか追加していきます。</p>
-<p><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
 <hr>
 <h2 id="13" style="font-size:120%; margin-top:20px">13. 参考手順</h2>
 <p>MFC アプリケーション ウィザードを用いて、今回のサンプル プログラムとほぼ同等のものを作成する手順を以下に示しておきます。MFC アプリケーション プロジェクトを新規作成する際に起動する MFC アプリケーション ウィザードの各ページでは、順に以下のように設定してください。</p>
@@ -719,8 +719,8 @@ CSmallApp&nbsp;theApp;&nbsp;
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="-ff950935.visualc_180x70(ja-jp,msdn.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/visualc/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.VisualC_180x70(ja-jp,MSDN.10).gif" border="0" alt="Visual C&#43;&#43; デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/visualc/hh146885" target="_blank">
@@ -731,4 +731,4 @@ Visual C&#43;&#43; デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

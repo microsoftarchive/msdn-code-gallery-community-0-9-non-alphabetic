@@ -23,7 +23,7 @@
 <p style="padding-left:2em; text-indent:-1.5em">1. Visual Studio の「サーバー エクスプローラー」(Visual Studio Express Edition の場合は「データベース・エクスプローラー」) を開きます。</p>
 <p style="padding-left:2em; text-indent:-1.5em">2. 「データ接続」を右クリックし、ポップアップ メニューから「接続の追加」または「新しい SQL Server データベースの作成」をします。</p>
 <p style="padding-left:2em; text-indent:-1.5em">3. その接続の「テーブル」 - 「新しいテーブルの追加」でデータベースにテーブルを追加します。</p>
-<p><img src="22878-cr393-01.jpg" alt="[サーバー エクスプローラー] → [データ接続] → [接続の追加] → [テーブル] → [新しいテーブルの追加]" width="413" height="257"></p>
+<p><img src="http://i2.code.msdn.s-msft.com/dataaccess-howto-b5a084df/image/file/22878/1/cr393-01.jpg" alt="[サーバー エクスプローラー] → [データ接続] → [接続の追加] → [テーブル] → [新しいテーブルの追加]" width="413" height="257"></p>
 <p style="padding-left:2em; text-indent:-1.5em">4. ここでは、試しに以下のような &quot;Item&quot; というテーブルを追加することにします。</p>
 <table border="1" style="margin:.5em 2em">
 <thead>
@@ -56,7 +56,7 @@
 </tbody>
 </table>
 <p style="padding-left:2em; text-indent:-1.5em">5. Id 列を主キーとし、IDENTITY の設定を「はい」にしておきます。</p>
-<p><img src="22879-cr393-02.jpg" alt="Item テーブルを追加、Id 列を主キーとし、IDENTITY の設定を「はい」に" width="359" height="421"></p>
+<p><img src="http://i4.code.msdn.s-msft.com/dataaccess-howto-b5a084df/image/file/22879/1/cr393-02.jpg" alt="Item テーブルを追加、Id 列を主キーとし、IDENTITY の設定を「はい」に" width="359" height="421"></p>
 <p style="padding-left:2em; text-indent:-1.5em">6. または、SQL Server Management Studio などから以下の SQL を実行することでも上記 Item テーブルを作成することができます。</p>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
@@ -138,8 +138,8 @@
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/data" target="_blank"><img src="-ff950935.data_180x70(ja-jp,msdn.10).gif" border="0" alt="データ アクセス デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/data" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.Data_180x70(ja-jp,MSDN.10).gif" border="0" alt="データ アクセス デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="/ja-jp/ff363212" target="_blank">逆引きサンプル コード一覧へ</a>

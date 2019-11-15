@@ -376,11 +376,11 @@ client.Close();</pre>
 </div>
 <div class="endscriptcode">&nbsp;</div>
 </li><li>プロジェクトを実行します。 </li><li>[Host Name] に利用しているコンピューター名または現在割り当てられている IP アドレスを入力します。
-<p><img src="49523-612_01.jpg" alt="「Host Name] にコンピューター名又は IP アドレスを入力" width="210" height="350"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/windowsphone-howtolearning-da978ade/image/file/49523/1/612_01.jpg" alt="「Host Name] にコンピューター名又は IP アドレスを入力" width="210" height="350"></p>
 </li><li>エコーするテキストを追加して [Echo] ボタンをタップします。応答が出力テキスト ボックスに返されることを確認します。
-<p><img src="49524-612_02-03.jpg" alt="エコーするテキストを追加" width="425" height="350"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/windowsphone-howtolearning-da978ade/image/file/49524/1/612_02-03.jpg" alt="エコーするテキストを追加" width="425" height="350"></p>
 </li><li>[Get Quote of the Day] ボタンをタップします。応答が出力テキスト ボックスに返されることを確認します。
-<p><img src="49525-612_04.jpg" alt="応答が出力テキスト ボックスに返される" width="210" height="350"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/windowsphone-howtolearning-da978ade/image/file/49525/1/612_04.jpg" alt="応答が出力テキスト ボックスに返される" width="210" height="350"></p>
 </li></ol>
 <p>インターネットおよびその他のサービスとのほぼリアルタイムな通信を可能にする、新しいソケット機能を紹介しました。</p>
 <h2 style="font-size:120%; margin:20px 0px; border-left:7px solid #666666; padding-left:12px">
@@ -397,8 +397,8 @@ client.Close();</pre>
 <table>
 <tbody>
 <tr>
-<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/windowsphone" target="_blank"><img src="-ff950935.winphone_180x70(ja-jp,msdn.10).gif" border="0" alt="Windows Phone デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://code.msdn.microsoft.com/ja-jp"><img src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/windowsphone" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.WinPhone_180x70(ja-jp,MSDN.10).gif" border="0" alt="Windows Phone デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/windowsphone/hh744643" target="_blank">
@@ -408,4 +408,4 @@ Windows Phone デベロッパー センターへ</a> </li></ul>
 </tr>
 </tbody>
 </table>
-<p style="margin-top:20px"><a href="#top"><img src="-top.gif" border="0" alt="">ページのトップへ</a></p>
+<p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>

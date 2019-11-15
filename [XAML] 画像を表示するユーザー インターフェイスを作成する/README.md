@@ -31,7 +31,7 @@
 </div>
 </div>
 <p>Visual Studio の XAML デザイナー上でみると、このようになっています。</p>
-<p><img src="22418-image001.jpg" alt="図 1" width="358" height="276"></p>
+<p><img src="http://i4.code.msdn.s-msft.com/silverlight-howto-2e3e1544/image/file/22418/1/image001.jpg" alt="図 1" width="358" height="276"></p>
 <p>各コントロールのプロパティの説明です。</p>
 <dl><dt><strong>Height:</strong> </dt><dd>コントロールの見た目の高さです。 </dd><dt><strong>HorizontalAlignment:</strong> </dt><dd>パネル内のコントロールの水平方向の位置を、Left、Center、Right、Stretch で表します。ここでは Left が指定されているので、コントロールはパネル内で左寄せされて表示されます。ただし、Margin プロパティが設定されていたときは、その値の分のマージンが設定されます。
 </dd><dt><strong>Margin:</strong> </dt><dd>4 つのパラメーターは、順に左側、上側、右側、下側のマージンを示します。マージンとは、その親となるパネルまたはグリッドの縁からの距離です。主に Grid パネルに貼り付けているときに使用します。
@@ -42,21 +42,21 @@
 <dl><dt><strong>Stretch:</strong> </dt><dd>画像の表示方法を変更します。Fill を指定したときは、Image コントロール全体に画像が表示されるように、垂直方向及び水平方向を拡大/縮小します。Uniform を指定したときは、オリジナルの画像の縦横比を変更せずに、画像全体が表示されるように拡大/縮小します。UniformToFill を指定したときは、オリジナルの画像の縦横比を変更せずに、画像が最も大きく表示されるように拡大/縮小します。画像の一部がはみ出すことがあります。None を指定したときは、オリジナルの画像のまま表示します。画像の一部がはみ出すことがあります。
 </dd></dl>
 <p>Fill の場合</p>
-<p><img src="22419-image002.jpg" alt="図 2" width="375" height="143"></p>
+<p><img src="http://i4.code.msdn.s-msft.com/silverlight-howto-2e3e1544/image/file/22419/1/image002.jpg" alt="図 2" width="375" height="143"></p>
 <p>Uniform の場合</p>
-<p><img src="22420-image003.jpg" alt="図 3" width="373" height="144"></p>
+<p><img src="http://i3.code.msdn.s-msft.com/silverlight-howto-2e3e1544/image/file/22420/1/image003.jpg" alt="図 3" width="373" height="144"></p>
 <p>UniformToFill の場合</p>
-<p><img src="22421-image004.jpg" alt="図 4" width="374" height="142"></p>
+<p><img src="http://i3.code.msdn.s-msft.com/silverlight-howto-2e3e1544/image/file/22421/1/image004.jpg" alt="図 4" width="374" height="142"></p>
 <p>None の場合</p>
-<p><img src="22422-image005.jpg" alt="図 5" width="371" height="139"></p>
+<p><img src="http://i3.code.msdn.s-msft.com/silverlight-howto-2e3e1544/image/file/22422/1/image005.jpg" alt="図 5" width="371" height="139"></p>
 <dl><dt><strong>Visibility:</strong> </dt><dd>表示と非表示を切り替えることができます。Visible を指定すると表示し、Collapsed を指定すると表示しなくなります。 </dd></dl>
 <hr>
 <div>
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="-ff950935.coderecipe_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
-<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="-ff950935.silverlight_180x70%28ja-jp,msdn.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe" target="_blank"><img title="Code Recipe" src="http://msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/silverlight/" target="_blank"><img title="Silverlight デベロッパー センター" src="http://msdn.microsoft.com/ff950935.silverlight_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/ff363212" target="_blank">
