@@ -1,18 +1,19 @@
-# 10 行でズバリ !! セットアップ プログラムの作成
+# 10 行でズバリ!! ViewState の利用 (C#)
 ## License
 - Apache License, Version 2.0
 ## Technologies
-- Visual Studio 2008
-- Visual Studio 2010
+- ASP.NET
+- Visual Studio 2003
 ## Topics
 - 10 行でズバリ!!
-- セットアップ
+- Web アプリケーション
 ## Updated
-- 02/10/2011
+- 02/17/2011
 ## Description
-<style><!-- ﻿.showRatings{border-bottom:silver 1px solid;background-color:#f0f0f0;text-align:left;width:100%;height:28px;vertical-align:bottom;}.showRatings_right{z-index:99;float:right;} ﻿.VCR_Container{position:relative;}.VCR_GroupLabel{color:#333;font-weight:bold;padding:5px
- 0 1px;}.VCR_GroupLabel:first-child{padding-top:0;}.VCR_Label{border-left:1px solid #fff;border-bottom:1px solid #fff;color:#06d;cursor:pointer;margin:2px 0 0 0;padding:1px 0 2px 4px;}.VCR_Label_Focussed{background:#e3e3e3 url('../../images/common.png') 0 -74px
- repeat-x;border-left:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2;color:#f60;}.VCR_Label_Selected{background:#e3e3e3 url('../../images/common.png') 0 -74px repeat-x;border-left:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2;}.VCR_ContentItem{background-color:#fff;display:none;padding-left:12px;overflow:hidden;position:absolute;top:0;right:0;bottom:0;left:0;}.VCR_CheckBox{cursor:pointer;position:absolute;top:0;right:4px;}.VCR_CheckBoxImage{background:#260859
+<style><!-- ﻿.CodeHighlighter{word-wrap:break-word;}pre{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:o-pre-wrap;} ﻿.showRatings{border-bottom:silver 1px solid;background-color:#f0f0f0;text-align:left;width:100%;height:28px;vertical-align:bottom;}.showRatings_right{z-index:99;float:right;}
+ ﻿.VCR_Container{position:relative;}.VCR_GroupLabel{color:#333;font-weight:bold;padding:5px 0 1px;}.VCR_GroupLabel:first-child{padding-top:0;}.VCR_Label{border-left:1px solid #fff;border-bottom:1px solid #fff;color:#06d;cursor:pointer;margin:2px 0 0 0;padding:1px
+ 0 2px 4px;}.VCR_Label_Focussed{background:#e3e3e3 url('../../images/common.png') 0 -74px repeat-x;border-left:1px solid #c2c2c2;border-bottom:1px solid #c2c2c2;color:#f60;}.VCR_Label_Selected{background:#e3e3e3 url('../../images/common.png') 0 -74px repeat-x;border-left:1px
+ solid #c2c2c2;border-bottom:1px solid #c2c2c2;}.VCR_ContentItem{background-color:#fff;display:none;padding-left:12px;overflow:hidden;position:absolute;top:0;right:0;bottom:0;left:0;}.VCR_CheckBox{cursor:pointer;position:absolute;top:0;right:4px;}.VCR_CheckBoxImage{background:#260859
  url('../../images/common.png') -37px -1px no-repeat;display:block;height:17px;width:15px;}.VCR_CheckBoxHover .VCR_CheckBoxImage{background-color:#0072bc;}.VCR_CheckBoxPlaying .VCR_CheckBoxImage{background-position:-51px -1px;}.VCR_CheckBoxImage{background-color:#260859;}.VCR_CheckBoxHover
  .VCR_CheckBoxImage{background-color:#0072bc;}.StoTeaserHolder{height:26px;}.Stotickler{background-color:#f1f1f1;border-bottom:solid 1px #aaa;height:26px;position:absolute;top:0;width:100%;z-index:14;}.cpsPosCss{margin:0 auto;max-width:0;padding:0 483px;width:0;}#lspLink{background-image:url('../../images/gsfx_eie_icon_dkbg.png');background-repeat:no-repeat;height:24px;margin:0
  -477px;position:absolute;white-space:nowrap;}#lspLink a{font-size:12px;color:#333;text-decoration:none;position:relative;left:32px;top:4px;}#lspLink a:active,#lspLink a:hover{cursor:pointer;color:#333;text-decoration:underline;}#lspTile{background-image:url('../../images/cps_ie_canvas.png');background-repeat:no-repeat;background-color:Transparent;border:solid
@@ -127,199 +128,271 @@
  New",Consolas,monospace}.ContentArea .topic table#topTable{border-width:0;width:100%}.ContentArea .topic table #runningHeaderText{color:#000}.parameter{font-family:"Segoe UI",\2018 Lucida Grande\2019 ,Verdana,Arial,Helvetica,sans-serif;font-size:100%;font-style:italic;margin:0}div.clsNote{background-color:#eee;margin-bottom:4px;padding:2px}.bookbox{float:right;clear:none;width:300px;text-align:center}.bookPublisherLogoContainer{margin-top:5px}.uml{list-style:none!important;margin-left:20px}.uml
  li{list-style-image:none!important}.umlNumber{position:relative;width:150px;left:-154px;text-align:right;padding-right:2px}.umlContent{position:relative;top:-15px} --></style>
 <div class="topic" id="topic">
-<div id="top">&#65279;
-<p>更新日: 2009 年 11 月 30 日</p>
-<h2><img src="10073-image.png" alt=""> このコンテンツのポイント</h2>
-<ul>
-<li>Visual Studio を使ったセットアップ プログラムの作成方法を理解する </li><li>セットアップ プログラムのカスタマイズ方法を理解する </li></ul>
-<h2><img src="10074-image.png" alt=""> 今回紹介する設定項目</h2>
-<p><strong>[セットアップ プロジェクトのプロパティ]</strong></p>
-<table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<div id="top">マイクロソフト株式会社 デベロッパーマーケティング本部<br>
+デベロッパーエバンジェリスト 泉 貴博
+<p>最終更新日 2004 年 6 月 2 日</p>
+<table border="0" cellspacing="0" cellpadding="0">
 <tbody>
-<tr>
-<td>Manufacturer</td>
-<td>製造元</td>
-</tr>
-<tr>
-<td>ProductName</td>
-<td>アプリケーション名</td>
+<tr valign="bottom">
+<td><img src="14737-image.png" alt=""></td>
+<td><strong>このコンテンツのポイント</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>[ファイル システムの対象コンピューター上のファイル システム]</strong></p>
-<table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<table border="0" cellspacing="0" cellpadding="0">
 <tbody>
-<tr>
-<td>アプリケーション フォルダー</td>
-<td>WPFClient (アクティブ) のプライマリ出力</td>
-</tr>
-<tr>
-<td>ユーザーのデスクトップ</td>
-<td>WPFClient (アクティブ) のプライマリ出力のショートカット</td>
-</tr>
-<tr>
-<td>ユーザーのプログラム メニュー</td>
-<td>WPFClient (アクティブ) のプライマリ出力のショートカット</td>
-</tr>
-</tbody>
-</table>
-<h2>目次</h2>
-<ol>
-<li><a href="#01">はじめに</a> </li><li><a href="#02">作成するアプリケーションの概要</a> </li><li><a href="#03">セットアップ プログラムの計画</a> </li><li><a href="#04">セットアップ プログラムのための準備</a> </li><li><a href="#05">WPF アプリケーションの準備</a> </li><li><a href="#06">セットアップ プロジェクトの作成</a> </li><li><a href="#07">セットアップ処理の実装</a> </li><li><a href="#08">動作と解説</a> </li><li><a href="#09">おわりに</a> </li></ol>
-<hr>
-<h2 id="01">1. はじめに</h2>
-<p>Visual Studio では Windows Installer テクノロジーに基づいた、セットアップ プログラムを作成することができます。セットアップ プログラムを作ることで、アプリケーション プログラム ファイルの配置やショートカットの作成を自動的に行うことができます。さらに OS へのアプリケーションの登録が行われますので、アンインストールも行うことができます。</p>
-<p>ここでは、Windows アプリケーションのセットアップ プログラムの作成方法と簡単なカスタマイズの方法についてサンプル アプリケーションを通じて解説します。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10075-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="02">2. 作成するアプリケーションの概要</h2>
-<p>ここでは、画像を表示する簡単な WPF アプリケーションと、そのアプリケーションのセットアップ プログラムを作成します。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10076-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="03">3. セットアップ プログラムの計画</h2>
-<p>まず、セットアップ プログラムで行うことを整理します。基本的な処理としては以下の 3 つがあげられます。このほか、関連ファイルの登録やレジストリの変更などあらかじめ計画しておきます。</p>
+<tr valign="top">
+<td>
 <ul>
-<li>アプリケーション プログラム ファイルを Program Files フォルダーへコピーする </li><li>プログラム メニューにショートカットを追加する </li><li>デスクトップ上にショートカットを作成する </li></ul>
-<p style="margin-top:20px"><a href="#top"><img src="10077-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="04">4. セットアップ プログラムのための準備</h2>
-<p>セットアップ プログラムを作成するためにファイルや情報を準備します。最低限必要となるものは以下のとおりです。また、インストール先のプログラム メニューの下に作成するフォルダー名も決めておきましょう。</p>
-<ul>
-<li>インストール対象となるアプリケーションの実行ファイルもしくは、プロジェクト </li><li>プロダクト名 (セットアップ ウィザード内で使用されます) </li><li>製造元 (アプリケーションのデフォルトのインストール フォルダーとなります) </li><li>プログラム メニュー内のメニュー フォルダー </li></ul>
-<p style="margin-top:20px"><a href="#top"><img src="10078-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="05">5. WPF アプリケーションの準備</h2>
-<p>Visual Studio を起動して、新規にプロジェクトを作成します ([ファイル] メニューの [新規作成] をポイントし、[プロジェクト] をクリックします)。</p>
-<p>ここでは、プロジェクトの種類ペインで、[Visual C#] を選択し、テンプレート ペインでは [WPF アプリケーション] を選択します。[プロジェクト名] ボックスに適当な名前を入力し、[場所] ボックスに適当なパスを指定したら、[OK] ボタンをクリックします。ここでは WPFClient というプロジェクト名を使用します。WPF デザイナー画面が立ち上がったらボタンを配置します。</p>
-<p>今回はボタンを配置しただけの簡単なアプリケーションを使用します。</p>
-<p><img src="10079-image.png" alt=""></p>
-<p><strong>図 1.WPF アプリケーション</strong></p>
-<p style="margin-top:20px"><a href="#top"><img src="10080-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="06">6. セットアップ プロジェクトの作成</h2>
-<p>セットアップ プログラムのためのセットアップ プロジェクトを作成します。</p>
-<p>[ファイル] メニューの [追加] をポイントし、[新しいプロジェクト] をクリックします。下記の設定で新しいセットアップ プロジェクトを追加します。(先に作成した WPFClient プロジェクトは開いたままにして、同じソリューションにセットアップ プロジェクトを追加してください。)</p>
-<table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
-<tbody>
-<tr style="background-color:#eff3f7">
-<td><strong>プロジェクトの種類</strong></td>
-<td><strong>プロジェクト テンプレート</strong></td>
-<td><strong>プロジェクト名</strong></td>
-</tr>
-<tr>
-<td>[その他のプロジェクトの種類] ノードの中の [セットアップとデプロイメント]</td>
-<td>[セットアップ プロジェクト]</td>
-<td>MySetup</td>
-</tr>
-</tbody>
-</table>
-<p><img src="10081-image.png" alt=""></p>
-<p><strong>図 2. セットアップ プロジェクトを新規に追加する</strong></p>
-<p>セットアップ プロジェクトが作成されたら、続けて基本設定をします。</p>
-<ol>
-<li>ソリューション エクスプローラーのツリー上で、[MySetup] プロジェクト ノードをクリックして選択します。 </li><li>[表示] メニューの [プロパティ ウィンドウ] をクリックします。 </li><li>表示されたプロパティ ウィンドウのプロパティ一覧から、次の 2 つの項目 (製造元、アプリケーション名) を変更します。 </li></ol>
-<p><img src="10082-image.png" alt=""></p>
-<p><strong>図 3. 配置プロジェクトのプロパティを変更する</strong></p>
-<p>これらの名称はインストール フォルダーのフォルダー名の既定値に使用されます。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10083-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="07">7. セットアップ処理の実装</h2>
-<p>ではセットアップ処理を実装します。ここでは、あらかじめ決めておいた 3 つの処理を実装します。</p>
-<p>この 3 つの処理は、すべてファイルのコピーに係わる処理ですので [ファイル システム エディター] を使用します。</p>
-<ol>
-<li>ソリューション エクスプローラーのツリー上で、[MySetup] プロジェクト ノードをクリックします。 </li><li>[表示] メニューの [エディター] をポイントし、[ファイル システム] をクリックします。 </li></ol>
-<div style="margin:20px 0px; padding:10px 10px 0px 10px; background-color:#eeeeee; border:#cccccc solid 1px; width:98%">
-<table border="0" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
-<tbody>
-<tr>
-<td valign="top"><img src="10084-image.png" alt=""></td>
-<td style="padding:5px">
-<p>「対象コンピューター上のファイル システム」 欄に 3 つのフォルダーが並んでいます。これらは、セットアップを行った際のセットアップ先のフォルダーを意味します。セットアップ先のどのフォルダーに何を配置するのかを、この「ファイル システム エディター」上で構成します。</p>
-<p><img src="10085-image.png" alt=""></p>
-<p><strong>図 4. 対象コンピューター上のファイル システム</strong></p>
-<p>デフォルトでは 3 つのフォルダーしかありませんが、スタートアップ フォルダーや、Windows フォルダー、お気に入りフォルダーなどを追加して、各フォルダーにアプリケーションを登録することができます。</p>
+<li>ViewState の利用方法を理解する。 </li><li>ViewState を使って行われる状態の維持の仕組みを理解する。 </li></ul>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>まずは、アプリケーション プログラム ファイル自身の配置を設定します。アプリケーション プログラムは通常、アプリケーション フォルダーにコピーします。アプリケーション フォルダーの既定値は、「Program Files\製造元\アプリケーション名」となります。</p>
-<ol>
-<li>[対象コンピューター上のファイル システム] ノードの直下の階層にある [アプリケーション フォルダー] ノードを右クリックして [追加] をポイントし、[プロジェクト出力] をクリックします。
-</li><li>[プロジェクト出力グループの追加] ダイアログ ボックスが表示されるので、[WPFClient] プロジェクトが選択されていることを確認し、リストボックスから [プライマリ出力] を選択して [OK] をクリックします。
-</li></ol>
-<div style="margin:20px 0px; padding:10px 10px 0px 10px; background-color:#eeeeee; border:#cccccc solid 1px; width:98%">
-<table border="0" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<p><br>
+<br>
+</p>
+<table border="0" cellspacing="0" cellpadding="0">
 <tbody>
-<tr>
-<td valign="top"><img src="10086-image.png" alt=""></td>
-<td style="padding:5px">独特の用語が多いセットアップ プロジェクトですが、この「プロジェクトのプライマリ出力」とは、対象プロジェクトで作成されたファイルの事を指します。例えば、WPFClient.exe などの実行ファイルやアセンブリ ファイル (*.dll) などが、プライマリ出力にあたります。</td>
+<tr valign="bottom">
+<td><img src="14738-image.png" alt=""></td>
+<td><strong>今回紹介するコード</strong></td>
 </tr>
 </tbody>
 </table>
+<p><br>
+＜WebForm1.aspx.cs＞</p>
+<div class="CodeHighlighter">
+<div style="clear:both">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">C#</div>
+<div class="pluginEditHolderLink">Edit Script</div>
+<span class="hidden">csharp</span>
+
+<pre id="codePreview" class="csharp"><code class="csharp">private void Page_Load(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	if (ViewState[&quot;save&quot;] != null) {
+		//ViewState プロパティより値を取得
+		if (RadioButton3.Checked == true)
+		{
+			Label1.Text = ViewState[&quot;save&quot;].ToString();
+		}
+	}
+}
+private void RadioButton1_CheckedChanged(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	Label1.EnableViewState = true;
+	Label1.Text = &quot;Label1.EnableViewState = True&quot;;
+}
+private void RadioButton2_CheckedChanged(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	Label1.EnableViewState = false;
+	Label1.Text = &quot;Label1.EnableViewState = False&quot;;
+}
+private void RadioButton3_CheckedChanged(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	//EnableViewState プロパティを無効に
+	Label1.EnableViewState = false;
+	Label1.Text = &quot;コードによるViewStateの利用&quot;;
+	//ViewState プロパティを通して、任意の値を&#26684;納
+	ViewState[&quot;save&quot;] = Label1.Text;
+}
+private void Button1_Click(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	//なにもしない
+}</code></pre>
 </div>
-<p>次にショートカットを、デスクトップとプログラム メニューの 2 箇所に作成します。まずは、ショートカットを 2 つ作成します。そのため下記の処理を <span style="color:#ff0000">
-2 回繰り返します。</span></p>
-<ol>
-<li>[対象コンピューター上のファイル システム] のツリーの直下の階層にある [アプリケーション フォルダー] ノードをクリックして選択します。 </li><li>ファイル システム エディターの右ペインにある [WPFClient (アクティブ) のプライマリ出力] を右クリックして [WPFClient (アクティブ) のプライマリ出力へのショートカットを作成] をクリックします。
-</li><li>ショートカットの名前を「WPFClient」に変更します。 </li></ol>
-<p>次に、作成したショートカットの 1 つをデスクトップに配置するように設定します。</p>
-<ol>
-<li>作成したショートカット [WPFClient] を [ユーザーのデスクトップ] ノードにドラッグ アンド ドロップします。 </li></ol>
-<p>同様にもう 1 つのショートカットをプログラム メニューに配置するように設定します。今回は、プログラム メニューにアプリケーション用のフォルダー「10 行シリーズサンプル」フォルダーを作り、その下に配置します。</p>
-<ol>
-<li>[対象コンピューター上のファイル システム] のツリーの直下の階層にある [ユーザーのプログラム メニュー] ノードを右クリックして [追加] をポイントし、[フォルダー] をクリックします。
-</li><li>作成されたフォルダーの名前を「10 行シリーズサンプル」に変更します。 </li><li>[対象コンピューター上のファイル システム] のツリーの直下の階層にある [アプリケーション フォルダー] ノードをクリックして選択します。 </li><li>右ペインにあるショートカット WPFClient を [10 行シリーズサンプル] ノードにドラッグ アンド ドロップで移動します。 </li></ol>
-<div style="margin:20px 0px; padding:10px 10px 0px 10px; background-color:#eeeeee; border:#cccccc solid 1px; width:98%">
-<table border="0" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<p><strong>目次</strong><br>
+<a href="#viewstate_cs-1">はじめに</a><br>
+<a href="#viewstate_cs-2">作成するアプリケーションの概要</a><br>
+<a href="#viewstate_cs-3">アプリケーションの作成</a><br>
+<a href="#viewstate_cs-4">動作と解説</a><br>
+<a href="#viewstate_cs-5">おわりに</a></p>
+<table border="0" cellspacing="0" cellpadding="5" bgcolor="#e1f0f8">
 <tbody>
 <tr>
-<td valign="top"><img src="10087-image.png" alt=""></td>
-<td style="padding:5px">
-<p>ユーザーのプログラム メニューは、セットアップ ウィザードでの操作によって場所が異なります。</p>
-<p><img src="10088-image.png" alt=""></p>
-<p><strong>図 5. &quot;プログラム メニュー&quot; の配置対象の選択</strong></p>
-<p>セットアップ ウィザードで、すべてのユーザー用にインストールを行った場合、「C:\ProgramData\Microsoft\Windows\Start Menu\Programs\」の下に「10 行シリーズサンプル」フォルダーが作成されます。一方、現在のユーザー用にインストールを行った場合、「C:\Users\<span style="color:#ff0000">ユーザー名</span>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\」の下にフォルダーが作成されます。(OS
- によって作成されるディレクトリは異なります。今回は Windows 7 の例) これらの作成されたフォルダーにプログラム メニュー用のショートカットが配置されます。</p>
-<p>こういった処理は、セットアップ ウィザードが自動的に処理しますので、セットアップ プログラムを作成する際には意識する必要はありません。</p>
+<td>
+<p>Visual Basic .NET の内容はこちらに掲載しています。<br>
+<a href="http://msdn.microsoft.com/ja-jp/events/dd279502.aspx">10 行でズバリ !! ViewState の利用 (VB.NET)</a></p>
 </td>
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="viewstate_cs-1">はじめに</h2>
+<p>ASP.NET は、インターネットをプラットフォームとする Web アプリケーションを構築するためのフレームワークであり、インターネットの標準技術である HTTP と HTML によるステートレスな、通信を行います。ページ間でデータを渡すような場合は、なんらかの状態を保持する仕組みが必要です。これについては、「<a href="http://msdn.microsoft.com/ja-jp/events/dd277940.aspx"> 10 行でズバリ !! ページ間におけるデータ受け渡し</a>」をご参照ください。ただし、同一ページ内でのリクエスト
+ (ポストバック) をまたがって状態を保持するためには、もっと簡単な仕組みが ASP.NET には備わっています。ASP.NET は、コントロールに表示されるような一時的なデータの保持に ViewState を使っています。この仕組みを理解すると、パフォーマンスを考慮し、必要に応じて、カスタムに ViewState を活用できるようになります。<br>
+それでは、その具体的な方法をサンプルアプリケーションを通してご説明しましょう。</p>
+<p>&nbsp;</p>
+<h2 id="viewstate_cs-2">作成するアプリケーションの概要</h2>
+<p>ここでは、ViewState の仕組みと、その使い方を理解するために、EnableViewState プロパティを使う方法と、コードによって ViewState の操作を行う方法を使ってコントロールの値を保持するサンプルを作成します。</p>
+<p>&nbsp;</p>
+<h2 id="viewstate_cs-3">アプリケーションの作成</h2>
+<p>Visual Studio .NET 2003 を起動して、新規にプロジェクトを作成します。ここでは、[Visual C# プロジェクト] で、[ASP.NET Webアプリケーション] テンプレートを使用します。<br>
+生成された WebForm1 をデザインするために、画面左側に表示されている ツールボックスの [Web フォーム] コントロールの中から、RadioButton コントロールを 3 つ、Label コントロール、Button コントロールをそれぞれひとつずつ画面に配置し、Text プロパティを、それぞれ以下のように設定します。</p>
+<p><img src="14739-image.png" alt=""> <br>
+<strong>図 1. 完成した画面</strong></p>
+<p>&nbsp;</p>
+<p>各 RadioButton の GroupName プロパティは、すべて &quot;SelectViewState&quot; に、AutoPostBack プロパティは、すべて True に設定します。</p>
+<p>画面上に配置された &quot;EnableViewState=True&quot; ラジオボタンをダブルクリックするとコードエディタが表示されるので、自動生成された RadioButton1_CheckedChanged ハンドラ内に必要な処理を以下のように記述します。</p>
+<div class="CodeHighlighter">
+<div style="clear:both">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">C#</div>
+<div class="pluginEditHolderLink">Edit Script</div>
+<span class="hidden">csharp</span>
+
+<pre id="codePreview" class="csharp"><code class="csharp">private void RadioButton1_CheckedChanged(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	Label1.EnableViewState = true;
+	Label1.Text = &quot;Label1.EnableViewState = True&quot;;
+}</code></pre>
 </div>
-<p style="margin-top:20px"><a href="#top"><img src="10089-image.png" border="0" alt=""> ページのトップへ</a></p>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+<p>&quot;EnableViewState=False&quot; ラジオボタンをダブルクリックして、自動生成された RadioButton2_CheckedChanged ハンドラ内に以下のコードを記述します。</p>
+<div class="CodeHighlighter">
+<div style="clear:both">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">C#</div>
+<div class="pluginEditHolderLink">Edit Script</div>
+<span class="hidden">csharp</span>
+
+<pre id="codePreview" class="csharp"><code class="csharp">private void RadioButton2_CheckedChanged(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	Label1.EnableViewState = false;
+	Label1.Text = &quot;Label1.EnableViewState = False&quot;;
+}</code></pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+<p>&quot;コードによる ViewState の利用&quot; ラジオボタンをダブルクリックして、自動生成された RadioButton3_CheckedChanged ハンドラ内に以下のコードを記述します。</p>
+<div class="CodeHighlighter">
+<div style="clear:both">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">C#</div>
+<div class="pluginEditHolderLink">Edit Script</div>
+<span class="hidden">csharp</span>
+
+<pre id="codePreview" class="csharp"><code class="csharp">private void RadioButton3_CheckedChanged(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	//EnableViewState プロパティを無効に
+	Label1.EnableViewState = false;
+	Label1.Text = &quot;コードによるViewStateの利用&quot;;
+	//ViewState プロパティを通して、任意の値を&#26684;納
+	ViewState[&quot;save&quot;] = Label1.Text;
+}</code></pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+<p>次に、Page_load ハンドラ内に以下のコードを記述します。</p>
+<div class="CodeHighlighter">
+<div style="clear:both">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">C#</div>
+<div class="pluginEditHolderLink">Edit Script</div>
+<span class="hidden">csharp</span>
+
+<pre id="codePreview" class="csharp"><code class="csharp">private void Page_Load(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	if (ViewState[&quot;save&quot;] != null) {
+		//ViewState プロパティより値を取得
+		if (RadioButton3.Checked == true)
+		{
+			Label1.Text = ViewState[&quot;save&quot;].ToString();
+		}
+	}
+}</code></pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+<p>最後に &quot;PostBack&quot; ボタンをダブルクリックし、コードをわかりやすくするために、以下のように記述します。</p>
+<div class="CodeHighlighter">
+<div style="clear:both">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">C#</div>
+<div class="pluginEditHolderLink">Edit Script</div>
+<span class="hidden">csharp</span>
+
+<pre id="codePreview" class="csharp"><code class="csharp">private void Button1_Click(object sender, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.EventArgs.aspx" target="_blank" title="Auto generated link to System.EventArgs">System.EventArgs</a> e)
+{
+	//なにもしない
+}</code></pre>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+<h2 id="viewstate_cs-4">動作と解説</h2>
+<p>コードも画面も完成しましたので、実行します。<br>
+アプリケーションを実行させるには [F5] キーを押すか、[デバッグ] メニューから [開始] をクリックします。</p>
+<p><img src="14740-image.png" alt=""> <br>
+<strong>図 2. アプリケーションを実行しているところ</strong></p>
+<p>&nbsp;</p>
+<p>ここで &quot;EnableViewState&quot; ラジオボタンを選択し、その後 &quot;PostBack&quot; ボタンをクリックします。<br>
+この操作をすることによって、Label1 コントロールの EnableViewState プロパティは True に設定されるわけですが、この状態で、&quot;PostBack&quot; ボタンをクリックし、ポストバックを発生させても、Label1 コントロールに一時的に表示させた値が消えないことに注意してください。Web アプリケーションの仕組みにおいては、リクエストとリクエスト間には、なんの関連も本来はありませんから、アプリケーションの実行時に一時的に与えられたコントロールの値などが、リクエストをまたがって維持されているこの動きは、本来の動きではありません。しかし、効率よく画面を生成し、イベント駆動型開発を行うために、ASP.NET
+ は既定の動きとして、このように ViewState によるコントロールに設定された値の維持を行います。</p>
+<p><img src="14741-image.png" alt=""> <br>
+<strong>図 3. EnableViewState=True</strong></p>
+<p>&nbsp;</p>
+<p>では、このリクエストをまたがって保持されているデータは、一体どこに保持されているのでしょうか？実は、HTML の一部 (インプットタグの Hidden) として、クライアント側のメモリに保持されています。ブラウザで、HTML ソースを表示して確認してみましょう。以下のように name=&quot;__VIEWSTATE&quot; となっている部分があるはずです。</p>
+<p style="width:600px; margin:20px 0px; padding:10px; background-color:#dedfde">&lt;input type=&quot;hidden&quot; name=&quot;__VIEWSTATE&quot; value=<br>
+&quot;dDwzMTAzOTQ4ODI7dDw7bDxpPDE&#43;Oz47bDx0PDtsPGk8MT47aTw3Pjs&#43;O2w8dDxwPHA8bDxDaGVja<br>
+2VkOz47bDxvPHQ&#43;Oz4&#43;Oz47Oz47dDxwPHA8bDxUZXh0Oz47bDxMYWJlbDEuRW5hYmxlVmlld1N0YXR<br>
+lID0gVHJ1ZTs&#43;Pjs&#43;Ozs&#43;Oz4&#43;Oz4&#43;O2w8UmFkaW9CdXR0b24xO1JhZGlvQnV0dG9uMztSYWRpb0J1d<br>
+HRvbjM7UmFkaW9CdXR0b24yO1JhZGlvQnV0dG9uMjs&#43;PvMZyoSt0Z4DrcooiXnMo6ZbxG9z&quot; /&gt;</p>
+<p>このように、Base64 でエンコードされて、コントロールの一時的な値は、保持されています。これは暗号化されているわけではないので注意が必要です。そして、HTMLの一部として、サーバーとクライアントの間をこのデータが流れるので、パフォーマンスに少なからず影響があります。たとえば、初期値を表示するだけのような場合など、この ViewState が必要ない場合があるので、そのような場合は、ViewState を無効にする必要があります。</p>
+<p>それでは、この ViewState を使った動作を無効にしてみましょう。&quot;EnableViewState=False&quot; ラジオボタンを選択後、&quot;PostBack&quot; ボタンをクリックしてみましょう。すると、このように、Label1 コントロールの値は、初期値に戻ってしまいます。</p>
+<p><img src="14742-image.png" alt=""> <br>
+<strong>図 4. EnableViewState=False</strong></p>
+<p>&nbsp;</p>
+<p>このような動作は、本来の Web アプリケーションの動作であるといえます。ViewState が不要であると判断した場合は、このように本来の動作に戻すことができるわけです。</p>
+<p>又、この ViewState の仕組みは、コントロールの一時的な値専用のものではありません。文字列であれば、どのような値でも、独自の値を保持することができます。<br>
+そのために、各コントロール (Web フォーム含む) は ViewState プロパティによってディクショナリオブジェクトを提供しています。そのサンプルでは &quot;コードによるViewStateの利用&quot; ラジオボタン選択時に、その ViewState に対して、文字列を&#26684;納し、Page_Load() プロシージャでその値を取得しています。<br>
+それでは、&quot;コードによるViewStateの利用&quot; ラジオボタン選択後、&quot;PostBack&quot; ボタンをクリックしてみましょう。このように、手動で ViewState を制御可能であることを確認できました。</p>
+<p><img src="14743-image.png" alt=""> <br>
+<strong>図 5. コードによる ViewState の利用</strong></p>
+<p>&nbsp;</p>
+<p>ViewState は、このように HTML の一部としてラウンドトリップが行われます。したがって、ブラウザ側のクッキーの設定に依存しません。クライアントにデータが保持されるのでクライアント台数が多い場合にも、有効です。ただしページをまたがった ViewState の保持はできません。あくまで同一ページ内でのリクエスト間でデータを共有するための仕組みです。</p>
+<p>&nbsp;</p>
+<h2 id="viewstate_cs-5">おわりに</h2>
+<p>このサンプルでは、ViewState の利用方法をご確認いただいたわけですが、非常に容易で強力であることがお分かりいただけたかと思います。ViewState は、クライアント側にデータを保持する状態管理の手法のひとつといえます。「<a href="http://msdn.microsoft.com/ja-jp/events/dd277940.aspx"> 10 行でズバリ !! ページ間におけるデータ受け渡し</a>」で、Cookie や Session オブジェクトによる状態の保持を行う方法をご紹介いたしましたが、これらと合わせて用途に応じて使いわけください。</p>
 <hr>
-<h2 id="08">8. 動作と解説</h2>
-<p>実際にセットアップ プロジェクトをビルドして、インストールのテストを行います。</p>
-<ol>
-<li>ソリューション エクスプローラーから [MySetup] をクリックして選択します。 </li><li>[ビルト] メニューの [MySetup のビルド] をクリックします。 </li><li>ビルトが完了したら、[プロジェクト] メニューの [インストール] をクリックして、インストールをテストします。 </li></ol>
-<p>ウィザードが起動し、セットアップが開始されます。ダイアログ ボックスを見ると、ProductName プロパティで設定したアプリケーション名が使用されていることがわかります。</p>
-<p><img src="10090-image.png" alt=""></p>
-<p><strong>図 6. セットアップ ウィザードでのプロダクト名</strong></p>
-<p>ウィザードを進めると、インストール先のフォルダーを指定するダイアログ ボックスが表示されます。既定のフォルダー名に、Manufacturer プロパティと、ProductName プロパティが反映されていることが分かります。</p>
-<p><img src="10091-image.png" alt=""></p>
-<p><strong>図 7. 既定のインストール フォルダー</strong></p>
-<p>インストールが完了すると、デスクトップおよび、スタート メニューの中の [10 行シリーズサンプル] フォルダーにショートカットが作成され、実行できることがわかります。インストールしたプログラムは、コントロール パネルの [プログラムと機能] からも確認することができます。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10092-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="09">9. おわりに</h2>
-<p>このように、Visual Studio では、Windows Installer に準拠したセットアップ プログラムを簡単に開発することができます。この、セットアップ プロジェクトでは、レジストリへの登録や、ウィザードのカスタマイズ、アプリケーションと拡張子の関連付け、起動条件の設定など、さらに高度なカスタマイズが設定できるほか、独自に用意したインストール処理を実行させることも可能です。</p>
-<hr style="clear:both; margin-bottom:8px; margin-top:20px">
+</div>
+</div>
 <table>
 <tbody>
 <tr>
-<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img title="Code Recipe" src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe"><img src="http://i.msdn.microsoft.com/ff950935.coderecipe_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt="Code Recipe" width="180" height="70" style="margin-top:3px"></a></td>
+<td><a href="http://msdn.microsoft.com/ja-jp/netframework/" target="_blank"><img src="http://i.msdn.microsoft.com/ff950935.netframework_180x70%28ja-jp,MSDN.10%29.jpg" border="0" alt=".NET Framework デベロッパー センター" width="180" height="70" style="margin-top:3px"></a></td>
 <td>
 <ul>
 <li>もっと他のコンテンツを見る &gt;&gt; 10 行でズバリ!! サンプル コード集 (<a href="http://msdn.microsoft.com/ja-jp/netframework/ee708289" target="_blank">C#</a> |
 <a href="http://msdn.microsoft.com/ja-jp/netframework/ee708290" target="_blank">VB</a>)
 </li><li>もっと他のレシピを見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/samplecode.recipe">
-Code Recipe へ</a> </li><li>もっと Visual Studio の情報を見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/vstudio/" target="_blank">
-Visual Studio デベロッパー センターへ</a> </li></ul>
+Code Recipe へ</a> </li><li>もっと .NET Framework の情報を見る &gt;&gt; <a href="http://msdn.microsoft.com/ja-jp/netframework/" target="_blank">
+.NET Framework デベロッパー センターへ</a> </li></ul>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 <p style="margin-top:20px"><a href="#top"><img src="http://www.microsoft.com/japan/msdn/nodehomes/graphics/top.gif" border="0" alt="">ページのトップへ</a></p>
-</div>

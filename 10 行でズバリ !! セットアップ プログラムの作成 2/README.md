@@ -2,8 +2,7 @@
 ## License
 - Apache License, Version 2.0
 ## Technologies
-- Visual Studio 2008
-- Visual Studio 2010
+- Visual Studio 2005
 ## Topics
 - 10 行でズバリ!!
 - セットアップ
@@ -128,182 +127,269 @@
  li{list-style-image:none!important}.umlNumber{position:relative;width:150px;left:-154px;text-align:right;padding-right:2px}.umlContent{position:relative;top:-15px} --></style>
 <div class="topic" id="topic">
 <div id="top">&#65279;
-<p>更新日: 2009 年 11 月 30 日</p>
-<h2><img src="10073-image.png" alt=""> このコンテンツのポイント</h2>
+<p>更新日: 2005 年 8 月 15 日</p>
+<h2><img src="13112-image.png" alt=""> このコンテンツのポイント</h2>
 <ul>
-<li>Visual Studio を使ったセットアップ プログラムの作成方法を理解する </li><li>セットアップ プログラムのカスタマイズ方法を理解する </li></ul>
-<h2><img src="10074-image.png" alt=""> 今回紹介する設定項目</h2>
-<p><strong>[セットアップ プロジェクトのプロパティ]</strong></p>
+<li>Visual Studio 2005 を使ったセットアップ プログラムの作成方法を理解する </li><li>セットアップ プログラムのカスタマイズ方法を理解する </li></ul>
+<h2><img src="13113-image.png" alt=""> 今回紹介する設定項目</h2>
+<h4>[セットアップ プロジェクトのプロパティ]</h4>
 <table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
 <tbody>
 <tr>
-<td>Manufacturer</td>
-<td>製造元</td>
+<td valign="top">Manufacturer</td>
+<td valign="top">製造元</td>
 </tr>
 <tr>
-<td>ProductName</td>
-<td>アプリケーション名</td>
+<td valign="top">ProductName</td>
+<td valign="top">アプリケーション名</td>
 </tr>
 </tbody>
 </table>
-<p><strong>[ファイル システムの対象コンピューター上のファイル システム]</strong></p>
+<p>&nbsp;</p>
+<h4>[ファイルシステムの対象コンピューター上のファイルシステム]</h4>
 <table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
 <tbody>
 <tr>
-<td>アプリケーション フォルダー</td>
-<td>WPFClient (アクティブ) のプライマリ出力</td>
+<td valign="top">アプリケーション フォルダ</td>
+<td valign="top">PictureForm (アクティブ) のプライマリ出力</td>
 </tr>
 <tr>
-<td>ユーザーのデスクトップ</td>
-<td>WPFClient (アクティブ) のプライマリ出力のショートカット</td>
+<td valign="top">ユーザーのデスクトップ</td>
+<td valign="top">PictureForm (アクティブ) のプライマリ出力のショートカット</td>
 </tr>
 <tr>
-<td>ユーザーのプログラム メニュー</td>
-<td>WPFClient (アクティブ) のプライマリ出力のショートカット</td>
+<td valign="top">ユーザーのプログラムメニュー</td>
+<td valign="top">PictureForm (アクティブ) のプライマリ出力のショートカット</td>
 </tr>
 </tbody>
 </table>
-<h2>目次</h2>
-<ol>
-<li><a href="#01">はじめに</a> </li><li><a href="#02">作成するアプリケーションの概要</a> </li><li><a href="#03">セットアップ プログラムの計画</a> </li><li><a href="#04">セットアップ プログラムのための準備</a> </li><li><a href="#05">WPF アプリケーションの準備</a> </li><li><a href="#06">セットアップ プロジェクトの作成</a> </li><li><a href="#07">セットアップ処理の実装</a> </li><li><a href="#08">動作と解説</a> </li><li><a href="#09">おわりに</a> </li></ol>
+<p>&nbsp;</p>
+<h3>目次</h3>
+<p><a href="#setup_program1">はじめに</a><br>
+<a href="#setup_program2">作成するアプリケーションの概要</a><br>
+<a href="#setup_program3">セットアップ プログラムの計画</a><br>
+<a href="#setup_program4">セットアップ プログラムのための準備</a><br>
+<a href="#setup_program5">Windows フォーム アプリケーションの準備</a><br>
+<a href="#setup_program6">セットアップ プロジェクトの作成</a><br>
+<a href="#setup_program7">セットアップ処理の実装</a><br>
+<a href="#setup_program8">動作と解説</a><br>
+<a href="#setup_program9">おわりに</a></p>
 <hr>
-<h2 id="01">1. はじめに</h2>
-<p>Visual Studio では Windows Installer テクノロジーに基づいた、セットアップ プログラムを作成することができます。セットアップ プログラムを作ることで、アプリケーション プログラム ファイルの配置やショートカットの作成を自動的に行うことができます。さらに OS へのアプリケーションの登録が行われますので、アンインストールも行うことができます。</p>
+<h2 id="setup_program1">はじめに</h2>
+<p>Visual Studio 2005 では Windows Installer テクノロジーに基づいた、セットアップ プログラムを作成することができます。セットアップ プログラムを作ることで、アプリケーションプログラムファイルの配置やショートカットの作成を自動的に行うことができます。さらに OS へのアプリケーションの登録が行われますので、アンインストールも行うことができます。</p>
 <p>ここでは、Windows アプリケーションのセットアップ プログラムの作成方法と簡単なカスタマイズの方法についてサンプル アプリケーションを通じて解説します。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10075-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="02">2. 作成するアプリケーションの概要</h2>
-<p>ここでは、画像を表示する簡単な WPF アプリケーションと、そのアプリケーションのセットアップ プログラムを作成します。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10076-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="03">3. セットアップ プログラムの計画</h2>
+<p>なお、Web アプリケーションの基本的な開発方法についての説明は割愛しています。まず初めに「<a href="http://msdn.microsoft.com/ja-jp/netframework/f86e71d0-7e86-4365-a63c-ee5a68d30346">10 行でズバリ !! Windows フォームによるクライアント アプリケーション開発</a>」をご覧ください。</p>
+<h2 id="setup_program2">作成するアプリケーションの概要</h2>
+<p>ここでは、画像を表示する簡単な Windows フォームアプリケーションと、そのアプリケーションのセットアップ プログラムを作成します。</p>
+<h2 id="setup_program3">セットアップ プログラムの計画</h2>
 <p>まず、セットアップ プログラムで行うことを整理します。基本的な処理としては以下の 3 つがあげられます。このほか、関連ファイルの登録やレジストリの変更などあらかじめ計画しておきます。</p>
 <ul>
-<li>アプリケーション プログラム ファイルを Program Files フォルダーへコピーする </li><li>プログラム メニューにショートカットを追加する </li><li>デスクトップ上にショートカットを作成する </li></ul>
-<p style="margin-top:20px"><a href="#top"><img src="10077-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="04">4. セットアップ プログラムのための準備</h2>
-<p>セットアップ プログラムを作成するためにファイルや情報を準備します。最低限必要となるものは以下のとおりです。また、インストール先のプログラム メニューの下に作成するフォルダー名も決めておきましょう。</p>
+<li>アプリケーション プログラム ファイルを Program Files フォルダへコピーする </li><li>プログラム メニューにショートカットを追加する </li><li>デスクトップ上にショートカットを作成する </li></ul>
+<p><img src="13115-image.png" alt=""></p>
+<p><strong>図 1. セットアップ計画</strong></p>
+<h2 id="setup_program4">セットアップ プログラムのための準備</h2>
+<p>セットアップ プログラムを作成するためにファイルや情報を準備します。最低限必要となるものは以下のとおりです。また、インストール先のプログラムメニューの下に作成するフォルダ名も決めておきましょう。</p>
 <ul>
-<li>インストール対象となるアプリケーションの実行ファイルもしくは、プロジェクト </li><li>プロダクト名 (セットアップ ウィザード内で使用されます) </li><li>製造元 (アプリケーションのデフォルトのインストール フォルダーとなります) </li><li>プログラム メニュー内のメニュー フォルダー </li></ul>
-<p style="margin-top:20px"><a href="#top"><img src="10078-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="05">5. WPF アプリケーションの準備</h2>
-<p>Visual Studio を起動して、新規にプロジェクトを作成します ([ファイル] メニューの [新規作成] をポイントし、[プロジェクト] をクリックします)。</p>
-<p>ここでは、プロジェクトの種類ペインで、[Visual C#] を選択し、テンプレート ペインでは [WPF アプリケーション] を選択します。[プロジェクト名] ボックスに適当な名前を入力し、[場所] ボックスに適当なパスを指定したら、[OK] ボタンをクリックします。ここでは WPFClient というプロジェクト名を使用します。WPF デザイナー画面が立ち上がったらボタンを配置します。</p>
-<p>今回はボタンを配置しただけの簡単なアプリケーションを使用します。</p>
-<p><img src="10079-image.png" alt=""></p>
-<p><strong>図 1.WPF アプリケーション</strong></p>
-<p style="margin-top:20px"><a href="#top"><img src="10080-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="06">6. セットアップ プロジェクトの作成</h2>
-<p>セットアップ プログラムのためのセットアップ プロジェクトを作成します。</p>
-<p>[ファイル] メニューの [追加] をポイントし、[新しいプロジェクト] をクリックします。下記の設定で新しいセットアップ プロジェクトを追加します。(先に作成した WPFClient プロジェクトは開いたままにして、同じソリューションにセットアップ プロジェクトを追加してください。)</p>
+<li>インストール対象となるアプリケーションの実行ファイルもしくは、プロジェクト </li><li>プロダクト名 (セットアップウィザード内で使用されます) </li><li>製造元 (アプリケーションのデフォルトのインストールフォルダとなります) </li><li>プログラム メニュー内のメニュー フォルダ </li></ul>
+<h2 id="setup_program5">Windows フォーム アプリケーションの準備</h2>
+<p>Visual Studio 2005 を起動して、以下の設定で新規にプロジェクトを作成します。</p>
 <table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
-<tbody>
-<tr style="background-color:#eff3f7">
-<td><strong>プロジェクトの種類</strong></td>
-<td><strong>プロジェクト テンプレート</strong></td>
-<td><strong>プロジェクト名</strong></td>
-</tr>
+<thead>
 <tr>
-<td>[その他のプロジェクトの種類] ノードの中の [セットアップとデプロイメント]</td>
-<td>[セットアップ プロジェクト]</td>
-<td>MySetup</td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクトの種類</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクトテンプレート</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクト名</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top">[Visual C#]</td>
+<td valign="top">[Windowsアプリケーション]</td>
+<td valign="top">PictureForm</td>
 </tr>
 </tbody>
 </table>
-<p><img src="10081-image.png" alt=""></p>
-<p><strong>図 2. セットアップ プロジェクトを新規に追加する</strong></p>
-<p>セットアップ プロジェクトが作成されたら、続けて基本設定をします。</p>
-<ol>
-<li>ソリューション エクスプローラーのツリー上で、[MySetup] プロジェクト ノードをクリックして選択します。 </li><li>[表示] メニューの [プロパティ ウィンドウ] をクリックします。 </li><li>表示されたプロパティ ウィンドウのプロパティ一覧から、次の 2 つの項目 (製造元、アプリケーション名) を変更します。 </li></ol>
-<p><img src="10082-image.png" alt=""></p>
-<p><strong>図 3. 配置プロジェクトのプロパティを変更する</strong></p>
-<p>これらの名称はインストール フォルダーのフォルダー名の既定値に使用されます。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10083-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="07">7. セットアップ処理の実装</h2>
-<p>ではセットアップ処理を実装します。ここでは、あらかじめ決めておいた 3 つの処理を実装します。</p>
-<p>この 3 つの処理は、すべてファイルのコピーに係わる処理ですので [ファイル システム エディター] を使用します。</p>
-<ol>
-<li>ソリューション エクスプローラーのツリー上で、[MySetup] プロジェクト ノードをクリックします。 </li><li>[表示] メニューの [エディター] をポイントし、[ファイル システム] をクリックします。 </li></ol>
-<div style="margin:20px 0px; padding:10px 10px 0px 10px; background-color:#eeeeee; border:#cccccc solid 1px; width:98%">
-<table border="0" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<p>&nbsp;</p>
+<p>ツールボックスから PictureBox コントロールをフォームに配置し、以下のようにプロパティを設定します。</p>
+<table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<thead>
+<tr>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>コントロールID</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロパティ名</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>設定値</strong></td>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td valign="top"><img src="10084-image.png" alt=""></td>
-<td style="padding:5px">
-<p>「対象コンピューター上のファイル システム」 欄に 3 つのフォルダーが並んでいます。これらは、セットアップを行った際のセットアップ先のフォルダーを意味します。セットアップ先のどのフォルダーに何を配置するのかを、この「ファイル システム エディター」上で構成します。</p>
-<p><img src="10085-image.png" alt=""></p>
-<p><strong>図 4. 対象コンピューター上のファイル システム</strong></p>
-<p>デフォルトでは 3 つのフォルダーしかありませんが、スタートアップ フォルダーや、Windows フォルダー、お気に入りフォルダーなどを追加して、各フォルダーにアプリケーションを登録することができます。</p>
+<td rowspan="3" valign="top">PictureBox1</td>
+<td valign="top">SizeMode</td>
+<td valign="top">[StretchImage]</td>
+</tr>
+<tr>
+<td valign="top">Dock</td>
+<td valign="top">[Fill]</td>
+</tr>
+<tr>
+<td valign="top">Image</td>
+<td valign="top">画像ファイルを選択します<br>
+このサンプルでは、C:\WINDOWS\Web\Wallpaper\Windows XP.jpg を利用しています。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>アプリケーションを実行して選択した画像がフォームに表示されていることを確認します。</p>
+<p><img src="13116-image.png" alt=""></p>
+<p><strong>図 2. Windows フォーム アプリケーション</strong></p>
+<h2 id="setup_program6">セットアップ プロジェクトの作成</h2>
+<p>セットアップ プログラムのためのセットアップ プロジェクトを作成します。</p>
+<p>[ファイル]メニューの [追加] をポイントし、 [新しいプロジェクト] をクリックします。下記の設定で新しいセットアップ プロジェクトを追加します。 (先に作成した PictureBox プロジェクトは開いたままにして、同じソリューションにセットアップ プロジェクトを追加してください。)</p>
+<table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<thead>
+<tr>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクトの種類</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクトテンプレート</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクト名</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td valign="top">[その他のプロジェクトの種類] ノードの中の [セットアップとデプロイメント]</td>
+<td valign="top">[セットアッププロジェクト]</td>
+<td valign="top">MySetup</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><img src="13117-image.png" alt=""></p>
+<p><strong>図 3. セットアップ プロジェクトを新規に追加する</strong></p>
+<p>セットアップ プロジェクトが作成されたら、続けて基本設定をします。</p>
+<ol>
+<li>ソリューション エクスプローラのツリー上で、[MySetup] プロジェクト ノードをクリックして選択します。 </li><li>[表示] メニューの [プロパティ ウィンドウ] をクリックします。 </li><li>表示されたプロパティ ウィンドウのプロパティ一覧から、次の 2 つの項目（製造元、アプリケーション名）を変更します。 </li></ol>
+<table class="grid" border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<thead>
+<tr>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロジェクト</strong></td>
+<td align="center" valign="top" bgcolor="#eeeeee"><strong>プロパティ名</strong></td>
+<td colspan="2" align="center" valign="top" bgcolor="#eeeeee"><strong>設定値</strong></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2" valign="top">MySetup</td>
+<td valign="top">Manufacturer</td>
+<td valign="top">製造元</td>
+<td valign="top">例 ： &quot;MSDN_Zubari&quot;</td>
+</tr>
+<tr>
+<td valign="top">ProductName</td>
+<td valign="top">アプリケーション名</td>
+<td valign="top">例 ： &quot;PictureForm&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>これらの名称はインストール フォルダのフォルダ名の既定値に使用されます。</p>
+<h2 id="setup_program7">セットアップ処理の実装</h2>
+<p>ではセットアップ処理を実装します。ここでは、あらかじめ決めておいた 3 つの処理を実装します。</p>
+<p>この 3 つの処理は、すべてファイルのコピーに係わる処理ですので [ファイル システムエディタ] を使用します。</p>
+<ol>
+<li>ソリューション エクスプローラのツリー上で、 [MySetup] プロジェクト ノードをクリックします。 </li><li>[表示] メニューの [エディタ] をポイントし、 [ファイル システム] をクリックします。 </li></ol>
+<table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; background-color:#eeeeee">
+<tbody>
+<tr>
+<td>
+<p>&nbsp;</p>
+<div style="text-align:left; float:left; margin:0pt 9px 9px 0pt"><img src="13118-image.png" alt=""></div>
+<br>
+「対象コンピュータ上のファイル システム」 欄に 3 つのフォルダが並んでいます。これらは、セットアップを行った際のセットアップ先のフォルダを意味します。セットアップ先のどのフォルダに何を配置するのかを、この「ファイル システム エディタ」上で構成します。<br>
+<p>&nbsp;</p>
+<table align="center">
+<tbody>
+<tr>
+<td>
+<p>&nbsp;</p>
+<div style="text-align:left; float:left; margin:0pt 9px 9px 0pt"><img src="13119-image.png" alt=""></div>
+<br>
+<p>&nbsp;</p>
+<p><strong>図 4. 対象コンピュータ上のファイル システム</strong></p>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>まずは、アプリケーション プログラム ファイル自身の配置を設定します。アプリケーション プログラムは通常、アプリケーション フォルダーにコピーします。アプリケーション フォルダーの既定値は、「Program Files\製造元\アプリケーション名」となります。</p>
-<ol>
-<li>[対象コンピューター上のファイル システム] ノードの直下の階層にある [アプリケーション フォルダー] ノードを右クリックして [追加] をポイントし、[プロジェクト出力] をクリックします。
-</li><li>[プロジェクト出力グループの追加] ダイアログ ボックスが表示されるので、[WPFClient] プロジェクトが選択されていることを確認し、リストボックスから [プライマリ出力] を選択して [OK] をクリックします。
-</li></ol>
-<div style="margin:20px 0px; padding:10px 10px 0px 10px; background-color:#eeeeee; border:#cccccc solid 1px; width:98%">
-<table border="0" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
-<tbody>
-<tr>
-<td valign="top"><img src="10086-image.png" alt=""></td>
-<td style="padding:5px">独特の用語が多いセットアップ プロジェクトですが、この「プロジェクトのプライマリ出力」とは、対象プロジェクトで作成されたファイルの事を指します。例えば、WPFClient.exe などの実行ファイルやアセンブリ ファイル (*.dll) などが、プライマリ出力にあたります。</td>
+<p><br>
+デフォルトでは 3 つのフォルダしかありませんが、スタートアップフォルダや、Windows フォルダ、お気に入りフォルダなどを追加して、各フォルダにアプリケーションを登録することができます。</p>
+</td>
 </tr>
 </tbody>
 </table>
-</div>
+<p>まずは、アプリケーション プログラム ファイル自身の配置を設定します。アプリケーション プログラムは通常、アプリケーション フォルダにコピーします。アプリケーション フォルダの既定値は、「Program Files\製造元\アプリケーション名」となります。</p>
+<ol>
+<li>[対象コンピュータ上のファイル システム] ノードの直下の階層にある [アプリケーション フォルダ] ノードをクリックして選択します。 </li><li>メニューバーの [操作] メニューから [追加] をポイントし、 [プロジェクト出力] をクリックします。 </li><li>[プロジェクト出力グループの追加] ダイアログボックスが表示されるので、[PictureForm] プロジェクトが選択されていることを確認し、リストボックスから [プライマリ出力] を選択して [OK] をクリックします。
+</li></ol>
+<table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; background-color:#eeeeee">
+<tbody>
+<tr>
+<td>
+<p>&nbsp;</p>
+<div style="text-align:left; float:left; margin:0pt 9px 9px 0pt"><img src="13120-image.png" alt=""></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>独特の用語が多いセットアップ プロジェクトですが、この「プロジェクトのプライマリ出力」とは、対象プロジェクトで作成されたファイルの事を指します。例えば、 PictureForm.exe などの実行ファイルやアセンブリファイル (*.dll) などが、プライマリ出力にあたります。</p>
+</td>
+</tr>
+</tbody>
+</table>
 <p>次にショートカットを、デスクトップとプログラム メニューの 2 箇所に作成します。まずは、ショートカットを 2 つ作成します。そのため下記の処理を <span style="color:#ff0000">
 2 回繰り返します。</span></p>
 <ol>
-<li>[対象コンピューター上のファイル システム] のツリーの直下の階層にある [アプリケーション フォルダー] ノードをクリックして選択します。 </li><li>ファイル システム エディターの右ペインにある [WPFClient (アクティブ) のプライマリ出力] を右クリックして [WPFClient (アクティブ) のプライマリ出力へのショートカットを作成] をクリックします。
-</li><li>ショートカットの名前を「WPFClient」に変更します。 </li></ol>
-<p>次に、作成したショートカットの 1 つをデスクトップに配置するように設定します。</p>
+<li>[対象コンピュータ上のファイル システム] のツリーの直下の階層にある [アプリケーション フォルダ] ノードをクリックして選択します。 </li><li>ファイル システム エディタの右ペインにある [PictureForm (アクティブ) のプライマリ出力] をクリックして選択します。 </li><li>[操作]メニューの [PictureForm (アクティブ) のプライマリ出力へのショートカットを作成] をクリックします。 </li><li>ショートカットの名前を 「PictureForm」 に変更します。 </li></ol>
+<p>次に、作成したショートカットの一つをデスクトップに配置するように設定します。</p>
 <ol>
-<li>作成したショートカット [WPFClient] を [ユーザーのデスクトップ] ノードにドラッグ アンド ドロップします。 </li></ol>
-<p>同様にもう 1 つのショートカットをプログラム メニューに配置するように設定します。今回は、プログラム メニューにアプリケーション用のフォルダー「10 行シリーズサンプル」フォルダーを作り、その下に配置します。</p>
+<li>作成したショートカット [PictureForm] を [ユーザーのデスクトップ] ノードにドラッグ アンド ドロップします。 </li></ol>
+<p>同様にもう一つのショートカットをプログラム メニューに配置するように設定します。今回は、プログラム メニューにアプリケーション用のフォルダ 「10行シリーズサンプル」 フォルダを作り、その下に配置します。</p>
 <ol>
-<li>[対象コンピューター上のファイル システム] のツリーの直下の階層にある [ユーザーのプログラム メニュー] ノードを右クリックして [追加] をポイントし、[フォルダー] をクリックします。
-</li><li>作成されたフォルダーの名前を「10 行シリーズサンプル」に変更します。 </li><li>[対象コンピューター上のファイル システム] のツリーの直下の階層にある [アプリケーション フォルダー] ノードをクリックして選択します。 </li><li>右ペインにあるショートカット WPFClient を [10 行シリーズサンプル] ノードにドラッグ アンド ドロップで移動します。 </li></ol>
-<div style="margin:20px 0px; padding:10px 10px 0px 10px; background-color:#eeeeee; border:#cccccc solid 1px; width:98%">
-<table border="0" cellspacing="0" cellpadding="5" style="border-collapse:collapse; margin-bottom:10px">
+<li>[対象コンピュータ上のファイル システム] のツリーの直下の階層にある [ユーザーのプログラム メニュー] ノードをクリックして選択します。 </li><li>[操作] メニューの [追加] をポイントし、 [フォルダ] をクリックします。 </li><li>作成されたフォルダの名前を 「10行シリーズサンプル」 に変更します。 </li><li>[対象コンピュータ上のファイル システム] のツリーの直下の階層にある [ユーザーのプログラム メニュー] ノードをクリックして選択します。 </li><li>右ペインにあるショートカット PictureFormを [10行シリーズサンプル] ノードにドラッグ アンド ドロップで移動します。 </li></ol>
+<table border="1" cellspacing="0" cellpadding="5" style="border-collapse:collapse; background-color:#eeeeee">
 <tbody>
 <tr>
-<td valign="top"><img src="10087-image.png" alt=""></td>
-<td style="padding:5px">
-<p>ユーザーのプログラム メニューは、セットアップ ウィザードでの操作によって場所が異なります。</p>
-<p><img src="10088-image.png" alt=""></p>
-<p><strong>図 5. &quot;プログラム メニュー&quot; の配置対象の選択</strong></p>
-<p>セットアップ ウィザードで、すべてのユーザー用にインストールを行った場合、「C:\ProgramData\Microsoft\Windows\Start Menu\Programs\」の下に「10 行シリーズサンプル」フォルダーが作成されます。一方、現在のユーザー用にインストールを行った場合、「C:\Users\<span style="color:#ff0000">ユーザー名</span>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\」の下にフォルダーが作成されます。(OS
- によって作成されるディレクトリは異なります。今回は Windows 7 の例) これらの作成されたフォルダーにプログラム メニュー用のショートカットが配置されます。</p>
-<p>こういった処理は、セットアップ ウィザードが自動的に処理しますので、セットアップ プログラムを作成する際には意識する必要はありません。</p>
+<td>
+<p><img src="13121-image.png" alt=""> ユーザーのプログラムメニューは、セットアップ ウィザードでの操作によって場所が異なります。</p>
+<table align="center">
+<tbody>
+<tr>
+<td>
+<p><img src="13122-image.png" alt=""></p>
+<p><strong>図 5. インストール対象の選択</strong></p>
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<p style="margin-top:20px"><a href="#top"><img src="10089-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="08">8. 動作と解説</h2>
+<p><br>
+セットアップウィザードで、すべてのユーザー用にインストールを行った場合、「\Documents and Settings\<span style="color:#ff0000">All Users</span>\スタート メニュー\プログラム」の下に「10行シリーズサンプル」フォルダが作成されます。一方、現在のユーザー用にインストールを行った場合、「\Documents and Settings\<span style="color:#ff0000">ユーザー名</span>\スタート メニュー\プログラム」
+ の下にフォルダが作成されます。<br>
+こういった処理は、セットアップウィザードが自動的に処理しますので、セットアップ プログラムを作成する際には意識する必要はありません。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setup_program8">動作と解説</h2>
 <p>実際にセットアップ プロジェクトをビルドして、インストールのテストを行います。</p>
 <ol>
-<li>ソリューション エクスプローラーから [MySetup] をクリックして選択します。 </li><li>[ビルト] メニューの [MySetup のビルド] をクリックします。 </li><li>ビルトが完了したら、[プロジェクト] メニューの [インストール] をクリックして、インストールをテストします。 </li></ol>
-<p>ウィザードが起動し、セットアップが開始されます。ダイアログ ボックスを見ると、ProductName プロパティで設定したアプリケーション名が使用されていることがわかります。</p>
-<p><img src="10090-image.png" alt=""></p>
-<p><strong>図 6. セットアップ ウィザードでのプロダクト名</strong></p>
-<p>ウィザードを進めると、インストール先のフォルダーを指定するダイアログ ボックスが表示されます。既定のフォルダー名に、Manufacturer プロパティと、ProductName プロパティが反映されていることが分かります。</p>
-<p><img src="10091-image.png" alt=""></p>
-<p><strong>図 7. 既定のインストール フォルダー</strong></p>
-<p>インストールが完了すると、デスクトップおよび、スタート メニューの中の [10 行シリーズサンプル] フォルダーにショートカットが作成され、実行できることがわかります。インストールしたプログラムは、コントロール パネルの [プログラムと機能] からも確認することができます。</p>
-<p style="margin-top:20px"><a href="#top"><img src="10092-image.png" border="0" alt=""> ページのトップへ</a></p>
-<hr>
-<h2 id="09">9. おわりに</h2>
-<p>このように、Visual Studio では、Windows Installer に準拠したセットアップ プログラムを簡単に開発することができます。この、セットアップ プロジェクトでは、レジストリへの登録や、ウィザードのカスタマイズ、アプリケーションと拡張子の関連付け、起動条件の設定など、さらに高度なカスタマイズが設定できるほか、独自に用意したインストール処理を実行させることも可能です。</p>
+<li>ソリューション エクスプローラ から [MySetup] をクリックして選択します。 </li><li>[ビルト] メニューの [MySetup のビルド] をクリックします。 </li><li>ビルトが完了したら、[プロジェクト] メニューの[インストール] をクリックして、インストールをテストします。 </li></ol>
+<p>ウィザードが起動し、セットアップが開始されます。ダイアログボックスを見ると、ProductName プロパティで設定したアプリケーション名が使用されていることがわかります。</p>
+<p><img src="13123-image.png" alt=""></p>
+<p><strong>図 6. セットアップウィザードでのプロダクト名</strong></p>
+<p>ウィザードを進めると、インストール先のフォルダを指定するダイアログボックスが表示されます。既定のフォルダ名に、Manufacturer プロパティと、ProductName プロパティが反映されていることが分かります。</p>
+<p><img src="13124-image.png" alt=""></p>
+<p><strong>図 7. 既定のインストールフォルダ</strong></p>
+<p>インストールが完了すると、デスクトップおよび、スタートメニューの中の [10行シリーズサンプル] フォルダにショートカットが作成され、実行できることがわかります。インストールしたプログラムは、コントロール パネルの [プログラムの追加と削除] からも確認することができます。また、インストールされた環境でセットアップを実行すると、修復もしくは削除のダイアログが実行され、アプリケーションの修復機能も備わっていることがわかります。</p>
+<p><img src="13125-image.png" alt=""></p>
+<p><strong>図 8. インストーラの再実行</strong></p>
+<h2 id="setup_program9">おわりに</h2>
+<p>このように、Visual Studio 2005 では、Windows Installer に準拠したセットアップ プログラムを簡単に開発することができます。この、セットアップ プロジェクトでは、レジストリへの登録や、ウィザードのカスタマイズ、アプリケーションと拡張子の関連付け、起動条件の設定など、さらに高度なカスタマイズが設定できるほか、独自に用意したインストール処理を実行させることも可能です。</p>
+<p>MSDN にも、さらに詳細な情報が掲載されていますので、ぜひ一度アクセスしてみてください。</p>
+<ul>
+<li>アプリケーションの配置 </li><li>配置に関するチュートリアル </li></ul>
 <hr style="clear:both; margin-bottom:8px; margin-top:20px">
 <table>
 <tbody>
